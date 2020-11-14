@@ -1,0 +1,30 @@
+{
+  "product":"webclient",
+  "description":"stats:ajax:perf:swift_home_timeline:polling",
+  "duration_ms":417,
+  "start_time_ms":1528040992233,
+  "metadata":"{\"url\":\"/i/timeline\",\"browser\":{\"chrome\":true,\"version\":\"66.0.3359.181\",\"webkit\":true,\"name\":\"chrome\"},\"response_size\":368}",
+  "_category_":"perftown",
+  "customer":{
+    "name":"talha",
+    "surname":"ocakci",
+    "shopping_cart":{
+      "items":[
+        "headphones",
+        "usb memory"
+      ],
+      "informations":[
+        {
+          "type":"headphones",
+          "priceRange":"100-200",
+          "itemCount":5
+        },
+        {
+          "type":"usb memory",
+          "priceRange":"13-45",
+          "itemCount":50
+        }
+      ]
+    }
+  }
+}
