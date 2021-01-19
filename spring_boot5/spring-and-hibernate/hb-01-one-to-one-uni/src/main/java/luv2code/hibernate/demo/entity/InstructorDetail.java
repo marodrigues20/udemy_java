@@ -3,7 +3,7 @@ package luv2code.hibernate.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="instructor_detail", schema= "public")
+@Table(name="instructor_detail", schema= "springcourse")
 public class InstructorDetail {
 
     // annotate the class as an entity and map to db table

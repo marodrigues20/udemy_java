@@ -1,5 +1,5 @@
 -- createdb hb_student_tracker
-createdb "hb-01-one-to-one-uni";
+createdb "springcourse";
 
 DROP TABLE IF EXISTS instructor_detail;
 

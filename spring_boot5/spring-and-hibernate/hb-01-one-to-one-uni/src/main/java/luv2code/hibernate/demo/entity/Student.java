@@ -4,7 +4,7 @@ package luv2code.hibernate.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Student")
+@Table(name="Student", schema= "springcourse")
 public class Student {
 
     @Id

@@ -3,7 +3,8 @@ package luv2code.hibernate.demo.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "instructor", schema= "public")
+
+@Table(name = "instructor", schema= "springcourse")
 public class Instructor {
 
     // annotate the class as an entity and map to db table
@@ -20,7 +21,7 @@ public class Instructor {
     // generate toString() method
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
     @Column(name="first_name")
@@ -36,7 +37,8 @@ public class Instructor {
     public Instructor() {
     }
 
-    public Instructor(String firstName, String lastName, String email) {
+    public Instructor(int id, String firstName, String lastName, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

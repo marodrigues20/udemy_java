@@ -19,10 +19,11 @@ public class TestDbServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // setup connection variables
-        String user = "springstudent";
+        String user = "postgres";
         String pass = "springstudent";
 
-        String jdbcUrl = "jdbc:postgresql://localhost/web_customer_tracker";
+        //String jdbcUrl = "jdbc:postgresql://localhost/web_customer_tracker";
+        String jdbcUrl = "jdbc:postgresql://localhost/springcourse";
         String driver = "org.postgresql.Driver";
 
 

@@ -1,4 +1,4 @@
-create table instructor
+create table springcourse.instructor
 (
     id                   serial not null
         constraint instructor_pkey
@@ -11,7 +11,7 @@ create table instructor
             references instructor_detail
 );
 
-alter table instructor
+alter table springcourse.instructor
     owner to springstudent;
 
-INSERT INTO instructor (id, first_name, last_name, email, instructor_detail_id) VALUES (1, 'Madhu', 'Patel', 'madhu@luv2code.com', null);
+--INSERT INTO instructor (id, first_name, last_name, email, instructor_detail_id) VALUES (1, 'Madhu', 'Patel', 'madhu@luv2code.com', null);

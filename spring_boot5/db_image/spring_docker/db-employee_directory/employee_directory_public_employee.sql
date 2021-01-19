@@ -1,4 +1,4 @@
-create table employee
+create table springcourse.employee
 (
     id         serial not null
         constraint employee_pkey
@@ -8,7 +8,7 @@ create table employee
     email      varchar(45) default NULL::character varying
 );
 
-alter table employee
+alter table springcourse.employee
     owner to springstudent;
 
 INSERT INTO employee (id, first_name, last_name, email) VALUES (1, 'Leslie', 'Andrews', 'leslie@luv2code.com');

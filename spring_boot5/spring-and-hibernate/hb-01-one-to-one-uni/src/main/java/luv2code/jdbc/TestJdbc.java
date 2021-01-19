@@ -8,9 +8,10 @@ public class TestJdbc {
     public static void main(String[] args) {
 
 
-        String jdbcUrl = "jdbc:postgresql://localhost/hb-01-one-to-one-uni";
-        String user = "hbstudent";
-        String pass = "hbstudent";
+        //String jdbcUrl = "jdbc:postgresql://localhost/hb-01-one-to-one-uni";
+        String jdbcUrl = "jdbc:postgresql://localhost/springcourse";
+        String user = "postgres";
+        String pass = "springstudent";
 
 
 

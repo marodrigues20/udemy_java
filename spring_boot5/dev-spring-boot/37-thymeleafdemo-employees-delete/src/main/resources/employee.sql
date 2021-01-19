@@ -1,13 +1,13 @@
-CREATE DATABASE  IF NOT EXISTS employee_directory;
-USE 'employee_directory';
+--CREATE DATABASE  IF NOT EXISTS employee_directory;
+--USE 'employee_directory';
 
 --
 -- Table structure for table `employee`
 --
 
-DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS springcourse.employee;
 
-CREATE TABLE employee (
+CREATE TABLE springcourse.employee (
   id SERIAL NOT NULL,
   first_name varchar(45) DEFAULT NULL,
   last_name varchar(45) DEFAULT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE employee (
 -- Data for table `employee`
 --
 
-INSERT INTO employee VALUES
+INSERT INTO springcourse.employee VALUES
 	(1,'Leslie','Andrews','leslie@luv2code.com'),
 	(2,'Emma','Baumgarten','emma@luv2code.com'),
 	(3,'Avani','Gupta','avani@luv2code.com'),

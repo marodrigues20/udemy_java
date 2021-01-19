@@ -1,4 +1,4 @@
-create table student
+create table springcourse.student
 (
     id         serial      not null
         constraint student_pkey
@@ -8,7 +8,7 @@ create table student
     email      varchar(45) not null
 );
 
-alter table student
+alter table springcourse.student
     owner to springstudent;
 
 INSERT INTO student (id, first_name, last_name, email) VALUES (1, 'Paul', 'Wall', 'foo@gmail.com');

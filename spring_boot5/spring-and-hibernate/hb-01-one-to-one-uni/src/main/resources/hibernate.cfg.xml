@@ -8,9 +8,12 @@
 
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/hb-01-one-to-one-uni</property>
-        <property name="connection.username">hbstudent</property>
-        <property name="connection.password">hbstudent</property>
+        <!--<property name="connection.url">jdbc:postgresql://localhost:5432/hb-01-one-to-one-uni</property>-->
+        <property name="connection.url">jdbc:postgresql://localhost:5432/springcourse</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">springstudent</property>
+        <property name="hibernate.default_schema">springcourse</property>
+
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
@@ -23,6 +26,8 @@
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
+
+
  
     </session-factory>
 
