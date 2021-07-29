@@ -1,8 +1,11 @@
 package com.example.service;
 
 import com.example.entity.Student;
+import com.example.repository.DepartmentRepository;
 import com.example.repository.StudentRepository;
+import com.example.repository.SubjectRepository;
 import java.util.List;
+import javax.security.auth.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,8 +19,18 @@ public class StudentService {
 
     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    DepartmentRepository departmentRepository;
+    @Autowired
+    SubjectRepository subjectRepository;
 
     public Student createStudent (Student student){
+        if(student.getDepartment() != null){
+            departmentRepository.save(student.getDepartment());
+        }
+        if(student.getSubjects() != null && student.getSubjects().size() > 0){
+            subjectRepository.saveAll(student.getSubjects());
+        }
        return studentRepository.save(student);
     }
 
@@ -39,6 +52,7 @@ public class StudentService {
     }
 
     public List<Student> getStudentsByName(String name) {
+        //return studentRepository.getByName(name);
         return studentRepository.findByName(name);
     }
 
@@ -77,5 +91,9 @@ public class StudentService {
 
     public List<Student> nameStartsWith(String name) {
         return studentRepository.findByNameStartsWith(name);
+    }
+
+    public List<Student> byDepartmentId(String deptId) {
+        return studentRepository.findByDepartmentId(deptId);
     }
 }
