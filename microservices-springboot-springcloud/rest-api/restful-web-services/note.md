@@ -15,3 +15,7 @@ User (has one or more) -> Posts
 - Create a posts for a User - POST /users/{id}/posts
 - Retrieve details of a post - GET /users/{id}/posts/{post_id}
 
+<br> 
+DEBUGGING GUIDE (If you have problems)
+JPA Hibernate Debugging Guide:
+https://github.com/in28minutes/in28minutes-initiatives/blob/master/The-in28Minutes-TroubleshootingGuide-And-FAQ/jpa-and-hibernate.md
