@@ -18,6 +18,11 @@ curl -i \
 -H "Content-Type: application/json" \
 -X PUT http://localhost:8080/v1/libraryevent
 
+curl -i \
+-d '{"libraryEventId":2,"book":{"bookId":456,"bookName":"Kafka Using Spring Boot","bookAuthor":"Dilip"}}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8080/v1/libraryevent
+
 PUT WITHOUT ID
 ---------------------
 curl -i \

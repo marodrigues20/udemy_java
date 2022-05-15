@@ -13,18 +13,35 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties:
         acks: all
-        retries: 10
+        retries: 10 # If we receive any other error rather than metadata, try until 10 time
+        retry.backoff.ms: 1000 # 1 second
     admin:
       properties:
         bootstrap.servers: localhost:9092,localhost:9093,localhost:9094
 ---
-spring:
-  profiles: dev
+spring: # Execute Section 19 in the course firstly before change the active profile.
+  profiles: nonprod # dev
   kafka:
+    template:
+      default-topic: library-events
     producer:
-      bootstrap-servers: dev:9092
+      bootstrap-servers: localhost:9095,localhost:9096,localhost:9097
       key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      ssl:
+        trust-store-location: file:/Users/ma20338551/Documents/repos.nosync/udemy_java/kafka-for-developers-using-spring-boot/client.truststore.jks
+        trust-store-password: password
+        key-store-location: file:/Users/ma20338551/Documents/repos.nosync/udemy_java/kafka-for-developers-using-spring-boot/client.keystore.jks
+        key-password: password
+      properties:
+        acks: all
+        retries: 10 # If we receive any other error rather than metadata, try until 10 time
+        retry.backoff.ms: 1000 # 1 second
+        security:
+          protocol: SSL
+        ssl.endpoint.identification.algorithm:
+
+
 
 ---
 spring:

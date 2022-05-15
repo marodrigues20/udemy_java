@@ -120,3 +120,40 @@ message will be in different partition. Before your message be saved there is a 
 each message.
 
 
+
+### Section 18: Error Handling, Retry and Recovery - Kafka Producer - Hands On
+
+-Kafka Producer Errors
+    - Kafka Cluster is not available
+    - if acks = all , some brokers are not available
+    - min.insync.replicas = 2 , But only one broker is available
+      (The above value means, Kafka has to have 2 replicas to keep our data in the topic. Supose we have 3 brokers in
+        our cluster. However, just one is available. We gonna receive a error message: Not enough replicas)
+
+## 79. Retry in Kafka Producer - Broker Not Available
+
+When our application doesn't find any available broker after trying to send a message. It tries to connect many times 
+until reach the timeout.
+We can see in the console org.apache.kafka.clients.NetworkClient. After the timeout the application will print out
+
+TimeoutException: Topic library-events not present in metadata after 6000 ms.
+
+The metadata is used to Kafka client in order to find the leader and send the message to kafka topic. The metadata
+keep being updated.
+
+
+## 80. Retry in Kafka Producer - min.in.sync.replicas
+
+
+When we set up min.insync.replicas = 2 , the producer just send the message when there are at least 2 brokers in the 
+kafka topic up and running.
+
+### Setting the Minimum Insync Replica
+$ ./kafka-configs.sh --alter --bootstrap-server localhost:9092 --entity-type topics --entity-name test-topic --add-config min.insync.replicas=2
+
+
+
+
+
+
+
