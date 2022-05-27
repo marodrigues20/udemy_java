@@ -1,0 +1,36 @@
+[
+
+{
+    "type": "record",
+    "namespace":"com.example",
+    "name":"CustomerAddress",
+    "doc":"Avro Schema for our Customer Address",
+
+    "fields":[
+        {"name":"address", "type":"string", "doc":""},
+        {"name":"city", "type":"string", "doc":""},
+        {"name":"postCode",  "type":["int", "string"], "default":"int",  "doc":""},
+        {"name":"type", "type":"enum", "symbols":["PO BOX", "RESIDENTIAL", "ENTERPRISE"], "doc":""}        
+    ]
+},
+
+{
+    "type": "record",
+    "namespace":"com.example",
+    "name":"Customer",
+    "doc":"Avro Schema for our Customer",
+    "fields": [
+        { "name":"firstName", "type":"string", "doc":"First Name of the customer" },
+        { "name":"middleName", "type":["null", "string"], "default":null, "doc":""},
+        { "name":"lastName", "type":"string", "doc":"Last Name of the customer" },
+        { "name":"age", "type":"int", "doc":"Age of the customer" },
+        { "name": "name", "type":"float", "doc":"Height in cms" },
+        { "name": "weight", "type":"float", "doc":"Weight in kgs" },
+        { "name":"automatedEmail", "type":"boolean", "default":true, "doc":"True if the user marks wants marketing emails" },
+        { "name":"customerEmails", "type":"array", "items":"string", "default":[], "doc":"" },
+        { "name":"customerAddress", "type":"com.example.CustomerAddress", "doc":"" },
+        { "name":"signup_ts", "type":"long", "logicalType": "timestamp-milles", "doc":"EPOCH millis Timestamp"}
+    ]
+}
+
+]

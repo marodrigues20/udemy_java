@@ -1,0 +1,13 @@
+{
+    "type": "record",
+    "namespace":"com.example.domain",
+    "name":"CustomerAddress",
+    "doc":"Avro Schema for our Customer Address",
+
+    "fields":[
+        {"name":"address", "type":"string", "doc":""},
+        {"name":"city", "type":"string", "doc":""},
+        {"name":"postCode",  "type":["int", "string"], "default":"int",  "doc":""},
+        {"name":"type", "type":"enum", "type":["PO_BOX", "RESIDENTIAL", "ENTERPRISE"], "doc":""}        
+    ]
+}
