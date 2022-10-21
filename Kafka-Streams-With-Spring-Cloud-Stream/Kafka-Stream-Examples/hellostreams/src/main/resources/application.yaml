@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    stream: # Every Spring Cloud Stream configuration comes under this level
+      bindings: # Input/Output channel binding configuration - Define a list of Source and Destinations
+        input-channel-1: # Definition of the Channel whose name of the Channel is input-channel-1
+          destination: users # Assuming this is the name of the topic
+      kafka:
+        streams:
+          binder: # Here we define the Binder (Used by Third Party System Implementation)
+          #like: Apache Kafka (Apache Kafka Binder and Apache Kafka Stream Binder, RabbitMQ and, etc.
+            application-id: hellostreams
+            brokers: localhost:9092 # The application use to connect to the kafka broker
+            configuration:
+              default:
+                key: # Define the type of the Key
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value: # Define the type of the Value
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
