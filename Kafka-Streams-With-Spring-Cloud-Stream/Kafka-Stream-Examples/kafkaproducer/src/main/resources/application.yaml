@@ -1,0 +1,7 @@
+spring:
+  kafka: # Spring Boot read it configuration and apply to use KafkaTemplate
+    producer:
+      client-id: rest-producer # Think it is a producer name
+      bootstrap-servers: localhost:9092 # Kafka broker host and port
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
