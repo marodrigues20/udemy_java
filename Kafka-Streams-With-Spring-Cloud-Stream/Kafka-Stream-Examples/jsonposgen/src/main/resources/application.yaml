@@ -1,0 +1,15 @@
+spring:
+  kafka:
+    producer:
+      client-id: json-pos-simulator
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false # It's for Jackson configuration. This is for not include type information
+        # in the header. Because cause problem in the deserialization.
+
+application:
+  configs:
+    invoice.count: 60
+    topic.name: pos-topic
