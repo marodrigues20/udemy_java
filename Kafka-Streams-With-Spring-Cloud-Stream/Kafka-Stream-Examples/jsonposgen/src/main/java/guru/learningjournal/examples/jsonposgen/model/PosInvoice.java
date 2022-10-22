@@ -7,6 +7,10 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * The @JsonProperty make the class definition a JSON friendly class.
+ */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL) //Ignore Nulls if there is fields with null values.
 public class PosInvoice {

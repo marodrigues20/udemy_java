@@ -88,6 +88,16 @@ curl --location --request POST 'http://localhost:8080/post' \
 
 - GitHub Project Created: jsonposgen
 
+There is some good comments inside the code explaining good points. Have a look! :-)
+
+## 16. Producing AVRO Messages
+
+- In this section we want to recrate the same POS Generator example, but we want to use AVRO Serialization.
+
+- In this kind of project we will use:
+  - Producer Template Configuration
+  - Data Model
+
 
 
 
