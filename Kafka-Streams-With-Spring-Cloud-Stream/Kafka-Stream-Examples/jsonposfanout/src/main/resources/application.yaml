@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    stream: # Channels are created by Spring Cloud Streams
+      bindings: # bellow channels definitions.
+        notification-input-channel: #channel
+          destination: pos-topic    #topic for the channel
+        notification-output-channel:
+          destination: loyalty-topic
+        hadoop-input-channel:
+          destination: pos-topic
+        hadoop-output-channel:
+          destination: hadoop-sink-topic
+      kafka:
+        streams:
+          binder: # Configuration for Kafka Stream Binder
+            brokers: localhost:9092
+            configuration:
+              schema.registry.url: http://localhost:8081
+          bindings: # We don't care about input channels and respective Deserialization because JSON is default.
+            notification-output-channel:
+              producer:
+                valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+            hadoop-output-channel:
+              producer:
+                valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
