@@ -50,3 +50,7 @@ There are two videos showing the implementation:
     - In this project, we will be using Kafka Streams API. We wont' be using Kafka Producer API.
     - The Kafka Streams API does not need a serializer. Instead, the Stream will be using a serde.
     - So, We add the kafka-stream-avro-serde
+
+## 18. Processing JSON Message Stream
+
+i.e: jsonposfanout -> More details in readme.md file inside the Java Project.
