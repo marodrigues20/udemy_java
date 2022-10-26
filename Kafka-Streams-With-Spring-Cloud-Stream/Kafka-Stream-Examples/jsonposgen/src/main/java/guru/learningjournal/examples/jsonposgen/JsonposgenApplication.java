@@ -1,7 +1,7 @@
 package guru.learningjournal.examples.jsonposgen;
 
 import guru.learningjournal.examples.jsonposgen.services.KafkaProducerService;
-import guru.learningjournal.examples.jsonposgen.services.generator.InvoiceGenerator;
+import guru.learningjournal.examples.jsonposgen.services.datagenerator.InvoiceGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;

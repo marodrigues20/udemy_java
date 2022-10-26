@@ -1,4 +1,4 @@
-package guru.learningjournal.examples.jsonposgen.services.generator;
+package guru.learningjournal.examples.jsonposgen.services.datagenerator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.learningjournal.examples.jsonposgen.model.DeliveryAddress;
@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.Random;
 
 @Service
-public class AddressGenerator {
+class AddressGenerator {
 
     private final Random random;
     private final DeliveryAddress[] addresses;
@@ -25,12 +25,13 @@ public class AddressGenerator {
         }
     }
 
-    private int getIndex(){
+    private int getIndex() {
         return random.nextInt(100);
     }
 
-    public DeliveryAddress getNextAddress(){
+    public DeliveryAddress getNextAddress() {
         return addresses[getIndex()];
     }
+
 
 }

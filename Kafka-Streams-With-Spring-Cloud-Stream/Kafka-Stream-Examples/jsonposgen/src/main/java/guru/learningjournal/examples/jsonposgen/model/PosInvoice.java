@@ -33,8 +33,8 @@ public class PosInvoice {
     private Double totalAmount;
     @JsonProperty("NumberOfItems")
     private Integer numberOfItems;
-    @JsonProperty("PaymentMethods")
-    private Integer paymentMethods;
+    @JsonProperty("PaymentMethod")
+    private String paymentMethod;
     @JsonProperty("TaxableAmount")
     private Double taxableAmount;
     @JsonProperty("CGST")

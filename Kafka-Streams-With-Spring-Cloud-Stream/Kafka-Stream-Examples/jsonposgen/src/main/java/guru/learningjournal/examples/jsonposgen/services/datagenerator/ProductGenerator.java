@@ -1,4 +1,4 @@
-package guru.learningjournal.examples.jsonposgen.services.generator;
+package guru.learningjournal.examples.jsonposgen.services.datagenerator;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,14 +9,13 @@ import java.io.File;
 import java.util.Random;
 
 @Service
-public class ProductGenerator {
-
+class ProductGenerator {
     private final Random random;
     private final Random qty;
     private final LineItem[] products;
 
     public ProductGenerator() {
-        String DATAFILE = "src/main/resource/data/products.json";
+        String DATAFILE = "src/main/resources/data/products.json";
         ObjectMapper mapper = new ObjectMapper();
         random = new Random();
         qty = new Random();

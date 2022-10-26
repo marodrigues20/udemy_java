@@ -1,4 +1,4 @@
-package guru.learningjournal.examples.jsonposgen.services.generator;
+package guru.learningjournal.examples.jsonposgen.services.datagenerator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.learningjournal.examples.jsonposgen.model.DeliveryAddress;
@@ -16,7 +16,6 @@ import java.util.Random;
 @Service
 @Log4j2
 public class InvoiceGenerator {
-
     private final Random invoiceIndex;
     private final Random invoiceNumber;
     private final Random numberOfItems;
@@ -44,31 +43,30 @@ public class InvoiceGenerator {
         return invoiceIndex.nextInt(100);
     }
 
-    private int getNewInvoiceNumber(){
+    private int getNewInvoiceNumber() {
         return invoiceNumber.nextInt(99999999) + 99999;
     }
 
-    private int getNoOfTimes(){
+    private int getNoOfItems() {
         return numberOfItems.nextInt(4) + 1;
     }
 
-    public PosInvoice getNextInvoice(){
+    public PosInvoice getNextInvoice() {
         PosInvoice invoice = invoices[getIndex()];
         invoice.setInvoiceNumber(Integer.toString(getNewInvoiceNumber()));
         invoice.setCreatedTime(System.currentTimeMillis());
-        if ("HOME-DELIVERY".equalsIgnoreCase(invoice.getDeliveryType())){
+        if ("HOME-DELIVERY".equalsIgnoreCase(invoice.getDeliveryType())) {
             DeliveryAddress deliveryAddress = addressGenerator.getNextAddress();
             invoice.setDeliveryAddress(deliveryAddress);
         }
-        int itemCount = getNoOfTimes();
+        int itemCount = getNoOfItems();
         double totalAmount = 0.0;
         List<LineItem> items = new ArrayList<>();
-        for (int i = 0; i < itemCount; i++){
+        for (int i = 0; i < itemCount; i++) {
             LineItem item = productGenerator.getNextProduct();
             totalAmount = totalAmount + item.getTotalValue();
             items.add(item);
         }
-
         invoice.setNumberOfItems(itemCount);
         invoice.setInvoiceLineItems(items);
         invoice.setTotalAmount(totalAmount);

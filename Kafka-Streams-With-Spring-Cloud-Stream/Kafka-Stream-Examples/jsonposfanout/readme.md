@@ -2,6 +2,12 @@
 
 ## 18. Processing JSON Message Stream
 
+### This Application Consume a JSON and Send Avro object
+
+    - Have a look in application yaml file. You are going to see just producer section been defined.
+    - You don't see publish section defined. The reason for this is that by default in Kafka Stream binder,
+    JSON (Serdes) Seserializer/Deserializer is the default options and It is implicit in the binder.
+
 ### SERDES
     - In this project, we will be using Kafka Streams API. We wont' be using Kafka Producer API.
     - The Kafka Streams API does not need a serializer. Instead, the Stream will be using a serde.
