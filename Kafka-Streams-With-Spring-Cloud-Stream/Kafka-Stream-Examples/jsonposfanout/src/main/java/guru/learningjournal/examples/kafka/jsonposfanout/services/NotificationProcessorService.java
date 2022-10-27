@@ -1,6 +1,7 @@
 package guru.learningjournal.examples.kafka.jsonposfanout.services;
 
-import guru.learningjournal.examples.kafka.jsonposfanout.bindings.PosListenerBindings;
+
+import guru.learningjournal.examples.kafka.jsonposfanout.bindings.PosListenerBinding;
 import guru.learningjournal.examples.kafka.jsonposfanout.model.PosInvoice;
 import guru.learningjournal.examples.kafka.model.Notification;
 import lombok.extern.log4j.Log4j2;
@@ -13,8 +14,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Log4j2
-@EnableBinding(PosListenerBindings.class)
-public class NotificationProcessService {
+@EnableBinding(PosListenerBinding.class)
+public class NotificationProcessorService {
 
     @Autowired
     RecordBuilder recordBuilder;
@@ -27,9 +28,9 @@ public class NotificationProcessService {
                 .filter((k, v) -> v.getCustomerType().equalsIgnoreCase("PRIME"))
                 .mapValues(v -> recordBuilder.getNotification(v));
 
-        notificationKStream.foreach((k, v) -> log.info("Notification:- key: %s, Value: %s", k, v));
+        notificationKStream.foreach((k, v) -> log.info(String.format("Notification:- Key: %s, Value: %s", k, v)));
 
         return notificationKStream;
-
     }
 }
+

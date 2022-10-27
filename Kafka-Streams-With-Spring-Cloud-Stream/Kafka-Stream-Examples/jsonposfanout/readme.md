@@ -2,6 +2,10 @@
 
 ## 18. Processing JSON Message Stream
 
+### This Project
+    - It will consume "pos-topic" topic published by jsonposgen java project.
+    - It will publish message in the topics "loyalty-topic" and "hadoop-sink-topic"
+
 ### This Application Consume a JSON and Send Avro object
 
     - Have a look in application yaml file. You are going to see just producer section been defined.
@@ -45,3 +49,4 @@
     - 1. Input/Output Channels
     - 2. Binding Interface
     - 3. Listeners Service
+
