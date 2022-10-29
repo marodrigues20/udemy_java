@@ -57,7 +57,19 @@ i.e: jsonposfanout -> More details in readme.md file inside the Java Project.
 
 ## 19. Real-life Serialization Scenarios
 
-- Reescrever perdi!!!!
+- In a typical real-life project, you might be getting data from a bunch of sources.
+
+- Let's assume you have a commercial portal. The portal generates some online transactions. You are also sending these transactions to a Kafka Topic for some real-life streaming operations. However, it is a web-based applications, and your team found it a little convenient to send the events to Kafka in a JSON format. You already have the system in place. On the other side, you also have some enterprise applications generating some transactions that go into Database. You wanted to bring those transactions also to a Kafka topic for performing some real-time streaming operations. But these are packaged enterprise
+applications, and you cannot modify them to send data to Kafka. But fortunately, the applications offers you a Kafka connect connector.
+- So you decide to implement Kafka Connect to bring data from these applications to your Kafka topic. Similarly, you may have other source that are generating real-time stream data, and you manage to bring them to a Kafka topic. You might have many stream processing applications processing these streams, and again generating inputs to the Kafka topic for other applications.
+- So in a large enterprise, you will see a mesh of streaming events coming to a Kafka and going out of Kafka topics.
+- Now, if you analyse these incoming events, you might find two broad categories fo input formats:
+    - First type of inputs are created using some non-kafka techonologies. These inputs are more often JSON formated events, and they are not likely to use 
+    a schema registry.
+    - The second type of events are created using native Kafka techonologies. These inputs are often AVRO-formated events, and they will be using a confluent schema registry.
+- And this is why We are playing around with the serialization formats and covering these two broad categories.
+
+
 
 
 ## 20. Processing AVRO message Stream
@@ -90,5 +102,9 @@ Note: We don't need to care about serialization/deserialization for JSON. This i
 
 Note 2: We do not need to specify a serialization package name for JSON input or JSON output in a typical case. In that case, Spring Cloud will be using a build-in default JSON serialization package. However, in this example, we wanted to use the confluent provided JSON serialization packages. 
 They are not part of the Spring distribution, so we must include them in our pom.xml file.
+
+
+## 21. Understanding Record Serialization
+
 
 
