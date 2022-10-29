@@ -176,6 +176,56 @@ Like this other:
 
 Custom Serde in Class Path --> Standard Serde Classes --> Application Configuration --> JsonSerde by Spring
 
+## 22. KStream Methods
+
+Objective: Overview about KStream Methods
+
+- Kafka Stream API offers you two main abstractions to represent your real-time streams.
+    1. KStream 
+    2. KTable 
+
+- KStream represent a record stream of Key/Value pairs
+- You can look at it like this. KStream<K, V>
+
+- When you create a Kafka Stream Listener, you can design your processor() methods to receive a KStream object, and you can also design it to return a KStream object.
+- All KStream functions are designed to work using a functional programming approach.
+- Most of the KStream functions  will accept a lambda function as an argument
+
+- You can get the full list KStream of methods on here: http://kafka.apache.org
+    - Go to Docks link
+    - Go to APIS
+    - Click on APIS item.
+    - Looking for javadoc on the webpage loaded.
+    - Site will open the JavaDoc web page.
+    - Select "org.apache.kafka.stream.kstream"
+    - Select "KStream" interface.
+    - You will see all the methods about KStream.
+
+### Sumarize list of KStream methods
+
+    1. Filter & FilterNot               --> Filter out some records for the KStream
+    
+    2. Map & FlatMap                    --> Map to transform the key and value to KStream
+    3. MapValues & FlatMapValues        --> MapValues just to tranform the value to KStream and leaving the key unchanged
+                                        --> FlatMap and FlatMapValues: they receive one msg and return a list of msg.
+
+    4. ForEach and Peek                 --> ForEach doesn't return anything. Peek Method return back the same KStream
+    5. Print                            --> Print just used for debuging propose. Avoid use it in Production code.
+    6. Branch & Merge                   --> Branch allows you to split one Stream into two Streams using some conditions.
+    7. To                               --> Method responsible for sending message to a Kafka topic. It is the most essential methods in specific scenario. 
+    8. ToTable                          --> Convert KStream to KTable    
+
+    9. Repartition                      --> Skipping to comming lectures
+    10. SelectKey                       --> Skipping to comming lectures
+    11. GroupBy & GroupByKey            --> Skipping to comming lectures
+    12. Join                            --> Skipping to comming lectures
+
+    // Low Level API. Used to integrate Kafka Stream Processor APIs with Streams DSL. This course is primary focusing on Stream DSL, but 
+    // it will conver some things about Processor API.
+    13. Transform $ FlatTransform                
+    14. TransformValues $ FlatTransformValues
+    15. Process
+
 
 
 
