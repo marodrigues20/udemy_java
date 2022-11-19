@@ -104,10 +104,52 @@ as a single atomic transaction.
 
 ## Section 24. Implementing Exactly Once
 
+    - In this video, we will take the avroposfanout example and recreate it to implement the exactly once transaction. Along the way, we will learn some new KStream methods.
+
+### Implementing Exactly Once
+
+    - We are planning to create only one listener and do everything in the same single listener.
+    - We are setting in application.yaml file "processing.guarantee: exactly_once". However, default value is at_least_once
+    - The "at_least_once" will ensure that you do not lose any record, and all the records are processed at least once.
+    - But we wanted to implement an exactly once transaction, so we are setting it to exactly once. However, you must ensure that you do 
+    everything in a single listener.
+    - Two listeners are always two transactions. So if we want to implement some work as a single transaction then all of those things
+    should be done in a single listener. And that is why we decided to merge two listeners from the earlier example and create a single
+    listener in this example.
+
+### Things that we need in our pom.xml
+
+    1. AVRO Package 
+    2. AVRO Maven Plugin
+    3. Kafka Stream AVRO Serde (This library come from Confluent Repository)
+    4. Confluent Repository
+
+### These are the five steps that we follow in most of the stream processing projects
+
+    1. Create a Data Model
+    2. Create your business logic
+    3. Define your Input-Output Channels
+    4. Create your Binding Interfaces
+    5. Create your Listener Service
+
+Note: In step 3. We don't define the output channel for sending the output in yaml file because we send directly use 
+      the KStream API. 'KStream.to("loyalty-topic")'
 
 
+### Let's talk about transaction
 
+- Kafka Streams will rollback the incomplete transaction when you restart your application again.
+- Once rollback is complete, your application will start a new transaction from the point of the last successful commit.
+- This operation is implementing by Kafka for all Kafka operations. Non-Kafka operations are not part of the transactions.
 
+For example:
+
+- Let's assume you added some code in this process() method for inserting HadoopRecord to a database table.
+- Inserting into a database table is not a kafka operation. So the database table is not protected against failure, and Kakfa will not rollback it. Hence,  we never write to the database from the listener code. Instead, we send the output to a Kafka topic and use Kafka Connector for database to move records from the Kafka topic to the database. The Kafka connector implements transactions across databases and will take care of failure scenarios.
+
+### Conclusion:
+      1. Configure your Kafka Streams binder to implement exactly-once.
+      2. Implement your transaction in a single listener.
 
 ## 29. Handling Poisson Pills
 
