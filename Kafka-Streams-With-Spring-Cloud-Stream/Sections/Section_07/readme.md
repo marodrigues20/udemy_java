@@ -151,6 +151,11 @@ For example:
       1. Configure your Kafka Streams binder to implement exactly-once.
       2. Implement your transaction in a single listener.
 
+
+## 25. Let's Practice - A Complex Problem Statement
+
+
+
 ## 29. Handling Poisson Pills
 
     - When we are using XML, JSON and others types of message. You will be using a JSON Serializer to parse the input JSON and convert it into a Java object. However, the parsing of JSON input is performed by the framework. We do not need to parse it. We simply get a Java Object as input to the listener method. 
