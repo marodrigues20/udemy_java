@@ -154,6 +154,36 @@ For example:
 
 ## 25. Let's Practice - A Complex Problem Statement
 
+- We will be creating a Stream processing application
+- We will learn:
+    - Exception Handling in Kafka Stream Application
+    - Error Checking in Kafka Stream Application
+    - KStream map() method
+    - KStream branch() method
+    - Creating Custom Serde
+    - Handling Custom message formats such as XML
+
+### Problem explanaiton
+- Let's assume you are working for a global retail organization. They have an e-commerce website to take orders from the customers.
+- These orders are sent to a Kafka topic for planning and processing the delivery of the purchased items.
+- You are now asked to create a Kafka Streams application that reads all the incoming orders and separate them into India delivery orders and International delivery orders. 
+- Basically we have to read the incoming order, look for the delivery address in the order, and if the delivery address 
+is for India, forward the order to the India-orders topic.
+- If the delivery address is for some other country, send it to the abroad-orders Kafka topic.
+
+#### Adding some additional complexities to this requirement
+
+- Input format is XML
+- Output format is JSON
+- Handle Following Errors and send error records to a separate topic
+    - Malformed XML inputs
+    - Invalid Delivery Address
+- Implement Exactly Once Transaction
+- Invalid Orders must have error-code key
+- All valid orders will be keys with the order-id, and the invalid orders must be keyed with error code.
+
+
+
 
 
 ## 29. Handling Poisson Pills
