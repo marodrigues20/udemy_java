@@ -183,8 +183,39 @@ is for India, forward the order to the India-orders topic.
 - All valid orders will be keys with the order-id, and the invalid orders must be keyed with error code.
 
 
+## 26. Working with XML Inputs
+
+Project Reference: xmlbranching
+Note: Java 8 is used due to Java 11 doesn't work XML
+Note 2: Spring and Confluent don't have XML serializer.
+
+When we don't have a serializer developed for Spring our Concluent we can follow this approach:
+
+1. Compatible Kafka Serializers
+2. Library Support 
+
+### Steps to Create the Application
+
+1. Create a Data Model
+2. Create your business logic
+3. Define your Input-Output Channels
+4. Create your Binding Interface
+5. Create your Listener Method
 
 
+### Most used formats
+    
+1. JSON
+2. AVRO
+3. Protocol Buffers 
+
+## 27. Handling Errors and Exceptions
+
+Project Reference: xmlbranching
+
+## 28. Mixed Branching of a KStream
+
+Project Reference: xmlbranching
 
 ## 29. Handling Poisson Pills
 
