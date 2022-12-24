@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        stock-input-channel:
+          destination: stock-tick-topic
+      kafka:
+        streams:
+          binder:
+            brokers:  localhost:9092
+            configuration:
+              commit.interval.ms: 10000 # Default is 30000. It is the time for the framework to wait and pull more records for the KTable.
+              state.dir: state-store # Define location for the Rocks DB database. We see this after running our application.
+          bindings:
+            stock-input-channel:
+              consumer:
+                materializedAs: stock-input-store # The incoming records to the KTable should be materialized in the following KTable.
+                #You can thin of this as a KTable name in the local Rocks DB database.
+
