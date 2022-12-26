@@ -17,6 +17,6 @@ public class StockTickListenerService {
 
         input.filter((key, value) -> key.contains("HDFCBANK"))
                 .toStream()
-                .foreach((k, v) -> System.out.println("Key = " + k + "Value = " + v));
+                .foreach((k, v) -> System.out.println("Key = " + k + " Value = " + v));
     }
 }
