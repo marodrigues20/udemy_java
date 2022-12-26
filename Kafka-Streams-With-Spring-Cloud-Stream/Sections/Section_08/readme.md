@@ -69,6 +69,45 @@ duplicate records for the same key and add it into Initial KTable [Framework]
 - foreach() and to() methods are not available in KTable.
 
 
+## 32. Computing Streaming Aggregates
+
+- KTable is mostly used in computing aggregates.
+- Computing aggregates in real-time over a stream of data is a complex problem to solve.
+
+### Problem Statement
+
+-  I want to create a real-time streaming word count application. This can help us understand some core basic of KTable and Aggregation.
+- What we will do:
+
+1. We will create a Kafka Topic and use a command-line producer to push some text to the topic.
+2. Let's assume you created a topic and sent two messages.
+3. On the other side, we will create a Kafka Streams application to consume data from the topic in real time.
+4. The Streams application should break the text message into words and count the frequency of unique words.
+5. Finally, it should print the outcome to the console.
+    | Key     | Value |
+    | hello   |   2   |
+    | world   |   1   |
+    | kafka   |   1   |
+    | streams |   1   |
+
+
+Reference Project: streamingaggregates
+
+- There is one limitation to aggregate in Kafka Stream. It can be grouped only by a key.
+- If your stream already come with the desired key, you can simply group your KStream using groupByKey()
+- Alternatively, you can use the groupBy() method when your stream does not have a key
+
+## 33. Aggregation Concepts
+
+
+
+
+
+
+
+
+
+
 
 
 

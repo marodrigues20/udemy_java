@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        words-input-channel:
+          destination: streaming-words-topic
+      kafka:
+        streams:
+          binder:
+            brokers:  localhost:9092
+            configuration:
+              commit.interval.ms: 10000 # Default is 30000. It is the time for the framework to wait and pull more records for the KTable.
+              state.dir: state-store # Define location for the Rocks DB database. We see this after running our application.
+              default:
+                key:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
+
