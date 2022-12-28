@@ -412,6 +412,92 @@ Kafka Stream API
 
 ## 34. Reducing Kafka Stream
 
+- In this lesson, I want to create an example and understand the mechanics of using the reduce() method.
+
+### Problem Definition
+
+- In the previous lectures, we solved a POS Fanout problem.
+- Let's recall it.
+
+Computers --> send msg to Kafka Topic --> Kafka Topic being consumed by ----> Shipment; Loyalty; Trend
+
+- In this example above we were reading invoices from a Kafka Topic.
+- After filtering for prime customers, We computed rewards points earned by the customer on a given invoice and sent a notification to the real-time loyalty topic.
+
+- Here is the format of the output in the loyalty topic.
+
+```
+{
+  "InvoiceNumber": "xx",
+  "CustomerCardNo": "xx",
+  "TotalAmount": "xx",
+  "EarnedLoyaltyPoints": "xx"
+}
+```
+
+- This example, computed rewards only for the current Invoice.
+- We took one invoice and extract invoice number, customer card-number, total invoice amount, and computed loyalty points for the total amount. 
+- Calculating and notifying customers with the loyalty points that he earned on the most recent purchase is a good thing to do.
+- Still, it would make more sense for the customer if we can include the past rewards and notify them of the total points earned so far, including the current rewards.
+- We want to extend the earlier example and inform the customer of his total reward points, including the new shopping.
+- So, the notification record should include one more field for total loyalty points.
+- This new field is the cumulative sum of the loyalty points earned so far, including all the previous invoices.
+
+#### How can we implement the sum() operation
+
+- Simple! We can implement the sum() operation for this field.
+- However, Kafka Stream API does not offer a sum() function.
+- Instead, Kafka Stream API offers you only two generic formulas:
+- Reduce and Aggregate
+- So, how do we implement it using the reduce method?
+
+This is that we are going to learn in this leasson.
+
+Project Reference: reward
+
+
+### Result of Aggregations
+
+- The aggregation is a complex internal process. 
+- So your application will be writing intermediate data to one or more KTable state stores.
+- It might reread it from the internal KTable.
+- You may also need to use the groupBy() and change the grouping key.
+- In that case, your data will go back to an internally created Kafka topic and come back again after repartitioning.
+- In fact, every legal KTable is also backed up in some internally created Kafka topics.
+- This is necessary to achieve fault tolerance.
+- If your machine fails, and you are restarting your application on a different machine. Then the framework will recreate
+the local KTable from the backup copy.
+- Hence, every local KTable also creates a backup copy in the Kafka cluster
+- Your application will read/write data to Kafka cluster and local Rocks DB storage and all of these operations will go
+  through the serialization and deserialization process. You must specify a Serde for each of those operations.
+- As a best practice, you must define a default Serde for your application.
+
+```
+default:
+    key:
+      serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    value:
+      serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+
+```
+
+- If you are not defining a default Serde, then you will be forced to define a Serde at each step.
+- Defining Serdes at various places in your application will create code-clutter and open possibilities of multiple 
+serialization-related defects.
+- The best practice is to use one single serialization format for all your input and output data models and configure a 
+default Serde for the same.
+
+
+### Earlier Examples
+
+- We tried to mix and match JSON and AVRO Serdes within the same application in the earlier examples.
+- However, going foward, we will be following the best practice, use a single type of serialization and avoid dealing with a combination of different Serdes.
+
+
+
+
+
+
 
 
 
