@@ -42,12 +42,8 @@
 - 7. Start a Consumer to display Key-Value Pairs
   - kafka-console-consumer --topic orders --bootstrap-server broker:9092 --from-beginning --property print.key=true --property key.separator=":"
 
-
-
-
-
-
-
-
+- 8. Produce Records using Avro Schema
+  - kafka-avro-console-producer --broker-list broker:29092 --topic employees-topic \
+--property value.schema='{"namespace": "guru.learningjournal.examples.kafka.model","type": "record","name": "Employee","fields": [{"name": "id","type": "string"},{"name": "name","type": "string"},{"name": "department","type": "string"},{"name": "salary","type":"int"}]}'
 
 

@@ -556,6 +556,143 @@ Java Reference Project: kstreamaggregate
 
 
 
+## 36. Aggregation Challenges
+
+- Computing accurate real-time aggregation requires careful design considerations.
+- Earlier leassons we worked on the following two examples.
+
+1. Sum of Customer Rewards
+2. Department Average Salary
+
+- Both scenarios are really good. However, they still do not cover the negative aggregation scenarios.
+
+- Let's understand what means by negative aggregation scenarios.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+### Example - Sum of Customer Rewards
+
+- The sum() of the customer's reward points is ever increasing as he/she continues to buy stuff from our retail channels.
+- However, how would you reduce the reward's value when the customer redeems his/her points?
+- A straightforward approach is to keep an additional field in the invoice representing the redeemed reward points and subtract those points while computing aggregates.
+- I leave this cenario for you to implement as an exerciese.
+- However, such a straightforward solution may not apply in many other use cases.
+- The avg() salary by the department is an excellent example to showcase the negative aggregation problem.
+
+
+### Example - Department Average Salary
+
+- This is the output and you can calculate by yourself.
+
+- Sent the bellow inputs via cli command to our java application: kstreamaggregate
+
+'''
+Key: null, Value: {"id": "101", "name": "Prashant", "department": "engineering", "salary": 5000}
+Key: null, Value: {"id": "102", "name": "John", "department": "accounts", "salary": 8000}
+Key: null, Value: {"id": "103", "name": "Abdul", "department": "engineering", "salary": 3000}
+Key: null, Value: {"id": "104", "name": "Melinda", "department": "support", "salary": 7000}
+Key: null, Value: {"id": "105", "name": "Jimmy", "department": "support", "salary": 6000}
+'''
+
+- Java Output:
+'''
+Key = accounts Value = {"total_salary": 8000, "employee_count": 1, "avg_salary": 8000.0}
+Key = engineering Value = {"total_salary": 8000, "employee_count": 2, "avg_salary": 4000.0}
+Key = support Value = {"total_salary": 13000, "employee_count": 2, "avg_salary": 6500.0}
+'''
+
+
+- What will happen when one employee in engineering swaps his department with another employee in support?
+- This swap generates two new events to the same Kafka topic, as shown here in the samples above.
+- So, employee 101 was in the engineering department, but now his department is changed to support.
+- Similarly, employee 104 is now moving to the engineering department.
+
+- Let's send these two inputs:
+
+'''
+{"id": "101", "name": "Prashant", "department": "support", "salary": 5000}
+{"id": "104", "name": "Melinda", "department": "engineering", "salary": 7000}
+'''
+
+- Check the output from application:
+- This is not correct.
+
+```
+Key = support Value = {"total_salary": 18000, "employee_count": 3, "avg_salary": 6000.0}
+Key = engineering Value = {"total_salary": 15000, "employee_count": 3, "avg_salary": 5000.0}
+```
+
+- Let's visualize the final state of employees by the department, as shown here.
+
+```
+| ID  |   Name   |     Department                         | Salary |
+| 101 | Prashant | Engineering -> (changed to) -> support | 5000   |
+| 102 | John     | accounts                               | 8000   |
+| 103 | Abdul    | engineering                            | 3000   |
+| 104 | Melinda  | support -> (changed to) -> engineering | 7000   |
+| 105 | Jimmy    | support                                | 6000   |
+```
+
+- If you compute the average using the same SQL, you will get an outcome, as shown here.
+
+```
+| Department  |             AVG              |
+| engineering | 4000 -> (changed to) -> 5000)|
+| accounts    | 8000                         |
+| support     | 6500 -> (changed to) -> 5500 |
+```
+
+```
+SELECT   department,
+         AVG(salary)
+  FROM   employees
+GROUP BY department;
+```
+
+- However, the current KStream aggregation produced a different and incorrect result.
+
+
+```
+| Department  | AVG  |
+| engineering | 5000 |
+| accounts    | 8000 |
+| support     | 6000 |
+```
+
+- Why did that happen?
+- It happens due to the fundamental nature of a KStream.
+- The KStream is not an update stream, and it assumes every message as an additional record.
+- Hence, for the KStream, there are now seven records that it received from the Kafka topic.
+- You can visualize the KStream as a table shown here.
+
+
+```
+| ID  |   Name   | Department     | Salary |
+| 101 | Prashant | engineering    | 5000   |
+| 102 | John     | accounts       | 8000   |
+| 103 | Abdul    | engineering    | 3000   |
+| 104 | Melinda  | support        | 7000   |
+| 105 | Jimmy    | support        | 6000   |
+| 101 | Prashant | support        | 5000   |
+| 104 | Melinda  | engineering    | 7000   |
+```
+
+- If you compute the average on this table, you will end up with the same incorrect results.
+- The wrong result is not the outcome of the improper behaviour of KStream.
+- The KStream is designed to behave in this manner.
+- You can use KStream aggregation to produce correct results when your use case represents an actual stream.
+- If your use case is an update stream, you must model your solution using a KTable.
+- The department-wise salary everage example clearly depicts an update stream.
+- Employee-id is the primary key, and a new record with the same employee-id must not be treated as an additional record, but it should update the earlier record for the same key.
+- In such cases, you must use KTable to compute your aggregates.
+- We will fix this problem and rewrite the same example in the next leasson.
+
+
+Note: 
+
+
+
+
 
 
 
