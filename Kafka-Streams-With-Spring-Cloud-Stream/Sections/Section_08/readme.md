@@ -688,21 +688,119 @@ GROUP BY department;
 - We will fix this problem and rewrite the same example in the next leasson.
 
 
-Note: 
+Note: Java Application: kstreamaggregate is being modified to cover the new implementation using KTable. If you want to checkout the wrong implementation in this section. Please checkout this revision:
+"917d9f062d9041c4f22ce668089952697ce8d7bb" using git command.
 
 
+## 37. KTable Aggregation
+
+1. KStream - Insert Only
+2. KTable - Insert & Update
+
+- KStream and KTable are two fundamental abstractions in Kafka Streams.
+- You must choose a suitable one to represent your streams.
+- For example, while computing the department-wise average salary in the earlier leasson, we realize that people may transferred from one department to another. 
+- In that case, we are not creating a brand new employee record.
+- Instead, we want to update the employee information, and hance any aggregation that were computed on employee information should also be updated.
+- These scenarios cannot be handled using the KStream. 
+- They must be handled using a KTable. 
+- Why, Because KTable is an update stream and the KStream is an insert only data structure.
 
 
+### Let's recreate the earlier java project - ktreamaggregate
+
+Java Reference Project: ktableaggregate
+
+### Understanding how the application works
+
+- We create our KTable bellow.
+- We can receive two types of records. New record a brand new employee id or Update record with an existing employee id.
 
 
+```
+{"id": "101", "name": "Prashant", "department": "engineering", "salary": 5000}
+{"id": "102", "name": "John", "department": "accounts", "salary": 8000}
+{"id": "103", "name": "Abdul", "department": "engineering", "salary": 3000}
+{"id": "104", "name": "Melinda", "department": "support", "salary": 7000}
+{"id": "105", "name": "Jimmy", "department": "support", "salary": 6000}
+{"id": "101", "name": "Prashant", "department": "support", "salary": 5000}
+{"id": "104", "name": "Melinda", "department": "engineering", "salary": 7000}
+```
+
+- Table of Employees of final result.
+- Records of table has been updated because we are using KTable.
+
+```
+| Key |                                     Value                                      |
+| 101 | {"id": "101", "name": "Prashant", "department": "support", "salary": 5000}     |
+| 102 | {"id": "102", "name": "John", "department": "accounts", "salary": 8000}        |
+| 103 | {"id": "103", "name": "Abdul", "department": "engineering", "salary": 3000}    |
+| 104 | {"id": "104", "name": "Melinda", "department": "engineering", "salary": 7000}  |
+| 105 | {"id": "105", "name": "Jimmy", "department": "support", "salary": 6000}        |
+```
+
+### Doing a Test
 
 
+- Publish 5 messages 
 
+```
+{"id": "101", "name": "Prashant", "department": "engineering", "salary": 5000}
+{"id": "102", "name": "John", "department": "accounts", "salary": 8000}
+{"id": "103", "name": "Abdul", "department": "engineering", "salary": 3000}
+{"id": "104", "name": "Melinda", "department": "support", "salary": 7000}
+{"id": "105", "name": "Jimmy", "department": "support", "salary": 6000}
+```
+
+- We have this output
+
+```
+Key = accounts Value = {"total_salary": 8000, "employee_count": 1, "avg_salary": 8000.0}
+Key = engineering Value = {"total_salary": 8000, "employee_count": 2, "avg_salary": 4000.0}
+Key = support Value = {"total_salary": 13000, "employee_count": 2, "avg_salary": 6500.0}
+```
+
+- We send 2 new messages to swapping the employee departments
+
+```
+{"id": "101", "name": "Prashant", "department": "support", "salary": 5000}
+{"id": "104", "name": "Melinda", "department": "engineering", "salary": 7000}
+```
+
+- We have this output
+
+```
+Key = support Value = {"total_salary": 18000, "employee_count": 3, "avg_salary": 6000.0}
+Key = support Value = {"total_salary": 11000, "employee_count": 2, "avg_salary": 5500.0} --> Everage for support depatment is also adjusted.
+Key = engineering Value = {"total_salary": 10000, "employee_count": 2, "avg_salary": 5000.0} --> Look at engineering department. We still have two employes, but the everage is now 5000.0
+```
 
     
+- Let's increase the salary just for the employee 101
+
+```
+{"id": "101", "name": "Prashant", "department": "support", "salary": 6000}
+```
+
+- We have this output
+
+```
+Key = 101 Value = {"id": "101", "name": "Prashant", "department": "support", "salary": 6000}
+```
+
+- Now we have a new average. It is 6000. It was 5500.
 
 
 
+### Summarized
+
+- You must identify if you are only inserting new records or you are also updating old records.
+- If you are only inserting, you can use the KStream and apply the aggregate method.
+- The Aggregate method on KStream takes only two arguments. Initializer and the Adder.
+- But if you updating old records, you must use a KTable and apply the aggregate method.
+- The Aggregate method on KTable takes three arguments. Initializer, adder and subtractor.
+
+- Rest all is taken care of by the framework.
 
 
 
