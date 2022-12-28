@@ -492,10 +492,67 @@ default Serde for the same.
 
 - We tried to mix and match JSON and AVRO Serdes within the same application in the earlier examples.
 - However, going foward, we will be following the best practice, use a single type of serialization and avoid dealing with a combination of different Serdes.
+- That is why I am setting the default Serde in this example.
 
 
 
 
+## 35. Aggregating a Kafka Stream
+
+
+- In this leasson, I want to create a brand new example and understand the mechanics of using aggregate method.
+
+### Problem Definition
+
+- We want to create a Kafka Topic as employees and send some messages to the topic, as shown here.
+
+```
+{ "id": "101", "name": "Prashant", "department": "engineering", "salary": 5000}
+{ "id": "101", "name": "John", "department": "accounts", "salary": 8000}
+{ "id": "101", "name": "Abdul", "department": "engineering", "salary": 3000}
+{ "id": "101", "name": "Melinda", "department": "support", "salary": 7000}
+{ "id": "101", "name": "Jimmy", "department": "support", "salary": 6000}
+```
+
+- The messages are in JSON format, but we want them to go as AVRO messages.
+- We can do it using the kafka-avro-console-producer tool.
+- These five records are for employees with their name, department, and salary.
+- We want to create a streaming application and compute the average salary for each department.
+- You can visualize the message in the table shown here.
+
+```
+| id  | name     | department  | salary |
+| 101 | Prashant | engineering | 5000   |
+| 102 | John     | accounts    | 8000   |
+| 103 | Abdul    | engineering | 3000   |
+| 104 | Melinda  | support     | 7000   |
+| 105 | Jimmy    | support     | 6000   |
+```
+
+- You can compute the average salary by department using the following SQL. 
+
+```
+SELECT department,
+       AVG(salary)
+  FROM employees
+  GROUP BY department;
+```
+
+- You can expect the following output.
+
+```
+| department  | avg  |
+| engineering | 4000 |
+| accounts    | 8000 |
+| support     | 6500 |
+```
+
+### How Would you do it on an ever-increasing stream in real-time?
+
+Java Reference Project: kstreamaggregate
+
+
+- The aggregate method is similiar to the reduce() method, but it is a combination of a map() and reduce().
 
 
 
