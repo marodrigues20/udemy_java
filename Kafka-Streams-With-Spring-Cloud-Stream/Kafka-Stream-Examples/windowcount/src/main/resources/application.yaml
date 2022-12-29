@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        invoice-input-channel:
+          destination: simple-invoice-topic
+      kafka:
+        streams:
+          binder:
+            brokers:  localhost:9092
+            configuration:
+              commit.interval.ms: 10000
+              state.dir: state-store
+              default:
+                key:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+          bindings:
+            invoice-input-channel:
+              consumer:
+                timestampExtractorBeanName: invoiceTimesExtractor # The timestamp extractor will extract the time from
+                # the message record and define the time window. It will provide the time for each event.
+                # The Spring framework will trigger this bean method to create a timestamp extract. Remember that,
+                # "invoiceTimesExtractor" is the bean that we implemented in config directory.
+
