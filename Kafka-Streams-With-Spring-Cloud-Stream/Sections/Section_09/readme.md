@@ -97,6 +97,7 @@
 - If you want to implement time-based operations such as window aggregates or windowing joins, you must configure and use a timestamp extractor.
 - If you are not implementing a time-based processing logic, you do not need and care about the timestamp extractors.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 39. Windowing Aggregates
 
@@ -141,4 +142,67 @@
 ### Reference Java Project
 
 - windowcount
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## 40. Tumbling Window Vs Hopping Time Window
+
+- The last leasson, we created a windowing aggregate.
+- The Window Count was an example of a Tumbling time window.
+
+### What is Tumbling Window
+
+#### Tumbling Windows
+
+  - Fixed in size
+  - No Overlap
+  - No Gaps
+
+- Tumbling windows are fixed-size, non-overlapping, gap-less windows.
+- You can define a tumbling window using the window size as we did in the TimeWindows.of() method.
+- Since tumbling windows never overlap, a data record will belong to one and only one window.
+- Every record exactly falls in a single time window and gets aggregated.
+- You cannot configure the window start time. The Framework will automatically determine the window start time based on your first event time.
+- Once the first window's start time is set by framework, all other windows will follow the fixed interval from that first window.
+  
+
+### Hopping Window or Sliding Windows
+
+- Hopping Window sometimes called Sliding Window
+- However, Kafka terminology refers to them as a hopping window.
+
+
+#### What is Hopping Window
+
+- Hopping time windows are also fixed-size but overlapping windows.
+- Unlike Tumbling Window a hopping window is defined by two properties:
+  - Window's size
+  - Advance Interval
+- Sample code to define a Hopping window
+  ```
+    input.groupByKey()
+        .windowedBy( TimeWindows.of(Duration.ofMinutes(5)))
+            .advanceBy(Duration.ofMinutes(1))
+        .count()
+  ```
+- The advance interval specifies how much a window moves forward relative to the previous one.
+- For example, you can configure a hopping window of 5 minuts and an advance interval of 1 minute.
+- Hopping windows are used to compute moving aggregates for a fixed size window.
+- For example, you might want to use hopping windows to calculate page views in the most recent five minutes reported every minute.
+
+
+### Summarizing
+
+- Kafka offers you two types of time-based windowing.
+- Tumbling time window and Hopping time window.
+- The method for creating both types of windowing is the same.
+- The tumbling time window will not have an advance interval.
+- The Hopping time window will set an advance interval.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
