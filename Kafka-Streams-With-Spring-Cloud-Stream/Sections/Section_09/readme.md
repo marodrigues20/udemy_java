@@ -203,6 +203,53 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+## 41. Session Windows
+
+### What is Session?
+
+- Session are a period of activity followed by a defined gap of inactivity.
+- For that reason, session windows are also represented by a period of actitivy rather than being a fixed size window.
+
+### Examplifying Session
+
+- You have a website, and you added a feature to your website that generates user click events and sends them back to your server. Your click events are JSON messages, as shown here.
+
+```
+USR101: {"UserID": USR101, "CreatedTime": "15993608600000","CurrentLink":"NULL","NextLink":"Home"}
+USR102: {"UserID": USR102, "CreatedTime": "15993609200000","CurrentLink":"NULL","NextLink":"Home"}
+USR101: {"UserID": USR101, "CreatedTime": "15993610400000","CurrentLink":"NULL","NextLink":"Home"}
+USR101: {"UserID": USR101, "CreatedTime": "15993610400000","CurrentLink":"NULL","NextLink":"Home"}
+USR102: {"UserID": USR101, "CreatedTime": "15993610400000","CurrentLink":"NULL","NextLink":"Home"}
+USR101: {"UserID": USR101, "CreatedTime": "15993610400000","CurrentLink":"NULL","NextLink":"Home"}
+USR101: {"UserID": USR101, "CreatedTime": "15993610400000","CurrentLink":"NULL","NextLink":"Home"}
+```
+
+- You planned to stream those events to your Kafka cluster.
+- You wanted all the events for the same user to flow to a designed partition, and hence you implement UserID as a message key.
+- Such a continuous flow of click events is often known as clickstream.
+- All the events are for Feb 05, 2019, which I have normalized to minutes for simplicity.
+- Now, for the given sample clickstream, we want to count the number of clicks per user session.
+- However, we have a problem here.
+
+### How do we define a user session?
+
+- We can make some assumptions.
+- A new session starts with the first click, and it ends if a user is idle for five minutes.
+- With this definition of an event and the session, let's try to compute the clicks per visit.
+
+Java Project Reference: sessionwindow
+
+### Implementation explanation
+
+- This method reads all the user clicks, and now we are ready to process them.
+- What do we want to do?
+- We want to group the click events by the user id.
+- We will create a session window of five minutes and count the records.
+- This example, looks like similar to the tumbling window example. The only difference is the window type
+"SessionWindow" class.
+- In the tumbling window example, we used TimeWindow class. However, this small change do a huge difference.
+- TimeWindow are fixed in size. However, SessionWindow is variable in length. And the size of the window is dependent on the user activity.
+- So, the session for the first user is a 30-minutes session. But you have another user who leaves your website in 10 minutes. So his session is a 10-minute session.
 
 
 
