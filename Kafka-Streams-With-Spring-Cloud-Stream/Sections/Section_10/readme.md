@@ -208,3 +208,44 @@ Transaction ID = 100001 Status = Success
 Transaction ID = 10004 Status = Failure
 ```
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 44. KTable to KTable Join
+
+- We are going to learn the mechanics of implementing KTable to a KTable join.
+- These joins are always non-windowed joins, and offer the same result as in the case of standard database table joins.
+- The join result is another KTable.
+- KTable - KTable is the most straighforward join and simplest to implement.
+- Let's create a simple scenario to understand the use case and implementation mechanics.
+
+### Problem Description
+
+- You are a global bank, and you have a vast user base.
+- However, you have already streamted all your customer records to your Kafka Cluster.
+- All the user data is now available for any real-time operation.
+
+1. All your user data is streamed to a Kafka Topic.
+2. Some sample records are given below.
+
+```
+100001: {"UserName":"Prashant", "LoginID": "100001", "LastLogin": "2019-01-01T00:00:00.00Z"}
+100009: {"UserName":"Alisha", "LoginID": "100009", "LastLogin": "2019-01-01T00:00:00.00Z"}
+100087: {"UserName":"Abdul", "LoginID": "100087", "LastLogin": "2019-01-01T00:00:00.00Z"}
+```
+
+3. Every time a new user register, her details are also streamed to the system.
+4. Every time a user successfully logs-in to your application, you send an event to your Kafka cluster.
+5. Some sample records are given below.
+
+```
+100001: {"LoginID": "100001", "CreatedTime": "2019-02-14T13:01:15.00Z"}
+100087: {"LoginID": "100087", "CreatedTime": "2019-02-14T13:01:18.00Z"}
+```
+
+### What we will do
+
+- We want to create a simple application that updates the last login timestamp whenever a user logs into the system.
+- Java Project Reference: lastlogin
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
