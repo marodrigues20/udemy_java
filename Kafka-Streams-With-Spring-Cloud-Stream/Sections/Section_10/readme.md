@@ -143,3 +143,68 @@ Payment Confirmation
 
 - Java Reference Project: otpvalidation
 
+
+### Explanation of Result
+
+- We submit some Payment Requests using the payment_request topic.
+
+```
+100001:{"TransactionID": "100001", "CreatedTime": 1550149860000, "SourceAccountID": "131100", "TargetAccountID": "151837", "Amount": 3000, "OTP": 852960}
+100002:{"TransactionID": "100002", "CreatedTime": 1550149920000, "SourceAccountID": "131200", "TargetAccountID": "151837", "Amount": 2000, "OTP": 931749}
+100003:{"TransactionID": "100003", "CreatedTime": 1550149980000, "SourceAccountID": "131300", "TargetAccountID": "151837", "Amount": 5000, "OTP": 591296}
+100004:{"TransactionID": "100004", "CreatedTime": 1550150100000, "SourceAccountID": "131400", "TargetAccountID": "151837", "Amount": 1000, "OTP": 283084}
+```
+
+- The console print the following messages:
+
+```
+Request Key = 100001 Created Time = 2019-02-14T13:11Z
+Request Key = 100002 Created Time = 2019-02-14T13:12Z
+Request Key = 100003 Created Time = 2019-02-14T13:13Z
+Request Key = 100004 Created Time = 2019-02-14T13:14Z
+```
+
+- All the messages are time stamped for Feb 14, 2019 with event time as 13:11, 13:12, 13:13, and 13:15.
+- After sending these messages, the application does not show any outcome in the beginning.
+- Because there are no matching confirmation records on the other topic yet.
+- Let's throw some confirmation messages.
+
+### Send message to payment_confirmatin topic
+
+```
+100001:{"TransactionID": "100001", "CreatedTime": 1550150100000, "OTP": 852960}
+100002:{"TransactionID": "100002", "CreatedTime": 1550150280000, "OTP": 931749}
+100004:{"TransactionID": "100004", "CreatedTime": 1550150040000, "OTP": 283086}
+```
+
+- All the confirmation messages are also timestamped for Feb 14, 2019 with events timestamps as 13:15, 13:18 and 13:14.
+
+- Output:
+```
+Confirmation Key = 100001 Created Time = 2019-02-14T13:15Z
+Confirmation Key = 100002 Created Time = 2019-02-14T13:18Z
+Confirmation Key = 100004 Created Time = 2019-02-14T13:14Z
+```
+
+- We received four payment requests, but only two of them appeared in the outcome.
+- The request 100001 was sent at 13:11 and confirmed at 13:15 with a matching OTP.
+- Hence, it comes as a success.
+
+```
+Transaction ID = 100001 Status = Success
+```
+
+- The request 100002 was sent at 13:12 but confirmed outside the five-minute window at 13:18.
+- But confirmed outside the five-minute window at 13:18.
+- Hence, the ValueJoiner for that pair didn't trigger, and status does not appear in the outcome.
+- The request 100003 was not confirmed, so that one also doesn't appear in the out come.
+- Finally, request 100004 is an odd one.
+- I was generated at 13:15
+- However, somehow, it was confirmed even earlier at 13:14.
+- This record appears in the result because both the records fall in the five-minute window with a matching key.
+- However, the result is failed because their OTP didn't match
+
+```
+Transaction ID = 10004 Status = Failure
+```
+
