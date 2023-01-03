@@ -249,3 +249,128 @@ Transaction ID = 10004 Status = Failure
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
+## 45. KStream to KTable Join
+
+- This join is also non-windowed.
+- A typical use case of such join is to implement lookups and stream enrichment.
+- For example, if you have a KStream of user activities and you are looking to enrich this stream with the latest user profile information, from a KTable
+- You may want to implement a KStream to KTable join.
+- A similar use case is often implemented using KStream to GlobalKTable join.
+- I haven't talked about the GlobalKTable yet. So let me cover it up.
+
+
+### Let's talk about GlobalKTable
+
+- We learned about KTables. However, KTables are local.
+- What it means is simple. Each streams task would have its own local copy of the KTable and a local copy of the state store where the KTable data is persisted. This local tables are greate because they allow you to work on a partition of the data in parallel.
+- In this sceanrio, each stream task can work independently without relying on other tasks.
+- However, in some cases, you may need a global table. 
+- A global table is something available to all streams threads.
+- It is a common data set which anyone can read.
+- Any changes to this global table should be available to all stream tasks, even if they run on different machiens.
+- Kafka Streams offers this capability as GlobalKTable.
+
+
+### GlobalKTable
+
+- Like a KTable, a GlobalKTable is also an update stream, where each data record represents an update or insert.
+- However, there is one fundamental difference between these two strucutures.
+- A standard KTable is local in nature, whereas a GlobalKTable is global in nature.
+- Let's try to understand what it means by being local and how it differs from being a global table.
+
+### How Local Table differs from Global Table
+
+- Assume you have a topic T5 with five partitions.
+- You want to read this topic into a table.
+- We already learned that partitions are the main idea behind the parallel processing in Kafka.
+- You can run five instances of your application on topic T5 to achieve a maximum degree of parallelism.
+- Assume you started five instances of the same application.
+- In this scenario, each instance of the application will be assined one partition.
+- The local KTable will be able to process data only from one assigned partition.
+- This scenario is perfectly fine for the parallel processing of data. 
+- However, suppose you read the topic into GlobalKTable.
+- In that case, each instance of the application will be assigned all five partitions
+- The GlobalKTable at each instance will read data from all the partitions and hence, all of them will possess all the data.
+- This scenario is problematic for parallel processing because it causes duplicate processing. 
+- However, GlobalKTable makes perfect sense for broadcast and lookup tables.
+- GlobalKTable is mainly used in star-joins, foreing key lookups, and broadcast information.
+- However, you must be careful in using GlobalKTable as they require local storage on each application's instance.
+- They also increase the network traffic and broker workload because all instances read the entire data.
+- GlobalKTable is excellent for a small set of information that you want to be available to all your instances.
+
+
+### Let's move back Implementing Joins 
+
+- Since the use case for KStream to KTable join and the KStream to GlobalKTable joins are the same, we will implement an example for GlobalKTable.
+- Implementing KStream to KTable join is the same as we are going to do it for a GlobalKTable.
+  
+### Problem Description - Compute the Advert Clicks by News Type
+
+- You are a popular news website, and you directly sell advertising campaigns to your customers.
+- You have created predefined locations across your website where you can place advertisements at runtime.
+- These advert placement locations are often known as advert inventories.
+- Advert inventories are tagged with a bunch of associated information, such as the following.
+
+```
+Advert Inventories
+- Age - I mean, how old is the news around the inventory
+- Type of Content - What is the type of content - I mean whether the story around them is business news or sports news
+- Placement Location - What is the placement location - left side, right side, top, bottom, and in-between content
+```
+
+- It is a common requirement to measure the performance of such inventories in terms of impressions and clicks.
+- These measurements are critical to adjust the campaign in real-time.
+- We want to create a Kafka Streams application to compute the add clicks by news type.
+- In other words, we want to know the number of ads clicked for sports news, business news, political news, and so on for all available categories.
+- The first step to achieve this goal is to bring all your advert inventories into your-real streaming infrastructure.
+- For the sake of simplicity, let us model the inventory using a JSON message as shown here and publish them to your Kafka cluster.
+
+Sample Inventory List
+```
+1001:{"InventoryID": "1001", "NewsType": "Sports"}
+1002:{"InventoryID": "1002", "NewsType": "Politics"}
+1003:{"InventoryID": "1003", "NewsType": "LocalNews"}
+1004:{"InventoryID": "1004", "NewsType": "WorldNews"}
+1005:{"InventoryID": "1005", "NewsType": "Health"}
+1006:{"InventoryID": "1006", "NewsType": "Lifestyle"}
+1007:{"InventoryID": "1007", "NewsType": "Literature"}
+1008:{"InventoryID": "1008", "NewsType": "Education"}
+1009:{"InventoryID": "1009", "NewsType": "Social"}
+1010:{"InventoryID": "1010", "NewsType": "Business"}
+```
+
+- The second step is to bring all your ad-clicks as a real-time streaming event into your Kafka cluster.
+- Assume your website is sending all the clicks using a JSON, even as shown here.
+
+Sample Click Events
+```
+1001:{"InventoryID": "1001"}
+1002:{"InventoryID": "1002"}
+1003:{"InventoryID": "1003"}
+1004:{"InventoryID": "1004"}
+1005:{"InventoryID": "1005"}
+1006:{"InventoryID": "1006"}
+1007:{"InventoryID": "1007"}
+1008:{"InventoryID": "1008"}
+1009:{"InventoryID": "1009"}
+1010:{"InventoryID": "1010"}
+```
+
+- Each event represents a click for the given inventory id.
+- Once you have these two topics and data starts flowing into them, we want to create a real-time application to count the add clicks by the news type.
+- Based on the sample data given here, you can expect the following outcome. 
+
+```
+| News Type  | Total Clicks |
+| Sports     |      3       |
+| Politics   |      2       |
+| Local News |      4       |
+| Health     |      1       |
+```
+
+### Solution
+
+Java Reference Project: advertclicks
+
+
+
