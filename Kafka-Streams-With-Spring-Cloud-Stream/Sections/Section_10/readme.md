@@ -373,4 +373,90 @@ Sample Click Events
 Java Reference Project: advertclicks
 
 
+## 46. Implementing Complex Aggregation
 
+- In the previous lecture, we created an example to implement a join and the simplest form of aggregation. The count aggregation. Right?
+- However, the aggregation and Joins are at the heart of the Kafka Streams applications.
+- Almost every real-time stream application would end up using a combination of two techniques.
+- So, I wanted to create complex examples that combines these two features together.
+- This examplex will give you a real sense of how fundamental these operations are in a streaming application.
+
+
+### Problem Description - Compute the top 3 performing News Types
+
+
+- In the previous example, we computed clicks by news type
+- However, the complete list of news types is exhaustive.
+- We want to extend the application further to see the top 3 news types receiving the maximum number of clicks.
+
+### Soluction
+
+Java Reference Project:  top3spots
+
+- We must do the following to get the top three.
+
+1. Sort the KTable by the number of clicks.
+2. Take the top three from the sorted KTable.
+
+- I wish we had an API for sorting a KTable.
+- However, Kafka does not provide an API to achieve this.
+- And I guess they have a valid reason for not providing that feature.
+- Let me highlitght a couple of those reasons.
+- KTable is local for the stream thread.
+- So, your data is distributed accross the stream threads.
+- To sort it, you must bring it to a single thread.
+- Sorting on the record key does not make any sense in many use cases.
+- For example, we do not want to sort the record on the news type in our case.
+- Instead, we want to sort on the number of clicks and find the top three.
+- So, most of the use cases would need sorting on some other field and not on the record key.
+- But Kafka streams API are evolving, and we can expect an API for achieving this in the upcoming version.
+- However, for now, we can produce a custom solution.
+- Let's start with understanding what we have.
+- So, we have a KTable of the following form And this data is not available in one place.
+- It is distributed across different stream threads.
+- Because the KTable is local to the thread, and the data is distributed accross threads.
+- Each stream thread would be maintaining its local share of the data.
+- However, we wanna sort it by value.
+- So, the first thing that we want to do is to bring it to one place.
+- Otherwise, it is impossible to sort it.
+- How can you do that?
+- There are a couple of ways to do it.
+- But the most convenient way is to group-by this data using a fixed key.
+- So, let's assume I am implementing a group on this KTable and changing the key to "ABC".
+
+```
+| Key        | Value |                              | Key   | Value |
+| Sports     |   3   |                              | ABC   |   3   |
+| Politics   |   2   |                              | ABC   |   2   |
+| Local News |   4   |                              | ABC   |   4   |
+| Health     |   1   |   ------- Group By --->      | ABC   |   1   |
+| World News |   5   |                              | ABC   |   5   |    
+| Lifestype  |   2   |                              | ABC   |   2   |
+| Business   |   7   |                              | ABC   |   7   |
+| Education  |  11   |                              | ABC   |   11  |
+ 
+```
+
+- The result will be another Table.
+- The result will be a KGroupedTable, which would be something like this.
+- All these records will come to a single partition because they all have the same key.
+- However, we lost the news type information and are left with the click count only.
+- We can fix this problem easily.
+- In the group By call, while we change the key to "ABC", we also change the value to preserver  the news type and the count.
+- The expected KGroupedTable should be something like this.
+
+```
+| Key        | Value |                              | Key   |                   Value                    |
+| Sports     |   3   |                              | ABC   |   {"NewsType": "Sports", "Clicks": 3}      |
+| Politics   |   2   |                              | ABC   |   {"NewsType": "Politics", "Clicks": 2}    |
+| Local News |   4   |                              | ABC   |   {"NewsType": "LocalNews", "Clicks": 4}   |
+| Health     |   1   |   ------- Group By --->      | ABC   |   {"NewsType": "Health", "Clicks": 1}      |
+| World News |   5   |                              | ABC   |   {"NewsType": "WorldNews", "Clicks": 5}   |    
+| Lifestype  |   2   |                              | ABC   |   {"NewsType": "Lifestyle", "Clicks": 2}   |
+| Business   |   7   |                              | ABC   |   {"NewsType": "Business", "Clicks": 7}    |
+| Education  |  11   |                              | ABC   |   {"NewsType": "Education", "Clicks": 11}  |
+ 
+```
+
+- Possible? Absolutely yes.
+- Check in the code to see the implementation.
