@@ -460,3 +460,123 @@ Java Reference Project:  top3spots
 
 - Possible? Absolutely yes.
 - Check in the code to see the implementation.
+
+- After doing it. We can easily sort it and take three records from the top.
+- However, this KGroupTable is not a static database table.
+- It's a real-time grouped Table where new records and updates will keep comming and we need to keep things sorted as they arrived.
+- How can we do that?
+- Let's assume that we create a custom data structure for this puporse.
+- Let's call it SortedNewsTypes.
+- Now, assume that we got our first count.
+- We simply add this to the SortedNewsTypes.
+- Now you got your second click.
+- We again add it to the SortedNewsTypes.
+- The SortedNewsType data structure is smaart enough to keep things sorted.
+- With these two records, I am expecting the data structure state to become something like this.
+
+```
+| Sorted News Types                     |
+| {"NewsType": "Politics", "Clicks": 1} |
+| {"NewsType": "Sports", "Clicks": 1}   |
+```
+
+- Why?
+- Because the clicks are the same for both the records.
+- So, we have sorted them by the string name.
+- You got your third event, and you simply add it to your smart data strucuture.
+- The state changes to something like this.
+
+```
+| Sorted News Types                      |
+| {"NewsType": "LocalNews", "Clicks": 1} |
+| {"NewsType": "Politics", "Clicks": 1}  |
+| {"NewsType": "Sports", "Clicks": 1}    |
+```
+
+- Similarly, you got your fourth event, and you added that one too.
+- Now you have four items on the list.
+
+```
+| Sorted News Types                         |
+| {"NewsType": "LocalNews", "Clicks": 1}    |
+| {"NewsType": "Politics", "Clicks": 1}     |
+| {"NewsType": "Sports", "Clicks": 1}       |
+| {"NewsType": "WorldNews", "Clicks": 1}    |
+```
+
+- However, we wanted only the top 3
+- So, let's make the SortedNewsTypes smarter.
+- I call it Top3SortedNewsTypes.
+- This new structure will remove one record from the lower end and maintain only three records from the top.
+- So the state is going to look like this.
+
+```
+| Top 3 Sorted News Types                   |
+| {"NewsType": "LocalNews", "Clicks": 1}    |
+| {"NewsType": "Politics", "Clicks": 1}     |
+| {"NewsType": "Sports", "Clicks": 1}       |
+```
+
+- Now I am expecting the next record.
+- Let's assume the next record is for WorldNews again.
+- We got a new click on the WorldNews, and hence the count is updated to 2.
+- And we got an updated record for the WorldNews.
+- We add it to the Top3SortedNewsTypes
+
+```
+| Top 3 Sorted News Types                   |
+| {"NewsType": "WorldNews", "Clicks": 2}    |
+| {"NewsType": "LocalNews", "Clicks": 1}    |
+| {"NewsType": "Politics", "Clicks": 1}     |
+| {"NewsType": "Sports", "Clicks": 1}       |
+```
+
+- The data-structure will sort it, and finally, remove the lowest member to keep only three.
+- The final state looks like this.
+
+```
+| Top 3 Sorted News Types                   |
+| {"NewsType": "WorldNews", "Clicks": 2}    |
+| {"NewsType": "LocalNews", "Clicks": 1}    |
+| {"NewsType": "Politics", "Clicks": 1}     |
+```
+
+- Now, let's assume you got another record.
+- And this time, it is an update for the Politics.
+- We add it to the Top3SortedNewsTypes.
+- {"NewsType": "Politics", "Clicks":2}
+
+- But, wait a minute.
+- We have a small situation here.
+- The Politics record is already there in the list and it must be removed before we add a newly updated record for the politics.
+
+```
+| Top 3 Sorted News Types                   |
+| {"NewsType": "Politics", "Clicks": 2}     |
+| {"NewsType": "WorldNews", "Clicks": 2}    |
+| {"NewsType": "LocalNews", "Clicks": 1}    |
+```
+
+- So, the Top3SortedNewsTypes should also have a method to remove an entry.
+- The point is straight.
+- We need a class that supports adding and removing records.
+
+```
+    void add(ClicksByNewsType newValue)
+    void remove(ClicksByNewsType oldValue)
+```
+
+- And it should automatically maintain a list of top3 records in sorted order.
+- Assuming that the Top3SortedNewsTypes has the required features.
+- We will simply remove the existing entry and add a new updated entry for politics.
+- The Top3SortedNewsTypes will sort it automatically, and the new state should look like this.
+
+```
+| Top 3 Sorted News Types                   |
+| {"NewsType": "Politics", "Clicks": 2}     |
+| {"NewsType": "WorldNews", "Clicks": 2}    |
+| {"NewsType": "LocalNews", "Clicks": 1}    |
+```
+
+- Check in  Java Project: top3spots to see the implementation.
+

@@ -23,6 +23,29 @@ import org.springframework.stereotype.Service;
 @EnableBinding(ClicksListenerBinding.class)
 public class ClickListenerService {
 
+    /**
+     * - As we learned in the earlier section, the aggregation method takes three mandatory arguments.
+     * 1. Initializer
+     * 2. Adder
+     * 3. Subtractor
+     *
+     * - The Initializer is as simple as creating an empty data structure.
+     * - The adder method takes three arguments, key, new event value, and the previous aggregated values.
+     * - We need to add the new Value to the previously aggregated value and return the new aggregated value.
+     * - Sorting and maintaining only three records is taken care of by the data structure.
+     * - The next one is the subtractor.
+     * - This one is also the same, but it removes the given element from the data structure.
+     * - The aggregate method will materialize some intermediate data to a local KTable.
+     * - So, don't forget to provide the materialization details.
+     * - This is not always needed. We are using default Serdes, and my stream pipeline should infer the serialization
+     * mechanism.
+     * - However, to be on the safer side, I am giving it here.
+     * - The "top3-clicks" name here is the name of the intermediate state store table.
+     * - The KeyValueStore is the type of state store.
+     * - The other two argument are the key and the value serdes.
+     *
+     *
+     */
     @StreamListener
     public void process(@Input("inventories-channel") GlobalKTable<String, AdInventories> inventory,
                         @Input("clicks-channel") KStream<String, AdClick> click) {
