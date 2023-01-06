@@ -1,37 +1,10 @@
 # Section 11: Kafka Stream in Functinal Style and Unit Testing
 
-## 47. Stream Listener Manual Testing
-
-- Let's learn about unit testing aspect of your Kafka Streams application.
-- Testing a Kafka Streams application requires you to have a Kafka cluster.
-- If you do no have a Kafka cluster, you cannot run your Kafka Stream application, and you cannot test it.
-- However, the Spring framework offers you an Embedded Kafka cluster for implementing automated test cases.
-
-### Project Example
-
-Java Project: simpletest
-
-### Which approach for testing
-
-1. Manual Testing
-2. Automated Testing
-
-### Manual Testing
-
-1. Start Kafka Cluster.
-2. Create Input/Output Topics
-3. Send some Input Messages to the input topic
-4. Start your application
-5. Consume messages from the output topic
-6. Compare the output results with the expected results
-
---------------------------------------------------------------------------------------------------------------------
-
 ## 48. Stream Listener Automating Test Cases
 
 - We created a super simple streaming application in the previous lecture and applied a manual testing approach to test it.
 - Now we want to automate the testing so we can repead it without spending manual time and invervention.
-  
+
 Java Project: simpleTest
 
 - For testing your Kafka Streams application, you will need some additional dependencies.
@@ -74,7 +47,7 @@ Java Project: simpleTest
 - But we do not want that.
 - We want to test Kafka Stream functionality, so we do not need a Web Server.
 - So let me set that expectation using the @SpringBootTest parameters.
-  
+
 ```
 @SpringBootTest(
 		webEnvironment = SpringBootTest.WebEnvironment.NONE,
@@ -83,7 +56,7 @@ Java Project: simpleTest
 
 ### Test steps for Automated Tests
 
-1. Start Kafka Cluster. 
+1. Start Kafka Cluster.
     - For automated testing, we cannot start a local Kafka Cluter.
     - So, we will be using an Embedded kafka Cluster, which will start within the same JVM.
 
@@ -100,10 +73,10 @@ Java Project: simpleTest
 - These two lines, the SpringBootTest framework will work together with the JUnit framework and start an embedded Kafka cluster for you.
 
 2. Create Input/Output Topics
-   - This step is finished above as well.
+    - This step is finished above as well.
 
 3. Consume messages from the output topic
-   - Let's set up a consumer to use it to consume and validate the output.
+    - Let's set up a consumer to use it to consume and validate the output.
 
 
 ```
@@ -121,7 +94,7 @@ private static Consumer<String, String> consumer;
 ```
 
 5. Start your application
-   - Just use
+    - Just use
 
 ```
 @Autowired
@@ -135,7 +108,7 @@ private static Consumer<String, String> consumer;
 ### Use System Variable to connect to Embedded Kafka
 
 - My Spring Boot Application will start, and it will try to connect to the Kafka cluster which I defined in my application YAML.
-- So, I defined the broker configuration as my localhost 
+- So, I defined the broker configuration as my localhost
 
 ```
 brokers: localhost:9092
@@ -148,7 +121,7 @@ brokers: localhost:9092
 - In this way, my tests just will use the application YAML file from the test folder.
 - Now, you can change this YAML file to connect to the embedded Kafka cluster.
 - You can do it using a system variable.
-  
+
 ```
  brokers:  ${spring.embedded.kafka.brokers}
 ```
