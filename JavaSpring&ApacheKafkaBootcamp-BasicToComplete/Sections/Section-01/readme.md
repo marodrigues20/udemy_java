@@ -1,10 +1,5 @@
 # Udemy Course: Java Spring & Apache Kafka Bootcamp - Basic to Complete
 
-# Summary
-
-- https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-01
-- https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-02
-
 # Section 1 - Introduction
 
 ## 1. Welcome to This Course
