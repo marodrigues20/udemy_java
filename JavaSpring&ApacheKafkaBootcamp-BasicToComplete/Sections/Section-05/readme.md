@@ -27,7 +27,7 @@
 - Person X is subscriber, or sometime called as consumer, or listener, application that interested on specific room and consistently monitor it for new message.
 - It will get the message from storage room, using specific mechanism that we will discuss later.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Unique_Warehouse.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_Terminology.png)
 
 ### Synonyms
 
