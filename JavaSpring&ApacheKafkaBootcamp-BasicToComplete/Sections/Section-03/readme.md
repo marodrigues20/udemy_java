@@ -136,6 +136,8 @@
 
 ### Process streams of records as they occur.
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-03/Process_Streams.png?raw=true)
+
 - Kafka has topic for storing messages.
 - Consider kafka topic as a "queue" for messages.
 - As with the queue, the FIFO (first in, first out) concept is valid.
