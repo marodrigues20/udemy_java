@@ -119,6 +119,9 @@
 
 ### Store streams of records in a fault-tolerant durable way
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-03/Store_Streams.png?raw=true)
+
+
 - Kafka, is more than just messaging system.
 - Each message that comes to kafka, or the streams of records, is stored on disk.
 - Kafka has great support to make those records highly available.
