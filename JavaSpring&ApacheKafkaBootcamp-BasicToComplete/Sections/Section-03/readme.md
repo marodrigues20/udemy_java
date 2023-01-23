@@ -107,6 +107,8 @@
 
 pic: Publish_Subscriber.png
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-03/Publisher_Subscriber.png?raw=true)
+
 - This is the diagram for kafka as messaging system.
 - We have source application, the blue boxes, that will publish message to kafka, So we called them "publishers" or "producers".
 - The target application, the red boxes, will subscribe for the message.
@@ -114,4 +116,6 @@ pic: Publish_Subscriber.png
 
 - The message, or in this statement is "records", will be continuously flowing as long as there is any transaction on publisher.
 - That’s why we call it as stream of records.
+
+
 
