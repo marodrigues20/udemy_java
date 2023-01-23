@@ -10,7 +10,7 @@
 
 - Kafka Analogy (A very simplified Explanation)
   
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-03/Publisher_Subscriber.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Unique_Warehouse.png?raw=true)
 
 - In a way, we can say that Kafka is like a "unique warehouse" that stores messages.
 - Person A come to this warehouse, and publish a message.
