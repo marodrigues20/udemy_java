@@ -132,3 +132,16 @@
 - It can be weeks, or maybe months.
 - And you only need to make sure the disk storage is enough.
 - This is why we call it durable.
+
+
+### Process streams of records as they occur.
+
+- Kafka has topic for storing messages.
+- Consider kafka topic as a "queue" for messages.
+- As with the queue, the FIFO (first in, first out) concept is valid.
+- So each message that comes to each kafka topic will be stored in order.
+- Kafka guarantees the order of records for both publisher and consumer.
+- So if publisher publish the following messages. M1, M2, M3.
+- The publisher will process the message in order they arrived, so it’s guaranteed for the subscriber to process M1 first, then M2, then M3.
+- Please note that this diagram is only a basic concept of kafka ordered processing.
+- You might see different diagram later when we learn more about kafka concept.
