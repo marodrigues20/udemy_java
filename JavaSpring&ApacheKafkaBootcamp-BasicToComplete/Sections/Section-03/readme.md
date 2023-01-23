@@ -105,8 +105,6 @@
 
 ### Publish and subscribe to stream of records, similiar to a message queue or enterprise messaging system
 
-pic: Publish_Subscriber.png
-
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-03/Publisher_Subscriber.png?raw=true)
 
 - This is the diagram for kafka as messaging system.
@@ -119,3 +117,15 @@ pic: Publish_Subscriber.png
 
 
 
+### Store streams of records in a fault-tolerant durable way
+
+- Kafka, is more than just messaging system.
+- Each message that comes to kafka, or the streams of records, is stored on disk.
+- Kafka has great support to make those records highly available.
+- We can create multiple kafka nodes as a cluster, in such way, that a message is replicated among nodes.
+- When one broker is fail, for example when network unavailable for node2, the other two nodes will take over and the message will be saved.
+- Publishers and consumers can still works as usual, without knowing that node 2 is down.
+- The records will stay in kafka node for as long as you need.
+- It can be weeks, or maybe months.
+- And you only need to make sure the disk storage is enough.
+- This is why we call it durable.
