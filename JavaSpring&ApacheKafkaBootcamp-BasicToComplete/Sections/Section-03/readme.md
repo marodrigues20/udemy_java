@@ -147,3 +147,34 @@
 - The publisher will process the message in order they arrived, so it’s guaranteed for the subscriber to process M1 first, then M2, then M3.
 - Please note that this diagram is only a basic concept of kafka ordered processing.
 - You might see different diagram later when we learn more about kafka concept.
+
+
+### Kafka Use Cases
+
+- As a streaming platform, Kafka is very high performance and can work with high volume data, when configured properly.
+
+- Central Messaging System
+- Activity / application log
+- Storing IoT data
+- System decoupling
+- Asynchronous processing
+- Part of big data ecosystem
+
+
+Kafka as data streaming mechanism
+We need to write publisher & consumer
+
+### Kafka Distribution
+
+- Apache Kafka 
+- Confluent (www.confluent.io)
+
+- In short, Apache Kafka is the core, the car engine.
+- Confluent is a platform.
+- It has apache kafka as the core engine, and it also has additional modules around the core engine.
+- It is not just the engine, but a complete car.
+- So it has many additional tools: for monitoring, for managing kafka clusters, for advanced kafka programming, etc.
+
+
+### Java & Spring
+
