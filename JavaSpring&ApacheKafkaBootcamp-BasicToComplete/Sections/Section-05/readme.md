@@ -68,6 +68,10 @@
 
 ### Storage Room Structure in Kafka
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Storage_Room_In_Kafka.png?raw=true)
+
+
+
 - Now let’s talk the storage room structure in Kafka.
 - The storage room is Kafka "topic"
 - The storage counter is Kafka "partition"
@@ -79,4 +83,4 @@
 - we want to save this message.
 - The ID on previous analogy, is called as "offset" in kafka.
 - Offset is maintained for each partition, so current offset value in each partition can be different each other.
-- 
+  
