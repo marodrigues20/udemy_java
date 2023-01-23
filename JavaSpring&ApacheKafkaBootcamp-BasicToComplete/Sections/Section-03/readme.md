@@ -178,3 +178,47 @@ We need to write publisher & consumer
 
 ## Java & Spring
 
+- One of most-used programming language
+- Regular update
+- Runs on multiple platforms: Windows, Mac, Linux, Android
+- Oracle & Open source implementation (OpenJDK, Amazon Coretto)
+
+### Spring Framework
+
+- Spring framework helps a lot
+- Testable
+- Free & open source
+- Has almost everything required for enterprise programming.
+- Complex configuration on early days
+- Spring boot simplify configurations a lot
+- https://spring.io
+
+### Spring Technology Stack
+
+- Microservice & reactive support
+- SQL & NoSQL database
+- Spring cloud for microservice
+- Messaging system (Kafka, Kafka)
+- And many more... (https://spring.io/projects)
+  
+### Eclipse
+
+- Integrated Development Environment
+- Code completion
+- Automate processes
+- Easy debugging
+- Build tools & dependency management using Gradle
+  
+### Eclipse & Spring Tools Suite
+
+- Official project from Spring
+- Provide ready-to-use features for Spring development
+- Stand-alone or Eclipse plugin
+
+### Gradle
+
+- Build tools & dependency management
+- Maintaining library manually is nightmare
+- Gradle manages library dependencies
+- Build distributed package
+- Spring Boot generates initial Script.
