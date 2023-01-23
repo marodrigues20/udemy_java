@@ -36,3 +36,34 @@
 - Subscriber / consumer / listener
 - Subscribe / consume / listen
 - Don't get confused with terminology synonyms
+
+
+## 17. Kafka Analogy
+
+### Topic, Partition & Offset
+
+- The storage room in kafka analogy, consists of several parts:
+- 1st, the storage room itself.
+- 2nd, the storage counter where message comes.
+- Each storage room can has one or more counters.
+- Each counter has its own storage line to put the messages that comes.
+- Messages are put in the same order according the sequence they come.
+- Each message will have message order ID.
+- This order ID is attached to each counter and always increment.
+- So when three messages comes to counter 0, it will be something like this:
+- 1st message, get ID 0
+- 2nd message, get ID 1
+- 3rd message, get ID 2
+- And it keeps go on.
+- The ID keeps incrementing and unique for each message in counter 0.
+- So if we have 10 messages on counter 0, there will be 10 ID on counter 0.
+- The same way goes with counter 1.
+- It will store the messages and give ID start on 0, 1, 2 , 3, etc.
+- And same thing on counter 2.
+- Keep in mind that ID is unique for each counter, so message with ID 0 in counter 0 is different with ID 0 in counter 1 and 2.
+- So the message in each counter is independent for each counter.
+- Now let’s talk the storage room structure in Kafka.
+- The storage room is Kafka "topic"
+- The storage counter is Kafka "partition"
+- Each topic can has one or more partition.
+- This partition will be used for kafka concurrent processing.
