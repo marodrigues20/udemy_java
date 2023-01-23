@@ -42,6 +42,8 @@
 
 ### Topic, Partition & Offset
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Storage_Room.png?raw=true)
+
 - The storage room in kafka analogy, consists of several parts:
 - 1st, the storage room itself.
 - 2nd, the storage counter where message comes.
@@ -62,12 +64,19 @@
 - And same thing on counter 2.
 - Keep in mind that ID is unique for each counter, so message with ID 0 in counter 0 is different with ID 0 in counter 1 and 2.
 - So the message in each counter is independent for each counter.
+
+
+### Storage Room Structure in Kafka
+
 - Now let’s talk the storage room structure in Kafka.
 - The storage room is Kafka "topic"
 - The storage counter is Kafka "partition"
 - Each topic can has one or more partition.
 - This partition will be used for kafka concurrent processing.
-
-
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Storage_Room.png?raw=true)
-
+- We will see it on a few moments.
+- Each partition will save the incoming messages in same order according the sequence they come.
+- We can let Kafka handle partition assigning for us, or we can instruct Kafka which partition
+- we want to save this message.
+- The ID on previous analogy, is called as "offset" in kafka.
+- Offset is maintained for each partition, so current offset value in each partition can be different each other.
+- 
