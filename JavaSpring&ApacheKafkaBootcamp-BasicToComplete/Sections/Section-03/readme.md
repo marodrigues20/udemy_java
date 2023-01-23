@@ -91,5 +91,27 @@
 ### What is it?
 
 
+- On it’s website : kafka.apache.org, it says:
+    - Apache Kafka is a distributed streaming plataform.
+    - A streaming platform has three key capabilities:
+      - Publish and subscribe to stream of records, similiar to a message queue or enterprise messaging system
+      - Store streams of records in a fault-tolerant durable way.
+      - Process streams of records as they occur.
 
+
+
+- This lecture will provides basic introduction for each item.
+
+
+### Publish and subscribe to stream of records, similiar to a message queue or enterprise messaging system
+
+pic: Publish_Subscriber.png
+
+- This is the diagram for kafka as messaging system.
+- We have source application, the blue boxes, that will publish message to kafka, So we called them "publishers" or "producers".
+- The target application, the red boxes, will subscribe for the message.
+- This red nodes commonly known as "subscriber", "consumer", or "listener".
+
+- The message, or in this statement is "records", will be continuously flowing as long as there is any transaction on publisher.
+- That’s why we call it as stream of records.
 
