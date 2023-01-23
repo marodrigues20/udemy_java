@@ -18,3 +18,21 @@
 - Person X is interested to specific room, so Person X subscribe himself for particular "storage room".
 - Whenever a new message comes, person X will knows, so he can take the message and process it.
 
+### Kafka Terminology
+
+- Person A is producer or publisher, application that send message to kafka Message is any kind of information.
+-  It could, for example, an information about a process or task that should start on another application (that could be on another server), or it could be just a simple text message.
+- "Storage room" represents topic, partition, and offset in kafka.
+- We will learn more about this soon.
+- Person X is subscriber, or sometime called as consumer, or listener, application that interested on specific room and consistently monitor it for new message.
+- It will get the message from storage room, using specific mechanism that we will discuss later.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Unique_Warehouse.png?raw=true)
+
+### Synonyms
+
+- Producer / Publisher
+- Send / publish / producer message
+- Subscriber / consumer / listener
+- Subscribe / consume / listen
+- Don't get confused with terminology synonyms
