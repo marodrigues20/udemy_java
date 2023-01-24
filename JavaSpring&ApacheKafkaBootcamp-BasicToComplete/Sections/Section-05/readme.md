@@ -267,7 +267,7 @@
 
 ### Kafka Consumer Group - Commodity example.
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Consumer_Group_1.png?raw=true)
 
 - Let’s re-look the commodity example.
 - In here we have two functionalities : update dashboard and send notification.
@@ -275,7 +275,7 @@
 - In this example, we will have two consumers.
 
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Consumer_Group_2.png?raw=true)
 
 - Both will process same message, from same partition.
 - However, each consumer belongs to different consumer group.
