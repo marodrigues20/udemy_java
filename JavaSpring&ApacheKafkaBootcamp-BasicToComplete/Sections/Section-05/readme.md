@@ -138,7 +138,7 @@
 ### Kafka - How Producer Workds
 
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_Producer_1.png?raw=true)
 
 - Basically this is how producer works if we use example from commodity monitoring system.
 - We have a topic t-commodity-price with three partitions.
@@ -157,7 +157,7 @@
 - Et cetera et cetera.
 
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_Producer_2.png?raw=true)
 
 
 
@@ -169,7 +169,7 @@
 
 
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_Producer_3.png?raw=true)
 
 
 - The second way is by using key on message.
@@ -183,7 +183,7 @@
 - Technically, kafka will hash the key and send the message based on the hash value.
 
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_Producer_4.png?raw=true)
 
 - An important aspect is that the key can go to different partition if later on we decide to add partition.
 - In kafka, we have to define partition number during topic creation.
