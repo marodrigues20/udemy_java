@@ -111,6 +111,9 @@
 
 ### Example
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Example.png?raw=true)
+
+
 - For example, suppose we have a system for monitoring commodity price.
 - This can be gold, iron, copper, silver, etc.
 - So we will have kafka in the middle.
