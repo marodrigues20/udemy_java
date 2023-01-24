@@ -286,4 +286,11 @@
 - Consumer group is independent each other.
 - For example, if we have one topic with 3 partitions.
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Consumer_Group_Independent.png?raw=true)
+
+- We have two functionalities : update dashboard and send notification, so two consumer groups.
+- As a start, we have one consumer for dashboard update, and one consumer for notification.
+- In this state, each consumer will consumes from three partitions.
+- Each consumer group is independent, so D1 process will not interfere N1 process, and vice versa.
+- Later on, we realize that dashboard data update is slow, so we can add another dashboard consumer, but we don’t have to add notification consumer.
+- So we can have this kind of condition.
