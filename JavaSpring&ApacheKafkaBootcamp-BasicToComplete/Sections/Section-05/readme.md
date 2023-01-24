@@ -228,9 +228,9 @@
 - Kafka will arrange this thing for us, making sure that all messages is consumed by this single consumer.
 
 
-### Consumer < Partition 
+### Consumer < Partition
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Consumer_Less_Partitions.png?raw=true)
 
 - We can add more consumer to speed up process
 - So, we can have two consumers.
@@ -250,7 +250,7 @@
 
 ### Consumer > Partition
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Consumer_Greater_Partition.png?raw=true)
 
 - Now, what if we have more consumer than partition?
 - Well, kafka will only allow maximum one consumer per partition per consumer group.
