@@ -283,3 +283,7 @@
 - So even if dashboard consumer takes more time to process each message or vice versa, it does not matter.
 - The dashboard process will not block notification process, or the other way around The consuming process can become like this.
 - Remember that consuming happens in order, so from offset 0 to 1, etc.
+- Consumer group is independent each other.
+- For example, if we have one topic with 3 partitions.
+
+![alt text](http://)
