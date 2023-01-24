@@ -126,3 +126,7 @@
 - Since we have three partition and two functionalities, we can use up until three consumers for each functionality.
 - So we can have six consumers: three consumer for updating dashboard, and three consumer for notification.
 - This is a very high level example of kafka usage.
+
+## 19. Producer
+
+### Kafka Producer
