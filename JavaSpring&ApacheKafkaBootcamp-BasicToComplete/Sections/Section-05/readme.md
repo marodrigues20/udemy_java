@@ -84,3 +84,42 @@
 - The ID on previous analogy, is called as "offset" in kafka.
 - Offset is maintained for each partition, so current offset value in each partition can be different each other.
   
+  ### Topic
+
+  - You can have many topic as you need
+  - Messages stored for certain retention period
+    - Default is 7 days
+    - Able to set value
+  - Each topic has name
+  - Message is immutable
+
+### Partition & Offset
+
+- 1 topic: 1 or more partition(s)
+- Partition is a way to achieve parallelism
+- Messages stored in order for each partition (guaranteed per partition)
+- Order across partition not guaranteed 
+- Offset per partition
+  - Partition 0, offset 0|1|2|3|...
+  - Partition 2, offset 0|1|2|3|...
+  - Partition 3, offset 0|1|2|3|...
+- Each partition is independent
+- Define partition when creates topic
+- Can add partition later
+- Can't delete partition later
+- Because delete partition = delete data (cause data loss)
+
+### Example
+
+- For example, suppose we have a system for monitoring commodity price.
+- This can be gold, iron, copper, silver, etc.
+- So we will have kafka in the middle.
+- We will have real-time dashboard for showing price, and a notification service that will send messages when price change exceed a limit.
+- We can fetch price list every minute and send it to kafka topics t-commodity-price.
+- Every message will contains timestamp, commodity type, and price.
+- In this case, we will have three partitions.
+- We define the number of partitions during create topic.
+- Since we only have several commodities to monitor, currently three partitions is enough to update dashboard and send notification in almost real-time.
+- Later on, if we decide to monitor more commodities, like non-metal commodities: wood, coffee, cotton, et cetera, we might add another partition, thus we can add another consumer.
+- One consumer will works on one partition.
+- Actually, one consumer per functionality, or called as "consumer group", as we will see later.
