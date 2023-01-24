@@ -262,4 +262,24 @@
 
 ### Kafka Consumer Group
 
-- Few moments ago I mentioned about "consumer group".
+- Group consumers based on functionalities
+- Partition & consumer group for parallel consume
+
+### Kafka Consumer Group - Commodity example.
+
+![alt text](http://)
+
+- Let’s re-look the commodity example.
+- In here we have two functionalities : update dashboard and send notification.
+- Assume we have only one partition in topic, and several commodity messages in that partition.
+- In this example, we will have two consumers.
+
+
+![alt text](http://)
+
+- Both will process same message, from same partition.
+- However, each consumer belongs to different consumer group.
+- First group is for update dashboard, while second group is for notification There can be more than one consumer accessing same partition, but only one consumer per consumer group Each consumer group is independent each other.
+- So even if dashboard consumer takes more time to process each message or vice versa, it does not matter.
+- The dashboard process will not block notification process, or the other way around The consuming process can become like this.
+- Remember that consuming happens in order, so from offset 0 to 1, etc.
