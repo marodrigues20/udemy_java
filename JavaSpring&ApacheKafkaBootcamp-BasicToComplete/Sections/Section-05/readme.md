@@ -294,3 +294,9 @@
 - Each consumer group is independent, so D1 process will not interfere N1 process, and vice versa.
 - Later on, we realize that dashboard data update is slow, so we can add another dashboard consumer, but we don’t have to add notification consumer.
 - So we can have this kind of condition.
+
+
+## 21. Consumer Offset & Delivery Semantic
+
+### Consumer Offset
+
