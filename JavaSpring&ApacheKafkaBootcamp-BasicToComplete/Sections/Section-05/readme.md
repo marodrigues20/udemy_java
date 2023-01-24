@@ -201,7 +201,7 @@
 - Each message needs to be processed, otherwise it will be no use.
 - Using warehouse analogy, we can have warehouse worker that take and process messages.
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Processing_Messages_1.png?raw=true)
 
 
 ### Kafka Terminology
@@ -209,7 +209,7 @@
 - In kafka terminology, the warehouse worker is called as subscriber, consumer, or listener.
 - Consumer is guaranteed to read data in order for each partition.
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Processing_Messages_2.png?raw=true)
 
 ### Kafka Consumer
 
@@ -220,7 +220,7 @@
 
 ### Single Consumer for All Partitions
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Single_Consumer_1.png?raw=true)
 
 - For example, if we have one topic with 3 partitions.
 - First case, if we have only single consumer.
@@ -243,7 +243,7 @@
 
 ### Consumer = Partition
 
-![alt text](http://)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Consumer_Equal_Partition.png?raw=true)
 
 - In case consumer number is equals to partition number, it will be one-to-one mapping.
 - Again, kafka default configuration will assign consumer to partition, we don’t need to worry about that task.
