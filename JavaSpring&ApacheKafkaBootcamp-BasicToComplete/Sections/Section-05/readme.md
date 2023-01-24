@@ -37,10 +37,7 @@
 - Subscribe / consume / listen
 - Don't get confused with terminology synonyms
 
-
-## 17. Kafka Analogy
-
-### Topic, Partition & Offset
+## 18. Topic, Partition & Offset
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Storage_Room.png?raw=true)
 
@@ -126,3 +123,6 @@
 - Later on, if we decide to monitor more commodities, like non-metal commodities: wood, coffee, cotton, et cetera, we might add another partition, thus we can add another consumer.
 - One consumer will works on one partition.
 - Actually, one consumer per functionality, or called as "consumer group", as we will see later.
+- Since we have three partition and two functionalities, we can use up until three consumers for each functionality.
+- So we can have six consumers: three consumer for updating dashboard, and three consumer for notification.
+- This is a very high level example of kafka usage.
