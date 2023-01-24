@@ -197,3 +197,55 @@
 
 ### Storage Room - Processing Message
 
+- We have messages in storage room . 
+- Each message needs to be processed, otherwise it will be no use.
+- Using warehouse analogy, we can have warehouse worker that take and process messages.
+
+![alt text](http://)
+
+
+### Kafka Terminology
+
+- In kafka terminology, the warehouse worker is called as subscriber, consumer, or listener.
+- Consumer is guaranteed to read data in order for each partition.
+
+![alt text](http://)
+
+### Kafka Consumer
+
+- Consumer is guaranteed to read data in order for each partition.
+- Order is incrementing by offset (low offset to high), cannot reverse.
+- Each partition maximum one consumer per consumer group.
+- One consumer can read from more than one partition.
+
+### Single Consumer for All Partitions
+
+![alt text](http://)
+
+- For example, if we have one topic with 3 partitions.
+- First case, if we have only single consumer.
+- In this case, consumer will process messages from all partition.
+- Kafka will arrange this thing for us, making sure that all messages is consumed by this single consumer.
+
+
+### Consumer < Partition 
+
+![alt text](http://)
+
+- We can add more consumer to speed up process
+- So, we can have two consumers.
+- In this case, number of consumer is less than number of partitions.
+- Now, one consumer will read messages from one partition, and the other will read from two partitions.
+- It can be like this, or like this.
+- Or other possible combination.
+- Kafka default configuration will handle message distribution for us.
+- We cannot know for sure, which consumer assigned for two partitions.
+
+### Consumer = Partition
+
+![alt text](http://)
+
+- In case consumer number is equals to partition number, it will be one-to-one mapping.
+- Again, kafka default configuration will assign consumer to partition, we don’t need to worry about that task.
+
+### Consumer > Partition
