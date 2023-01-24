@@ -249,3 +249,17 @@
 - Again, kafka default configuration will assign consumer to partition, we don’t need to worry about that task.
 
 ### Consumer > Partition
+
+![alt text](http://)
+
+- Now, what if we have more consumer than partition?
+- Well, kafka will only allow maximum one consumer per partition per consumer group.
+- So if we have four consumers and three partitions, one consumer will be idle.
+- This is not always a bad idea, depends on the case.
+- For example, if each of the consumer runs from different machine, when consumer 3 is suddenly down, 
+  kafka will automatically re-assign idle consumer to replace consumer 3.
+
+
+### Kafka Consumer Group
+
+- Few moments ago I mentioned about "consumer group".
