@@ -130,3 +130,70 @@
 ## 19. Producer
 
 ### Kafka Producer
+
+- Producer send message to Kafka
+- Sends to which topic + message content
+- Kafka will automatically select partition (you can override this behaviour)
+  
+### Kafka - How Producer Workds
+
+
+![alt text](http://)
+
+- Basically this is how producer works if we use example from commodity monitoring system.
+- We have a topic t-commodity-price with three partitions.
+- A commodity fetcher software continuously fetch a commodity price from -let’s say-world trade center.
+- When price fetched, we code kafka producer to send a message to kafka topic.
+- Since we have three partitions, kafka will automatically select partition for us.
+- Let’s just say kafka using round robin algorithm.
+- So if a kafka publisher start fetching and publish price every minute, on first publish, it will publish to a partition.
+- So it might start on partition 0, 1, or 2, we cannot know for sure.
+- Let’s just say it will publish to partition 0.
+- So first publish go to partition 0 offset 0
+- On second publish, partition 1 offset 0.
+- On 3rd publish, partition 2 offset 0.
+- On 4th publish, back to partition 0, with incremental offset to 1.
+- On 5th publish, partition 1 offset 1.
+- Et cetera et cetera.
+
+
+![alt text](http://)
+
+
+
+- Using Spring, we has ability to select which partition we want to send message.
+- The first way is straightforward, we tell publisher which partition we want to send.
+- For example, we can tell publisher to write certain messages to partition 2.
+- However, I recommend to send to multiple partitions if your topic has more than one partition.
+- The reason for this is related to consuming process as we will see later.
+
+
+
+![alt text](http://)
+
+
+- The second way is by using key on message.
+- A key can be anything, a string, a number.
+- It’s up to you.
+- A key is basically sent if we need message ordering for a specific criteria.
+- For example, we need to keep message ordering based on commodity type -gold, copper, iron, etc.
+- So we use commodity type as key.
+- Kafka guarantee that all messages with same key will always go to same partition, as long as we do not add partition.
+- So kafka might sent all messages with key "gold" and "copper" to partition 1, while all "iron" goes to partition 0.
+- Technically, kafka will hash the key and send the message based on the hash value.
+
+
+![alt text](http://)
+
+- An important aspect is that the key can go to different partition if later on we decide to add partition.
+- In kafka, we have to define partition number during topic creation.
+- So if we decide to use 3 partitions, all messages with "gold" key might always go to partition 1.
+- But later on when we add another 2 partitions, the next message with "gold" key might go to partition 3, we don’t know for sure.
+- So this is the basic of producer in Kafka.
+- Next, we will see the other side of coin: the Kafka consumer.
+
+
+## 20. Consumer & Consumer Group
+
+### Storage Room - Processing Message
+
