@@ -354,3 +354,17 @@
   - Create idempotent consumer
 - Exactly-once
   - Once only
+  - Hard to implement
+
+
+## 22. Zookeeper
+
+- Kafka designed for highly available
+- Kafka cluster: group of kafka brokers (servers)
+- Zookeeper manage those brokers
+  - Add broker
+  - Broker dies
+  - Synchronize data
+- This course will not focus on zookeeper
+- Zookeeper server must runs for kafka to start (old Kafka)
+- No need zookeepers to start (version 2.8+)
