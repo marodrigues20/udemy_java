@@ -27,4 +27,4 @@ Java Project: kafka-core-producer
 - Filename: application.properties or application.yml
 - Prefer yml format for readability (optional)
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_ConsumerOffSet_2.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
