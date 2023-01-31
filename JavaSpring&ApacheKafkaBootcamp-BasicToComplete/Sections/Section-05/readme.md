@@ -300,3 +300,57 @@
 
 ### Consumer Offset
 
+- Remember that every message in kafka has offset.
+- It is like an ID that indicates message position in partition, and it always in ordered sequence.
+- When consumer read message, it will remember the offset for that message.
+- This remembered offset commonly referred as consumer offset.
+- It is unique per partition Kafka will save these consumer offset on it’s internal topic.
+- We can use this auto-save feature, or we can save the consumer offset programmatically.
+- It is like a checkpoint that indicates, where is the last time a consumer read a partition.
+- So when consumer dies and restart, it will be able to know where is the last time it read message, and continue from that offset.
+
+
+
+### Kafka Consumer Offset
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_ConsumerOffSet_1.png?raw=true)
+
+- When we have two consumer group reading same partition, let’s just say dashboard consumer already read up to offset 247, and notification consumer read up to offset 245. Kafka will store this offset.
+  
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05/Kafka_ConsumerOffSet_2.png?raw=true)
+
+- When dashboard consumer is suddenly down, it is not a problem.
+- Remember that consumer group is independent each other.
+- Notification consumer will continue to read to offset 246, 247, etc.
+- When the dashboard consumer comes up few hour later, it knows that the last offset it read is 247.
+- So it will continue to read from offset 248 forward.
+
+### Delivery Semantic
+
+- Consumer can choose whether offset saving is happen automatically or manual.
+- This is called delivery semantic.
+- There are three kind of delivery semantics.
+- The first is at-most-once, where offset is committed immediately after read, so only zero or once delivery happened.
+- In this semantic, if something goes wrong during processing, the message will not be re-processed.
+
+- The second is at-least-once, where offset commit happens after message processed.
+- When something goes wrong during process, the offset should not committed, so consumer will re-process the message.
+- In this semantic, there is a possibility that message is re-processed, so we must design an idempotent consumer.
+- Idempotent means re-processing the message that already processed will not have impact on your system.
+- For example, it will not create duplicate transaction.
+
+
+- The last is exactly-once semantic, where message is processed only once. However, implementing consumer for this semantic is hard.
+
+#### Summary
+
+- Consumer choose when to saving (commit) offset
+- At-most-once
+  - Zero (unprocessed) or once (processed)
+  - Possible message loss (on error process)
+- At-least-once
+  - One or more
+  - Something wrong, able to re-process
+  - Create idempotent consumer
+- Exactly-once
+  - Once only
