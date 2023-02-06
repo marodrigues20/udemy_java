@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- This xml document holds the license information -->
+<DriversLicense status="suspen">
+	<Number>12345</Number>
+	<FirstName>Bharath</FirstName>
+	<LastName>Thippi&lt;reddy</LastName>
+	<DataOfBirth>18/may/1981</DataOfBirth>
+	<VehicleType>Car</VehicleType>
+	<DataOfIssue>11/june/2012</DataOfIssue>
+	
+	<![CDATA[
+	
+	<DataOfIssue>11/june/2012</DataOfIssue>
+	
+	]]>
+	
+	
+	<!-- For Citizens it is 4 years and for visa holders it is the visa expiry date -->
+	<ExpirtyDate>11/june/2015</ExpirtyDate>
+	<Photo location="servername/filename"/>
+	
+	
+	<Address>
+		<street>stevens dr</street>
+		<city>king of prussio</city>
+		<state>PA</state>
+		<country>USA</country>
+		<zipcode>19406</zipcode>
+	</Address>
+</DriversLicense>
