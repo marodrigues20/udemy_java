@@ -58,4 +58,15 @@ Java Project Reference: kafka-core-producer
 
 Java Reference Project: kafka-core-producer
 
+## 26. Consumer is Real Time Indeed
+
+### Create a Topic
+- $ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic t-fixedrate --partition 1 --replication-factor 1
+
+### List Topic
+
+- kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+
+
 
