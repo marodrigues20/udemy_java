@@ -93,3 +93,8 @@ reason, if we have to use multiple orders from eBay and Amazon in a single XML d
 
 ## 38. Schema Creation
 
+Project Reference: PatientSchema
+
+## 39. Validating the XML 
+
+Project Reference: PatientSchema

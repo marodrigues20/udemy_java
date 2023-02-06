@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Patient xmlns:tns="http://www.alexandre.com/Patient" 
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			 xsi:schemaLocation="http://www.alexandre.com/Patient Patient.xsd ">
+  <tns:name>Alexandre</tns:name>
+  <tns:age>22</tns:age>
+  <tns:email>als@gmail.com</tns:email>
+  <tns:gender>male</tns:gender>
+  <tns:phone>123456890</tns:phone>
+</tns:Patient>
