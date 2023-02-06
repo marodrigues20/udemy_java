@@ -71,7 +71,7 @@
 - Similarly if we are defining a prefix for ebay, here is the xmlns:, ebay is the prefix.
 - This could be xyz or anything and then the actual namespace. Once we define the target namespace and qualify all the elements that we create with these prefixes.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/XML%20and%20XML%20Schema%20Definition%20in%20Easy%20Steps/Sections/Section_6/Namespace_xsd.png?raw=true)
 
 
 - when we create the XML document that XML document also should use the exact namespace. 
@@ -79,7 +79,7 @@
 - Similarly the order for eBay will use a xmlns:ebay and then all the elements inside again will be qualified with the eBay's namespace. For some business
 reason, if we have to use multiple orders from eBay and Amazon in a single XML document, looking at the namespace we know from which company or if the order is from Amazon or is the order from eBay.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/XML%20and%20XML%20Schema%20Definition%20in%20Easy%20Steps/Sections/Section_6/Namespace_xml.png?raw=true)
 
 
 ### Summarize
