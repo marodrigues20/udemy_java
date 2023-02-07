@@ -64,8 +64,9 @@ Java Reference Project: kafka-core-producer
 - $ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic t-fixedrate --partition 1 --replication-factor 1
 
 ### List Topic
-
 - kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+
 
 
 
