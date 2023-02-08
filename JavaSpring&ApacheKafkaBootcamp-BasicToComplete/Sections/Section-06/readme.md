@@ -80,13 +80,13 @@ Java Reference Project: kafka-core-producer
 - Latest is the default value, which means if there is no commited position, consumer will start receiving and processing messages that are sent to kafka after consumer started.
 - So in this illustration, it will consumes only the blue messages, which are messages arrived after consumer started.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/ConsumeOfSetOnFirst.png?raw=true)
 
 - If you need to process all messages that arrived even before consumer started, set the auto.offset.reset parameter to "earliest".
 - So the consumer will consume all messages, including the brown one, which arrived before consumer started.
 - This is optional, you can choose depends on your need.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/ConsumeOfSetOnFirst_2.png?raw=true)
 
 - For example, if the message triggers important transaction, like financial API call, better to set the value to "earliest".
 - Other than those two values, you can also set offset manually.
