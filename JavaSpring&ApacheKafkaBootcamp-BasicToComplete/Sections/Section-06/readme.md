@@ -56,9 +56,13 @@ Java Project Reference: kafka-core-producer
 
 ## 25. Hello Kafka - Java Spring Code
 
+- In this lecture, we will create a HelloKafkaProducer.
+
 Java Reference Project: kafka-core-producer
 
 ## 26. Consumer is Real Time Indeed
+
+- In this lecture, we will prove that consumer keep monitoring topic and process incoming message in real time.
 
 ### Create a Topic
 - $ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic t-fixedrate --partition 1 --replication-factor 1
@@ -66,8 +70,42 @@ Java Reference Project: kafka-core-producer
 ### List Topic
 - kafka-topics.sh --bootstrap-server localhost:9092 --list
 
+## 27. "Fixing" Consumer
 
+### Consumer Offset on First Run
 
+- When we start the consumer for the first time, there is no committed offset position.
+- In that case, we need to tell the consumer where to start consuming message by setting the "auto.offset.reset" configuration.
+- There are two values that commonly used : earliest, and latest.
+- Latest is the default value, which means if there is no commited position, consumer will start receiving and processing messages that are sent to kafka after consumer started.
+- So in this illustration, it will consumes only the blue messages, which are messages arrived after consumer started.
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+
+- If you need to process all messages that arrived even before consumer started, set the auto.offset.reset parameter to "earliest".
+- So the consumer will consume all messages, including the brown one, which arrived before consumer started.
+- This is optional, you can choose depends on your need.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+
+- For example, if the message triggers important transaction, like financial API call, better to set the value to "earliest".
+- Other than those two values, you can also set offset manually.
+- For now, let's set the value to earliest.
+
+### Creating one more topic "t-fixedrate-2"
+
+- $ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic t-fixedrate-2 --partition 1 --replication-factor 1
+
+### List all topics to check if it has been created.
+- kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+### Java Project Reference
+
+- kafka-core-consumer
+  - Add "FixedRate2Consumer.java"
+- kafka-core-producer
+  - Add "FixedRate2Producer.java"
+
+## 28. Producing Message With Key
 
 

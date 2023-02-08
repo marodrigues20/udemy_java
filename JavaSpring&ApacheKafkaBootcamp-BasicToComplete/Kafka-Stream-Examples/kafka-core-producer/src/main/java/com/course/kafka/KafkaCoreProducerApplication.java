@@ -13,10 +13,6 @@ import java.util.concurrent.ThreadLocalRandom;
 @EnableScheduling
 public class KafkaCoreProducerApplication implements CommandLineRunner {
 
-
-	//@Autowired //25.Hello Kafka - Java Spring Code
-	//private HelloKafkaProducer producer;
-
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication.class, args);
 	}
@@ -24,7 +20,5 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//25.Hello Kafka - Java Spring Code
-		//producer.sendHello("Timotius " + ThreadLocalRandom.current().nextInt());
 	}
 }
