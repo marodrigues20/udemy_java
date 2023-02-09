@@ -109,3 +109,42 @@ Java Reference Project: kafka-core-producer
 ## 28. Producing Message With Key
 
 
+- Same Key goes to same partition
+- As long as we don't change the partition number
+
+### First, create a topic with three partitions in kafka.
+
+- $ kafka-topics.sh --bootstrap-server localhost:9092 --create --partition 3 --replication-factor 1 --topic t-multi-partitions
+
+### We can see that this topic has three partitions, so we can run up to three consumers for this topic.
+
+- $ kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic t-multi-partitions
+
+
+### Project Reference
+
+- Kafka-core-producer
+  - Class: KafkaKeyProducer.java
+  - Class: KafkaCoreProducerApplication.java
+
+
+### How To Run Produce and Check Messages
+
+1. Run the Application
+2. Open Bash Shell prompt
+3. Type the cli command to consume messages from partition 0.
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-multi-partitions --offset earliest --partition 0
+4. Type the cli command to consume messages from partition 1.
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-multi-partitions --offset earliest --partition 1
+5. Type the cli command to consume messages from partition 2.
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-multi-partitions --offset earliest --partition 2
+
+
+- Now, if we run the producer again, data distribution will be same based on key.
+- So certain key goes to partition 0, some goes to partition 1, and some others to partition 2.
+
+- Let’s try to run the producer again, without stopping kafka console consumer.
+- Now, we will send data starting from counter 0 to 10000 so we get some number of data to experiment with And pause the producer a while to get better visual on how the message arrives.
+- Now, run the producer again and let’s inspect the kafka console consumers.
+- As you can see, the key is consistently goes to same partition.
+- In the next lecture, we will use this topic and partition to see how we can create multiple consumers from Spring.
