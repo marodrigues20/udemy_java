@@ -172,7 +172,7 @@ Java Reference Project: kafka-core-producer
   - Class: KafkaKeyConsumer.java
 
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/ConsumeOfSetOnFirst_2.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/t-multi-partitions.png?raw=true)
 
 - We have three partitions and four consumers, so the fourth consumer is currently idle.
 - In this lecture, we will learn how to modify the partition so the fourth consumer can be utilized.
