@@ -148,3 +148,62 @@ Java Reference Project: kafka-core-producer
 - Now, run the producer again and let’s inspect the kafka console consumers.
 - As you can see, the key is consistently goes to same partition.
 - In the next lecture, we will use this topic and partition to see how we can create multiple consumers from Spring.
+
+
+## 29. Multiple Consumers for Each Topic
+
+- Consider this scenario:
+- You have a producer that put messages in a very short time, say every half second, and the producer keep running.
+- In your consumer, it needs up to two seconds to process each message.
+- If you only have single consumer, eventually a lot of messages will remain on topic, and process will become bottleneck.
+- One solution for this is to put multiple concurrent consumers for the topic.
+- Multiple consumers in kafka depends on how many partition a topic has.
+- To find out more about the theory, please see the previous lectures about partition and consumer.
+- In this lecture, I will show you that with Spring, it’s very easy to add multiple consumers.
+- Spring will maintain how the consumers run and you can avoid low level thread programming.
+- Spring already handles them.
+
+
+- At this point we should have topic t-multi-partitions with three partitions, created from lecture about producing message with key.
+- If you does not have it, please create the topic first.
+- In this lecture, we will learn how can we tell Spring to create multiple consumers.
+
+- Project Reference: kafka-core-consumer
+  - Class: KafkaKeyConsumer.java
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/ConsumeOfSetOnFirst_2.png?raw=true)
+
+- We have three partitions and four consumers, so the fourth consumer is currently idle.
+- In this lecture, we will learn how to modify the partition so the fourth consumer can be utilized.
+- After few moments, Kafka will automatically recognize the fourth partition and start sending and consuming using fourth partition.
+- To modify topic, execute this command on kafka.
+
+1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --alter --topic t-multi-partitions --offset earliest --partition 4
+2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --describe --topic t-multi-partitions --offset earliest --partition 4
+
+- Now if we see the topic, we will see that it has 4 partitions.
+- Let’s restart the kafka producers and consumers.
+- See the log and then you will see that all four consumers are currently working.
+- We now process four messages per second.
+- hopefully it clear now that partitioning is a way to achieve parallel processing in Kafka.
+- One thing to remember : we can delete topic and all partitions in it, but we cannot delete individual partition in Kafka.
+- Deleting partition can cause data loss and the data's keys might not be distributed correctly, since new messages would not get
+  published to the same partitions as old existing messages with the same key.
+- If you want to decrease partition, the only way is deleting the topic and then re-create it.
+- Be careful though, deleting topic means deleting all data in that topic.
+- Please note that in this course, we are not deleting topic, since I use kafka on top of docker windows, and sometimes it is problematic.
+- In real life, kafka server is better runs as native installation on top of linux.
+
+### What About Deleting Partition?
+
+- Delete topic is OK
+- Can't delete partition
+- Can cause data loss
+- Wrong key distribution
+- Decrease partition > delete & recreate topic
+
+
+
+
+
