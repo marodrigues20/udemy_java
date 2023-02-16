@@ -1,10 +1,14 @@
 package com.course.kafka.entity;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import java.time.LocalDate;
 
-/*
+/**
 31. Producing JSON Message
 */
+@JsonNaming(value = PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class Employee {
 
     private String employeeId;

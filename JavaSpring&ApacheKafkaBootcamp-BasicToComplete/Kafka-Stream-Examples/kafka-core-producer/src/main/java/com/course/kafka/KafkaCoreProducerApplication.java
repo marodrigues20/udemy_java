@@ -1,6 +1,7 @@
 package com.course.kafka;
 
 import com.course.kafka.entity.Employee;
+import com.course.kafka.producer.Employee2JsonProducer;
 import com.course.kafka.producer.EmployeeJsonProducer;
 import com.course.kafka.producer.HelloKafkaProducer;
 import com.course.kafka.producer.KafkaKeyProducer;
@@ -20,7 +21,9 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 	//@Autowired
 	//private KafkaKeyProducer producer;
 
-	private EmployeeJsonProducer producer;
+	//private EmployeeJsonProducer producer;
+
+	private Employee2JsonProducer producer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication.class, args);

@@ -1,6 +1,7 @@
 package com.course.kafka.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +20,8 @@ public class JsonConfig {
     public ObjectMapper objectMapper(){
         var objectMapper = new ObjectMapper();
         objectMapper.findAndRegisterModules();
+        // By default, jackson will not write LocalDate as String. If you want it as String, add the bellow line
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
         return objectMapper;
     }

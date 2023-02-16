@@ -39,3 +39,36 @@
    1. $ kafka-topic.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic t-employee-2
 
 
+## 32. Customize JSON Format
+
+- JSON Customization
+  - Default:
+    - someAttribute
+    - Local date: verbose format
+  - Customize by Jackson annotations
+  - Different teams, different standards (some using snake_case, some using kebab-case)
+  - Avoid miscommunication
+  - Useful in data exchanges
+
+
+- Reference Project: kafka-core-producer
+
+- Created classes
+  - Employee2JsonProducer.java
+  - JsonConfig.java added 
+    ```
+     // By default, jackson will not write LocalDate as String. If you want it as String, add the bellow line
+        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+    ```    
+  - Used the class KafkaCoreProducerApplication.java
+    ```
+    private Employee2JsonProducer producer;
+    ```
+  - Added in application.yaml file
+    ```
+    spring:
+      jackson:
+        date-format: yyyy-MM-dd
+    ```  
+
+    
