@@ -83,4 +83,20 @@
         date-format: yyyy-MM-dd
     ```  
 
-    
+33. Consuming JSON Message
+
+Project Reference: kafka-core-consumer
+
+Classes Created 
+- config/JsonConfig.java
+- entity/Employee
+- EmployeeJsonConsumer.java
+
+File changed
+
+- application.yml
+  ```
+  spring:
+  jackson:
+    date-format: yyyy-MM-dd
+  ```

@@ -9,3 +9,7 @@ spring:
     consumer:
       group-id: default-spring-consumer
       auto-offset-reset: earliest
+  spring:
+    jackson:
+      date-format: yyyy-MM-dd
+
