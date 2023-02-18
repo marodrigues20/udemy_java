@@ -41,6 +41,18 @@
 
 ## 32. Customize JSON Format
 
+
+- By default, Jackson will generate JSON string with variable names as json attribute and local date in complex format.
+- We can customize this items by using annotation.
+- For example, we can have custom format for attribute names and date format.
+- Customization handy especially if you works a lot with JSON.
+- Different teams might have different standards, but we need to keep the standard to avoid miscommunication among team members.
+- For example, In some teams I’ve worked, the standard for date format is ISO 8601.
+- That way, we know how to send and receive date string, and convert it into date variable.
+- In a REST API or messaging system that uses JSON for data exchange this kind of standards should be used.
+- If you want to know more about REST API and jackson annotation, please refer to last section of the course.
+
+
 - JSON Customization
   - Default:
     - someAttribute
