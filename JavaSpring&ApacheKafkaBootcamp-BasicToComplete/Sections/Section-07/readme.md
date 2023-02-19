@@ -129,6 +129,6 @@ File changed
 - We will have two consumer groups consuming from t-commodity, one is cg-dashboard and one is cg-notification.
 - This diagram is nearly identical with what we have previously in theory.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/KafkaSchema.png?raw=true)
 
 - OK, I know you wants to see code, so let's go to producer project.
