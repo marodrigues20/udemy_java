@@ -131,4 +131,29 @@ File changed
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/KafkaSchema.png?raw=true)
 
-- OK, I know you wants to see code, so let's go to producer project.
+
+
+### Creating a topic
+
+- $ kafka-topics.sh --bootstrap-server localhost:9092 --create --partition 1 --replication-factor 1 --topic t-commodity
+
+### Creating the code
+
+Project Reference: kafka-core-producer
+
+- Java Classes Created:
+  - Commodity.java
+  - service/CommodityService.java
+  - api/CommodityApi.java
+  - producer/CommodityProducer.java
+  - scheduler/CommodityScheduler.java
+
+- Dependencies Added:
+  ```
+  implmentation("org.springframework.boot:spring-boot-starter-web")
+  ```
+
+### To Check that application is sending data to kafka topic
+
+- $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --offset earliest --partition 0 --topic t-commodity
+

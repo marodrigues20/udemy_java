@@ -16,9 +16,10 @@ val jacksonVersion = "2.13.2"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web") //34. Consuming with Consumer Groups - Create Producer
 	implementation("org.springframework.kafka:spring-kafka")
-	implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}") //This is being added to work with JSON
-	implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}") //This is being added to work with JSON
+	//implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}") //This is being added to work with JSON
+	//implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}") //This is being added to work with JSON
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 }
@@ -26,3 +27,5 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+

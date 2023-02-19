@@ -16,20 +16,21 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @SpringBootApplication
 @EnableScheduling
-public class KafkaCoreProducerApplication implements CommandLineRunner {
+public class KafkaCoreProducerApplication {
+	//implements CommandLineRunner {
 
 	//@Autowired
 	//private KafkaKeyProducer producer;
 
 	//private EmployeeJsonProducer producer;
 
-	private Employee2JsonProducer producer;
+	//private Employee2JsonProducer producer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String... args) throws Exception {
 		/*for( int i = 0; i < 10_000; i++){
 			var key = "key-" + (i % 4);
@@ -37,9 +38,9 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 			producer.send(key, value);
 		}*/
 
-		for(int i = 0; i < 5; i ++){
+		/*for(int i = 0; i < 5; i ++){
 			var emp = new Employee("emp-" + i, "Employee " + i, LocalDate.now());
 			producer.sendMessage(emp);
-		}
-	}
+		}*/
+	//}
 }
