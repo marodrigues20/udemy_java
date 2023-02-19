@@ -83,7 +83,7 @@
         date-format: yyyy-MM-dd
     ```  
 
-33. Consuming JSON Message
+## 33. Consuming JSON Message
 
 Project Reference: kafka-core-consumer
 
@@ -101,6 +101,34 @@ File changed
     date-format: yyyy-MM-dd
   ```
 
-  34. Consuming with Consumer Groups - Create Producer
+## 34. Consuming with Consumer Groups - Create Producer
 
-  
+- We will have a producer that publish commodity data.
+- There will be two functionalities that will access same commodity data.
+- One functionality is for update dashboard, and the other is for send notification.
+- So we will have same messages read by two consumers, each has different functionality.
+- If you need to remember more detail, please see lecture at the beginning of this course about kafka theory.
+
+- In Summary: What We will create
+  - Consumer with consumer group
+  - Producer: publish commodity data
+  - Functionalities
+    - 1: Update dashboard
+    - 2: Send notification
+  - Read same message, different functionality
+
+  ### This is the schema that we will use. - Kafka Schema
+
+- We will have topic t-commodity, where we will begin with one partition and add more later.
+- For the producer, we will create a scheduler that pull random commodity data from API and publish them to kafka.
+- This scheduler will send data to "t-commodity" every specified interval.
+- We will create dummy API to generate commodity list, and also create the scheduler.
+
+### Now for the consumer
+
+- We will have two consumer groups consuming from t-commodity, one is cg-dashboard and one is cg-notification.
+- This diagram is nearly identical with what we have previously in theory.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06/properties_1.png?raw=true)
+
+- OK, I know you wants to see code, so let's go to producer project.
