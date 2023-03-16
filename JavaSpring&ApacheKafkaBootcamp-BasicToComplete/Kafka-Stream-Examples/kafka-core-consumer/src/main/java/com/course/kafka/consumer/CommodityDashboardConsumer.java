@@ -24,7 +24,7 @@ public class CommodityDashboardConsumer {
      * @param message
      * @throws JsonProcessingException
      */
-    @KafkaListener(topics= "t-commodity", groupId = "cg-dashboard")
+    //@KafkaListener(topics= "t-commodity", groupId = "cg-dashboard")
     public void consume(String message) throws JsonProcessingException {
         var commodity = objectMapper.readValue(message, Commodity.class);
         LOG.info("Dashboard logic for: {}", commodity);

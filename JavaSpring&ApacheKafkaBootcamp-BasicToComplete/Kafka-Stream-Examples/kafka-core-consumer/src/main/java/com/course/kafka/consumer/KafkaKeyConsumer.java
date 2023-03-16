@@ -13,7 +13,7 @@ public class KafkaKeyConsumer {
 
     private static final Logger LOG = LoggerFactory.getLogger(KafkaKeyConsumer.class);
 
-    @KafkaListener(topics = "t-multi-partitions")
+    //@KafkaListener(topics = "t-multi-partitions")
     public void consume(ConsumerRecord<String, String> consumerRecord) throws InterruptedException {
         LOG.info("Key : {}, Partition: {}, Message: {}", consumerRecord.key(), consumerRecord.partition(), consumerRecord.value());
         TimeUnit.SECONDS.sleep(1);

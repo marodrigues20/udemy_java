@@ -193,3 +193,52 @@ Classes added:
 
 ## 36. Rebalancing
 
+Project Reference: kafka-core-producer
+Classes created:
+  - RebalanceProducer.java
+  - Note: Enable in the "KafkaCoreProducerApplication.java" @EnableScheduling
+
+Project Reference: kafka-core-consumer
+Classes created:
+  - 
+
+- On previous lecture about multi consumer, when I add partition to topic, I restart the kafka producer and consumer. 
+- If I did not restart the producer and consumer, kafka will need some times to recognize the new partition. This process is called as rebalancing. Let’s try it.
+- Add a new kafka topic "t-rebalance" with one partition. 
+- OK, topic is created.
+- Go to producer project and create a "RebalanceProducer" under package "producer".
+- This will send some string into t-rebalance every specified one second.
+- Annotate the class as service.
+- We need KafkaTemplate and a counter.
+- Create a method that increment a counter every second and send the counter value into t-rebalance.
+- Mark the method as @Scheduled with interval of one second.
+- Now, go to KafkaProducerApplication and make sure that @EnableScheduling is enabled.
+- Don’t start the producer yet, we will create the consumer.
+- On consumer, create a new class "RebalanceConsumer" under package "consumer".
+- Mark the class as @Service.
+- We need a logger.
+- Create a listener method, using ConsumerRecord as parameter, since we will need to see partition information.
+- I will log several items : partition, offset, and message content.
+- Annotate this method to listen from t-rebalance, using 3 concurrency.
+- At this point, 2 concurrent listener will be idle since we only have one partition.
+- That’s ok.
+- Now add second partition to t-rebalance.
+- Before we add partition, make sure consumer and producer are running.
+- Open kafka command and execute this to alter t-rebalance into two partitions.
+- Check again, now it has two partitions.
+- When you done executing the script, go back to eclipse logs.
+- Here, we can see that consumer still take messages only from partition 0.
+- The counter is in correct sequence, incremented by one.
+- So basically, no messages go to partition one, which is the new partition.
+- This is the default behaviour of kafka, we will wait for about few minutes and see what happened later.
+- Don’t turn off producer or consumer.
+- OK, at this point, I’ve stopped the consumer and producer so we can examine logs.
+- Since we schedule producer to publish every second, we can examine the time based on logs or based on counter, Notice that around 5 minutes after
+  started, the consumer project will have logs regarding coordinator.
+- And then there is a log that indicates "partitions assigned" on t-rebalance.
+- Also, producer starts sending message to partition one after around 5 minute.
+
+
+### Command to add a new Kafka Topic t-rebalance
+
+  $ kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic t-rebalance

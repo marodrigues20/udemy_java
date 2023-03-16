@@ -27,7 +27,7 @@ public class CommodityNotificationConsumer {
      * @param message
      * @throws JsonProcessingException
      */
-    @KafkaListener(topics= "t-commodity", groupId = "cg-notification")
+    //@KafkaListener(topics= "t-commodity", groupId = "cg-notification")
     public void consume(String message) throws JsonProcessingException, InterruptedException {
         var commodity = objectMapper.readValue(message, Commodity.class);
 

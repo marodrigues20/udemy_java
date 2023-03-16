@@ -17,7 +17,7 @@ public class FixedRate2Producer {
     private KafkaTemplate<String, String> kafkaTemplate;
     private AtomicInteger counter = new AtomicInteger();
 
-    @Scheduled(fixedRate = 1000)
+    //@Scheduled(fixedRate = 1000)
     public void sendMessage(){
         var i = counter.incrementAndGet();
         LOG.info("i is " + i);

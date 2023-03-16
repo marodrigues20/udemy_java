@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class FixedRate2Consumer {
     private static final Logger LOG = LoggerFactory.getLogger(FixedRate2Consumer.class);
 
-    @KafkaListener(topics = "t-fixedrate-2", concurrency= "3" )
+    //@KafkaListener(topics = "t-fixedrate-2", concurrency= "3" )
     public void consume(String message){
         LOG.info("Consuming : {} ", message);
     }
