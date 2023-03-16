@@ -200,7 +200,7 @@ Classes created:
 
 Project Reference: kafka-core-consumer
 Classes created:
-  - 
+  - RebalanceConsumer.java
 
 - On previous lecture about multi consumer, when I add partition to topic, I restart the kafka producer and consumer. 
 - If I did not restart the producer and consumer, kafka will need some times to recognize the new partition. This process is called as rebalancing. Let’s try it.
@@ -242,3 +242,29 @@ Classes created:
 ### Command to add a new Kafka Topic t-rebalance
 
   $ kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic t-rebalance
+
+### Command to add one more partition
+
+  $ docker-compose exec broker kafka-topics --alter --topic t-rebalance --partitions 2 --bootstrap-server broker:9092
+
+
+## 37. Kafka Configuration
+
+Project Reference: kafka-core-producer
+Classed added:
+  - KafkaConfig.java
+
+Project Reference: kafka-core-consumer
+Classed added:
+  - KafkaConfig.java
+
+- Run the Application (Consumer and Producer)
+- Add one more partition
+- $ docker-compose exec broker kafka-topics --alter --topic t-rebalance --partitions 3 --bootstrap-server broker:9092
+
+### Result of implementation
+
+  - After 3 minutes the producer will start send message to partition 3
+  - After 2 minutes the consumer will start consume from partition 3
+  
+  
