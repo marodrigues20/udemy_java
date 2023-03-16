@@ -157,3 +157,39 @@ Project Reference: kafka-core-producer
 
 - $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --offset earliest --partition 0 --topic t-commodity
 
+
+
+## 35. Consuming with Consumer Groups - Creating Consumer
+
+Project Reference: kafka-core-consumer
+
+Classes added:
+  - CommodityDashboardConsumer.java
+  - CommodityNotificationConsumer.java
+  - Commodity.java
+
+
+### Test Consumer Group via Cli Command
+
+- Below command let's us see the cg-dashboard works on topic t-commodity
+  
+  $ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group cg-dashboard --describe
+
+  - We have many columns produced by this above command:
+    - GROUP
+    - TOPIC
+    - PARTITION
+    - CURRENT-OFFSET
+    - LOG-END-OFFSET
+    - LAG -> Messages not processed by the group yet.
+    - CONSUMER-ID
+    - HOST
+    - CLIENT-ID
+
+### How to reset off-set via command line
+
+  - This command will reset the off-set to 10 in t-commodity topic and partition 0.
+  $ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group cg-dashboard --execute --reset-offsets --to-offset 10 --topic t-commodity:0
+
+## 36. Rebalancing
+
