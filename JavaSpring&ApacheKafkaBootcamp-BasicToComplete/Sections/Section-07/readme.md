@@ -306,3 +306,5 @@ Classes Added:
   - First listener will displays all location data.
   - Second listener will filter data, displaying only data with distance more than 100.
 
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/message_filter_2.png?raw=true)
