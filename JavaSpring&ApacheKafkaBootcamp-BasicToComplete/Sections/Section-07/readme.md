@@ -285,4 +285,7 @@ Classed added:
 - We will simulate three cars running and send distance every few moments.
 - We will create two listeners: One listener will process all messages, while the other will filter message and process only cars with location more 
   than 100. Let’s start.
-- 
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/message_filter_1.png?raw=true)
+
