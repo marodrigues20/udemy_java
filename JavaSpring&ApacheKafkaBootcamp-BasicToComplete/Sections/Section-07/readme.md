@@ -276,7 +276,7 @@ Classed added:
   - Filter for each listener
 
 
-### Scneario
+### Scenario
 
 - In this lecture, we will use this scenario.
 - We will have fleet of cars that constantly send distance to kafka.
@@ -288,4 +288,21 @@ Classed added:
 
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/message_filter_1.png?raw=true)
+
+
+### Producer Explained
+
+Project Reference: kafka-core-producer
+Classes Added:
+    - CarLocation.java
+    - CarLocationProducer.java
+
+
+- For the producer itself, we will create a simulation of three cars, sending location data to kafka every ten seconds.
+- For simplicity, we will use this scenario:
+  - First car is start from 0 kilometers and increasing by 1 kilometer every ten second,
+  - Second car start from 110 kilometers, decreasing by 1 every ten second,
+  - Third car start from 95 kilometers, increasing by 1 every ten second. 
+  - First listener will displays all location data.
+  - Second listener will filter data, displaying only data with distance more than 100.
 
