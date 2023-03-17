@@ -270,3 +270,19 @@ Classed added:
 
 ## 38. Message Filter
 
+- Filtering Messages
+  - Match criteria: processed
+  - Not match criteria: not processed but still on topic
+  - Filter for each listener
+
+
+### Scneario
+
+- In this lecture, we will use this scenario.
+- We will have fleet of cars that constantly send distance to kafka.
+- We will have topic t-location for storing location of car.
+- The message body will contains car ID, timestamp, and current car distance from base.
+- We will simulate three cars running and send distance every few moments.
+- We will create two listeners: One listener will process all messages, while the other will filter message and process only cars with location more 
+  than 100. Let’s start.
+- 
