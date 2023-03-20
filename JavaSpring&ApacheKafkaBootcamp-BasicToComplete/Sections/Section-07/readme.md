@@ -296,6 +296,7 @@ Project Reference: kafka-core-producer
 Classes Added:
     - CarLocation.java
     - CarLocationProducer.java
+    - CarLocationScheduler.java
 
 
 - For the producer itself, we will create a simulation of three cars, sending location data to kafka every ten seconds.
@@ -308,3 +309,15 @@ Classes Added:
 
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/message_filter_2.png?raw=true)
+
+
+### Consumer Explained
+
+Project Reference: kafka-core-consumer
+Classes Added/Modified:
+  - CarLocationConsumer.java
+  - KafkaConfig.java
+
+
+## 39. Idempotency
+
