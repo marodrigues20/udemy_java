@@ -367,6 +367,8 @@ Classes Added/Modified:
 - Classes Added/Modified:
   - PurchaseRequest.java
   - PurchaseRequestProducer.java
+  - KafkaCoreProducerApplication.java
+  - build.gradle.kts
 
 ### One Question
 
@@ -394,3 +396,13 @@ Classes Added/Modified:
 
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/OneQuestion.png?raw=true)
+
+
+### Project Reference
+
+Project Reference: kafka-core-consumer
+Classes Added/Modified:
+  - CacheConfig.java
+  - PurchaseRequest.java
+  - PurchaseRequestConsumer.java
+  

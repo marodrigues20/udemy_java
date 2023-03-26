@@ -1,10 +1,8 @@
 package com.course.kafka;
 
 import com.course.kafka.entity.Employee;
-import com.course.kafka.producer.Employee2JsonProducer;
-import com.course.kafka.producer.EmployeeJsonProducer;
-import com.course.kafka.producer.HelloKafkaProducer;
-import com.course.kafka.producer.KafkaKeyProducer;
+import com.course.kafka.entity.PurchaseRequest;
+import com.course.kafka.producer.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,8 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @SpringBootApplication
 @EnableScheduling
-public class KafkaCoreProducerApplication {
-	//implements CommandLineRunner {
+public class KafkaCoreProducerApplication implements CommandLineRunner {
 
 	//@Autowired
 	//private KafkaKeyProducer producer;
@@ -28,6 +25,23 @@ public class KafkaCoreProducerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication.class, args);
+	}
+
+	@Autowired
+	private PurchaseRequestProducer producer;
+
+	@Override
+	public void run(String... args) throws Exception {
+		var pr1 = new PurchaseRequest(5551, "PR-First", 991, "USD");
+		var pr2 = new PurchaseRequest(5552, "PR-Second", 992, "USD");
+		var pr3 = new PurchaseRequest(5553, "PR-Third", 993, "USD");
+
+		producer.send((pr1));
+		producer.send((pr2));
+		producer.send((pr3));
+
+		producer.send((pr1));
+
 	}
 
 	/*@Override
