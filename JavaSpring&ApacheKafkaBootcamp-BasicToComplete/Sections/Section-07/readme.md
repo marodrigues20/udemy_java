@@ -319,5 +319,75 @@ Classes Added/Modified:
   - KafkaConfig.java
 
 
-## 39. Idempotency
+## 39. Idempotency - Handle Duplicate Message
 
+### In the earlier section we talked about Delivery Semantic. When our Delivery Semantic is "At-Least-Once".
+
+  - Message guaranteed to be published
+  - Message might be published more than once
+
+### There are several possibilities for this. First the Consumer is Idempotent.
+
+  - Duplicate message is OK:
+    - Outcome of processing message always be the same even for duplicate messages.
+    - Example: update search engine index.
+  - Duplicate message is dangerous:
+    - Duplicate transaction
+    - Example: create (duplicate) payment
+    - Filter out duplicate message(s)
+
+### Gray Area
+
+  - It might be dangerous, or not
+  - Example: send promotion email to user
+  - Can either OK, or bad user experience
+  - Techinical should filter out duplicate messages
+  - Double output is not idempotent
+
+### How to Deduplicate?
+
+  - Unique value attached to each message
+  - Consumer check unique value when receive record
+    - Never processed -> store unique value, then process message
+    - Has been processed > skip message
+  - Use database for permanent unique value
+  - Use cache for temporary unique value
+  - Cache (normally perform better than database)
+    - Better performance
+    - Automatically remove data after certain time
+    - Example: Redis
+  - Database
+    - Might publish duplicate after longer period
+  - This lesson uses cache
+
+
+### Project Reference
+
+- name: kafka-core-producer
+- Classes Added/Modified:
+  - PurchaseRequest.java
+  - PurchaseRequestProducer.java
+
+### One Question
+
+- when publishing, why use purchase request number, and not ID, as message key?
+- This is depends on the use case,but sometimes, a primary key might not fit in scenario.
+- For example, if the id represents event ID attached to certain purchase request.
+- While purchase request number is something that human readable.
+- Assume when user click button “Submit purchase request” for PR-one, it actually has 3 events to be processed in sequence reserving financial budget, trigger approval workflow, and push notification to the approver.
+- This has to be in order. On this table, you can see that the event id is different, and purchase request number is the same, since user actually only click once.
+- In this case, using purchase request ID, or the primary key event ID, can cause problem.
+- Suppose that the kafka topic has multiple partitions, which usually happened on production.
+- We learn that kafka will hash the key and send the message to partition, based on the hashed value.
+- So it can be like this when we use purchase request ID.
+- Event 1 and event 2 go to partition 0, while event 3 go to partition 1.
+- Assume we have one consumer for each partition.
+- If the consumer need one second to process each record, this can happen.
+- Event 1 or event 3 will be processed and finished before event 2, since event 1 and event 3 is on lower offset.
+- But if we use purchase request number as the key, all events will go to same partition.
+- Then the consumer will process the messages in correct order.
+- If you remember, this is guaranteed by kafka: message will be processed in same sequence they arrived in same partition.
+- On kafka core producer application, autowire purchase request producer.
+- Create 3 purchase request, with different id.
+- Send all three to kafka.
+- And, pretend that there is something wrong, so the producer accidentally publish same message for first purchase request.
