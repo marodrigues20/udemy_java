@@ -391,3 +391,6 @@ Classes Added/Modified:
 - Create 3 purchase request, with different id.
 - Send all three to kafka.
 - And, pretend that there is something wrong, so the producer accidentally publish same message for first purchase request.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/OneQuestion.png?raw=true)
