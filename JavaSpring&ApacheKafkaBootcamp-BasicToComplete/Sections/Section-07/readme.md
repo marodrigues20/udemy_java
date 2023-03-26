@@ -368,7 +368,6 @@ Classes Added/Modified:
   - PurchaseRequest.java
   - PurchaseRequestProducer.java
   - KafkaCoreProducerApplication.java
-  - build.gradle.kts
 
 ### One Question
 
@@ -405,4 +404,5 @@ Classes Added/Modified:
   - CacheConfig.java
   - PurchaseRequest.java
   - PurchaseRequestConsumer.java
+  -  build.gradle.kts
   
