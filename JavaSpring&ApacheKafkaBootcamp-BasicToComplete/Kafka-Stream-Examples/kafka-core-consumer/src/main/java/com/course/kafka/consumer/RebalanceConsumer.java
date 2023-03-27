@@ -18,7 +18,7 @@ public class RebalanceConsumer {
      * If we have just one partition. 2 concurrent listener will be idle since we only have one partition.
      * @param consumerRecord
      */
-    @KafkaListener(topics = "t-rebalance", concurrency = "3")
+    //@KafkaListener(topics = "t-rebalance", concurrency = "3")
     public void consume(ConsumerRecord<String, String> consumerRecord) {
         LOG.info("Partition : {}, Offset : {}, Message : {}", consumerRecord.partition(), consumerRecord.offset(), consumerRecord.value());
     }

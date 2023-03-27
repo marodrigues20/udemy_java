@@ -36,11 +36,11 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 		var pr2 = new PurchaseRequest(5552, "PR-Second", 992, "USD");
 		var pr3 = new PurchaseRequest(5553, "PR-Third", 993, "USD");
 
-		producer.send((pr1));
-		producer.send((pr2));
-		producer.send((pr3));
+		producer.send(pr1);
+		producer.send(pr2);
+		producer.send(pr3);
 
-		producer.send((pr1));
+		producer.send(pr1);
 
 	}
 

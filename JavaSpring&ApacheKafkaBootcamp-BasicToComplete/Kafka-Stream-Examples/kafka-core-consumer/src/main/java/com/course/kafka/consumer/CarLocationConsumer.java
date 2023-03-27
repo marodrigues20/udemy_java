@@ -20,13 +20,13 @@ public class CarLocationConsumer {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @KafkaListener(topics="t-location", groupId = "cg-all-location")
+    //@KafkaListener(topics="t-location", groupId = "cg-all-location")
     public void listenAll(String message) throws JsonProcessingException {
         var carLocation = objectMapper.readValue(message, CarLocation.class);
         LOG.info("listenAll : {}", carLocation);
     }
 
-    @KafkaListener(topics="t-location", groupId = "cg-far-location", containerFactory = "farLocationContainerFactory")
+    //@KafkaListener(topics="t-location", groupId = "cg-far-location", containerFactory = "farLocationContainerFactory")
     public void listenFar(String message) throws JsonProcessingException {
         var carLocation = objectMapper.readValue(message, CarLocation.class);
         LOG.info("listenFar : {}", carLocation);
