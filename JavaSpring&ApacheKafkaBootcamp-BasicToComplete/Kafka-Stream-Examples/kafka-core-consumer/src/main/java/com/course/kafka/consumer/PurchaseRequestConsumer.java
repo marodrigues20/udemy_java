@@ -32,7 +32,7 @@ public class PurchaseRequestConsumer {
         return Optional.ofNullable(cache.getIfPresent(purchaseRequestId)).orElse(false);
     }
 
-    @KafkaListener(topics = "t-purchase-request")
+    //@KafkaListener(topics = "t-purchase-request")
     public void consume(String message) throws JsonProcessingException {
         var purchaseRequest = objectMapper.readValue(message, PurchaseRequest.class);
 

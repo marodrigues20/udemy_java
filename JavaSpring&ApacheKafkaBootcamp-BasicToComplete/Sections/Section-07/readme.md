@@ -408,3 +408,37 @@ Classes Added/Modified:
 
 Noted: Added val caffeineVersion = "3.0.6"
   
+
+## 40. Idempotency Alternative
+
+- Unfortunately, in many cases, a unique value is not exists on the message.
+- So how can we filter the duplicate message? One alternative is by put the object itself as unique value. Serialize the object and put it as cache or database key.
+
+### No Unique Value
+
+- No unique value on message
+- Alternative: use object as unique value
+  - Bad idea, if the object contains large data
+  - Eat up canche memory / slow database
+- Derive key from combination of fields
+  - Combination must be unique
+- Don't use java hashCode()
+  - Not guaranteed to be unique for different object
+
+
+### Project Referece
+
+- kafka-core-producer
+- Classes added / modified
+  - PaymentRequest.java
+  - PaymentRequestProducer.java
+
+
+- kafka-core-consumer
+- Classes added / modified
+  - PaymentRequest.java
+  - PaymentRequestCacheKey.java
+  - CacheConfig.java
+  - PaymentRequestConsumer.java
+
+ 
