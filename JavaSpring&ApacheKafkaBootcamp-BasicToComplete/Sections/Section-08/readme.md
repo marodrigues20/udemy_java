@@ -10,3 +10,16 @@
   - Publish food order
   - Exception: consume invalid food amount
 
+### Java Project
+
+Project Reference: kafka-core-producer
+Classes Added / Modified: 
+    - FoodOrder.java
+    - FoodOrderProducer.java
+    - FoodOrder.java
+
+Project Reference: kafka-core-consumer
+Classes Added / Modified: 
+    - FoodOrderConsumer.java
+    - FoodOrderErrorHandler.java
+    - FoodOrder.java
