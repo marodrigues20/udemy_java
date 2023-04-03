@@ -23,8 +23,8 @@ public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner 
 	@Override
 	public void run(String... args) throws Exception {
 		var chickenOrder = new FoodOrder(3, "Chicken");
-		var fishOrder = new FoodOrder(3, "Fish");
-		var pizzaOrder = new FoodOrder(3, "Pizza");
+		var fishOrder = new FoodOrder(10, "Fish");
+		var pizzaOrder = new FoodOrder(5, "Pizza");
 
 		producer.send(chickenOrder);
 		producer.send(fishOrder);
