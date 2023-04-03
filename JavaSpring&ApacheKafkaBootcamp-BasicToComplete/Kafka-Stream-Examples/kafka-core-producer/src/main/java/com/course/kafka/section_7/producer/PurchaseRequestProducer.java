@@ -1,6 +1,6 @@
-package com.course.kafka.producer;
+package com.course.kafka.section_7.producer;
 
-import com.course.kafka.entity.PurchaseRequest;
+import com.course.kafka.section_7.entity.PurchaseRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 /**
- * Section 39: 39. Idempotency
+ * Section 07: 39. Idempotency
  */
 @Service
 public class PurchaseRequestProducer {

@@ -1,12 +1,11 @@
-package com.course.kafka.scheduler;
+package com.course.kafka.section_7.scheduler;
 
-import com.course.kafka.entity.Commodity;
-import com.course.kafka.producer.CommodityProducer;
+import com.course.kafka.section_7.entity.Commodity;
+import com.course.kafka.section_7.producer.CommodityProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

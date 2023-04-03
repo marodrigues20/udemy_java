@@ -1,4 +1,4 @@
-package com.course.kafka.entity;
+package com.course.kafka.section_7.entity;
 
 /**
  * Section 7: 40. Idempotency Alternative

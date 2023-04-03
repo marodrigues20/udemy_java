@@ -1,4 +1,4 @@
-package com.course.kafka.config;
+package com.course.kafka.section_7.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

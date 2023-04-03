@@ -1,6 +1,6 @@
-package com.course.kafka.service;
+package com.course.kafka.section_7.service;
 
-import com.course.kafka.entity.Commodity;
+import com.course.kafka.section_7.entity.Commodity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

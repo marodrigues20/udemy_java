@@ -1,6 +1,6 @@
-package com.course.kafka.producer;
+package com.course.kafka.section_7.producer;
 
-import com.course.kafka.entity.Employee;
+import com.course.kafka.section_7.entity.Commodity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,19 +8,19 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 /**
-32. Customize JSON Format
-*/
+ * Section 07: 32. Customize JSON Format
+ */
 @Service
-public class Employee2JsonProducer {
+public class CommodityProducer {
     @Autowired
     private ObjectMapper objectMapper;
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessage(Employee employee) throws JsonProcessingException {
-        var json = objectMapper.writeValueAsString(employee);
-        kafkaTemplate.send("t-employee-2", json);
+    public void sendMessage(Commodity commodity) throws JsonProcessingException {
+        var json = objectMapper.writeValueAsString(commodity);
+        kafkaTemplate.send("t-commodity", commodity.getName(), json);
 
     }
 

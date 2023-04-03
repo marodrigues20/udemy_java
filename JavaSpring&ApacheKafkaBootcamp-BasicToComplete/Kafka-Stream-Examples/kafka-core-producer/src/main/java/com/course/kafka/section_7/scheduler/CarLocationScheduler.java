@@ -1,12 +1,11 @@
-package com.course.kafka.scheduler;
+package com.course.kafka.section_7.scheduler;
 
-import com.course.kafka.entity.CarLocation;
-import com.course.kafka.producer.CarLocationProducer;
+import com.course.kafka.section_7.entity.CarLocation;
+import com.course.kafka.section_7.producer.CarLocationProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**

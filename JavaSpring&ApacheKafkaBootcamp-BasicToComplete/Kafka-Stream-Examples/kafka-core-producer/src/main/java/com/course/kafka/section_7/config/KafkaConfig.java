@@ -1,4 +1,4 @@
-package com.course.kafka.config;
+package com.course.kafka.section_7.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Autowired;

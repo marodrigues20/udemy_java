@@ -1,17 +1,12 @@
 package com.course.kafka;
 
-import com.course.kafka.entity.Employee;
-import com.course.kafka.entity.PaymentRequest;
-import com.course.kafka.entity.PurchaseRequest;
-import com.course.kafka.producer.*;
+import com.course.kafka.section_7.entity.PaymentRequest;
+import com.course.kafka.section_7.producer.PaymentRequestProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
-import java.time.LocalDate;
-import java.util.concurrent.ThreadLocalRandom;
 
 @SpringBootApplication
 @EnableScheduling

@@ -1,7 +1,7 @@
-package com.course.kafka.api;
+package com.course.kafka.section_7.api;
 
-import com.course.kafka.entity.Commodity;
-import com.course.kafka.service.CommodityService;
+import com.course.kafka.section_7.entity.Commodity;
+import com.course.kafka.section_7.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

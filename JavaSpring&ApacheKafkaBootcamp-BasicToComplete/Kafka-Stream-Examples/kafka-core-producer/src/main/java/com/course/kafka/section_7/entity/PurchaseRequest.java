@@ -1,7 +1,7 @@
-package com.course.kafka.entity;
+package com.course.kafka.section_7.entity;
 
 /**
- * Section 39: 39. Idempotency
+ * Section 7: 39. Idempotency
  */
 public class PurchaseRequest {
 
