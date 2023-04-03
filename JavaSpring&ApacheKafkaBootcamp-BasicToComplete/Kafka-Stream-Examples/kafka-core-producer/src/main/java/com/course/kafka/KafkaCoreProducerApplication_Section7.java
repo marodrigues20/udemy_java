@@ -10,17 +10,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class KafkaCoreProducerApplication implements CommandLineRunner {
-
-	//@Autowired
-	//private KafkaKeyProducer producer;
-
-	//private EmployeeJsonProducer producer;
-
-	//private Employee2JsonProducer producer;
+public class KafkaCoreProducerApplication_Section7 implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KafkaCoreProducerApplication.class, args);
+		SpringApplication.run(KafkaCoreProducerApplication_Section7.class, args);
 	}
 
 	//@Autowired //Section 07: 39. Idempotency - Handle Duplicate Message
@@ -68,17 +61,4 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 
 	}*/
 
-	/*@Override
-	public void run(String... args) throws Exception {
-		/*for( int i = 0; i < 10_000; i++){
-			var key = "key-" + (i % 4);
-			var value = "value " + i + " with key " + key;
-			producer.send(key, value);
-		}*/
-
-		/*for(int i = 0; i < 5; i ++){
-			var emp = new Employee("emp-" + i, "Employee " + i, LocalDate.now());
-			producer.sendMessage(emp);
-		}*/
-	//}
 }

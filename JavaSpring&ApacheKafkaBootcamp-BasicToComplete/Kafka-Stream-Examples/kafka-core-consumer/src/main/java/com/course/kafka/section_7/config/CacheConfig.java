@@ -1,6 +1,6 @@
-package com.course.kafka.config;
+package com.course.kafka.section_7.config;
 
-import com.course.kafka.consumer.PaymentRequestCacheKey;
+import com.course.kafka.section_7.consumer.PaymentRequestCacheKey;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.context.annotation.Bean;

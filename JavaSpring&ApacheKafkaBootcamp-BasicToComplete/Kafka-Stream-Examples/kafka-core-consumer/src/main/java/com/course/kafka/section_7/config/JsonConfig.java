@@ -1,13 +1,13 @@
-package com.course.kafka.config;
+package com.course.kafka.section_7.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/*
-31. Producing JSON Message
-*/
+/**
+ * 31. Producing JSON Message
+ */
 @Configuration
 public class JsonConfig {
 

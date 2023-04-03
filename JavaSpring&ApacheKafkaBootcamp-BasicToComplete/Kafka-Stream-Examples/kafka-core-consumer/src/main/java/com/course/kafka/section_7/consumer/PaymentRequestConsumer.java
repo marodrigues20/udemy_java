@@ -1,7 +1,6 @@
-package com.course.kafka.consumer;
+package com.course.kafka.section_7.consumer;
 
-import com.course.kafka.entity.PaymentRequest;
-import com.course.kafka.entity.PurchaseRequest;
+import com.course.kafka.section_7.entity.PaymentRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.benmanes.caffeine.cache.Cache;

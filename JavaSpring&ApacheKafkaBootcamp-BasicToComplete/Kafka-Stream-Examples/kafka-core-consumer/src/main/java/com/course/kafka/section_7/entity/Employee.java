@@ -1,4 +1,4 @@
-package com.course.kafka.entity;
+package com.course.kafka.section_7.entity;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

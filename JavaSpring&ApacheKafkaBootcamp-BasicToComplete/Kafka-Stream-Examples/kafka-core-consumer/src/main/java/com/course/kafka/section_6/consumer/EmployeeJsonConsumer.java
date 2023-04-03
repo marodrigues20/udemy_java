@@ -1,6 +1,6 @@
-package com.course.kafka.consumer;
+package com.course.kafka.section_6.consumer;
 
-import com.course.kafka.entity.Employee;
+import com.course.kafka.section_7.entity.Employee;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

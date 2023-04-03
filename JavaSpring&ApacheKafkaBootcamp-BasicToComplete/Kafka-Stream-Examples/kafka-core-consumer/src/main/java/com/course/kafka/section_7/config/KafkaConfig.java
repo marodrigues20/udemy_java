@@ -1,6 +1,6 @@
-package com.course.kafka.config;
+package com.course.kafka.section_7.config;
 
-import com.course.kafka.entity.CarLocation;
+import com.course.kafka.section_7.entity.CarLocation;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

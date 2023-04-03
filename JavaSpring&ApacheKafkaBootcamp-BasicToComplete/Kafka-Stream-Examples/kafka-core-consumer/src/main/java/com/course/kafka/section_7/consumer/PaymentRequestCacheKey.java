@@ -1,12 +1,4 @@
-package com.course.kafka.consumer;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.benmanes.caffeine.cache.Cache;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+package com.course.kafka.section_7.consumer;
 
 import java.util.Objects;
 

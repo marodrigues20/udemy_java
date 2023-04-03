@@ -1,4 +1,4 @@
-package com.course.kafka.entity;
+package com.course.kafka.section_7.entity;
 
 import java.util.Objects;
 
