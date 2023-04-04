@@ -41,16 +41,16 @@ Classes Added / Modified:
 
 Project Reference: kafka-core-producer
 Classes Added / Modified: 
-    - SimpleNumber.java
-    - SimpleNumberProducer.java
-    - KafkaCoreProducerApplication_Section8.java
+  - SimpleNumber.java
+  - SimpleNumberProducer.java
+  - KafkaCoreProducerApplication_Section8.java
   
 Project Reference: kafka-core-consumer
 Classes Added / Modified: 
-    - SimpleNumber.java
-    - SimpleNumberConsumer.java
-    - GlobalErrorHandler.java
-    - KafkaConfig
+  - SimpleNumber.java
+  - SimpleNumberConsumer.java
+  - GlobalErrorHandler.java
+  - KafkaConfig
 
 
 ### Explanation how Global Exception vs KafkaListener Error Handler
@@ -76,3 +76,37 @@ Classes Added / Modified:
 - In this case, I will re-throw all RuntimeException
 
 
+
+## 43. Why Retrying Mechanism?
+
+- Spring Kafka will log failed messages
+- Our own ErrorHandler
+- Case:
+  - Service temporarily unavailable
+  - Retry hit service without trigger from consumer
+  - Retry for n times only
+
+
+### Scenario
+
+- Topic: t-image, 2 partitions
+- Publish message represents image
+- Consumer
+  - Simulate API call to convert image
+  - Simulate failed API call
+  - Retry after 10 seconds
+  - Retry 4 times
+
+
+### Project Reference
+
+1. Create a topic with 2 partition
+   1. $ kafka-topic.sh --bootstrap-server localhost:9092 --create --partitions 2 --replication-factor 1 --topic t-image
+   2. $ kafka-topic.sh --bootstrap-server localhost:9092 --describe --topic t-image
+
+Project Reference: kafka-core-producer
+Classes Added / Modified: 
+- Image.java
+- ImageProducer.java
+- ImageService.java
+- KafkaCoreProducerApplication_Section8.java

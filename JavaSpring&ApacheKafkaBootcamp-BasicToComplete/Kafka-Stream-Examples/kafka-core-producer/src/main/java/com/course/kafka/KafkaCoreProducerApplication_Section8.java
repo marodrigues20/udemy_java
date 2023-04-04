@@ -3,7 +3,9 @@ package com.course.kafka;
 import com.course.kafka.section_8.entity.FoodOrder;
 import com.course.kafka.section_8.entity.SimpleNumber;
 import com.course.kafka.section_8.producer.FoodOrderProducer;
+import com.course.kafka.section_8.producer.ImageProducer;
 import com.course.kafka.section_8.producer.SimpleNumberProducer;
+import com.course.kafka.section_8.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,18 +16,43 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner {
 
-	@Autowired
+	@Autowired //41. KafkaListener Error Handler
 	private FoodOrderProducer foodOrderProducer;
-	@Autowired
+	@Autowired //42. Global Error Handler
 	private SimpleNumberProducer simpleNumberProducer;
+
+	@Autowired
+	private ImageService imageService;
+	@Autowired
+	private ImageProducer imageProducer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication_Section8.class, args);
 	}
 
-
-
 	@Override
+	public void run(String... args) throws Exception {
+		var image1 = imageService.generateImage("jpg");
+		var image2 = imageService.generateImage("svg");
+		var image3 = imageService.generateImage("png");
+		var image4 = imageService.generateImage("gif");
+		var image5 = imageService.generateImage("bmp");
+		var image6 = imageService.generateImage("tiff");
+
+		imageProducer.send(image1,0);
+		imageProducer.send(image2,0);
+		imageProducer.send(image3,0);
+		imageProducer.send(image4,1);
+		imageProducer.send(image5,1);
+		imageProducer.send(image6,1);
+
+
+
+	}
+
+	//41. KafkaListener Error Handler
+	//42. Global Error Handler
+	/*@Override
 	public void run(String... args) throws Exception {
 		var chickenOrder = new FoodOrder(3, "Chicken");
 		var fishOrder = new FoodOrder(10, "Fish");
@@ -39,5 +66,7 @@ public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner 
 			var simpleNumber = new SimpleNumber(i);
 			simpleNumberProducer.send(simpleNumber);
 		}
-	}
+	}*/
+
+
 }
