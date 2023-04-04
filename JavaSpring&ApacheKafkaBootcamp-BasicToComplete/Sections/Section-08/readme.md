@@ -66,7 +66,7 @@ Classes Added / Modified:
 - And it stops there, because -well- the FoodOrderErrorHander already handle it.
 
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07/OneQuestion.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/Global_Error_Handler.png?raw=true)
 
 
 - If we want to continue this error, or any specific error, to global error handler, what we need to do is re-throw the exception, so the next error handler in chain which is GlobalErrorHandler- can handle it.
