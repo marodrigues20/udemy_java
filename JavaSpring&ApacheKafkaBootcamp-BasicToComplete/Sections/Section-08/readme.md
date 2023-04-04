@@ -142,3 +142,11 @@ according to error handler, until it success, or the error handler exhausted and
 - Like updating transaction status, which must be done in order.
 - However it has drawback, that the consume process is halted until retry finished, and can cause bottleneck.
 - To mitigate the drawback, create a retry policy that just enough not too short, and not too fast. Note that the blocking is just on one partition that has error. So if we have multiple consumers, one for each partition, the partition without error will stil consume message.
+
+### Blocking Retry
+
+- Good when message must be processed in sequence
+- Drawback: process halted (might bottleneck)
+- Mitigate: retry "just enought"
+- Block only on partition which has error
+- Other partititon (no error) keep consuming
