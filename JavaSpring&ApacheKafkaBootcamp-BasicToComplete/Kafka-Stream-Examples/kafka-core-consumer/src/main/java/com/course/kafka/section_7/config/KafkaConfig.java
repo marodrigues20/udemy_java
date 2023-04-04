@@ -15,12 +15,15 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.CommonErrorHandler;
+import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.listener.adapter.RecordFilterStrategy;
+import org.springframework.util.backoff.FixedBackOff;
 
 /**
  * Section 07: 37. Kafka Configuration
  * Section 07: 38. Message Filter
  * Section 08. 42. Global Error Handler
+ * Section 08. 43. Retrying Consumer
  */
 @Configuration
 public class KafkaConfig {
@@ -31,6 +34,7 @@ public class KafkaConfig {
     @Autowired
     private ObjectMapper objectMapper;
 
+    //Section 07: 37. Kafka Configuration
     public ConsumerFactory<Object, Object> consumerFactory(){
         // We can add or modify variable properties for kafka configuration
         var properties = kafkaProperties.buildConsumerProperties();
@@ -42,7 +46,7 @@ public class KafkaConfig {
         return new DefaultKafkaConsumerFactory<Object,Object>(properties);
     }
 
-    @Bean(name = "farLocationContainerFactory")
+    @Bean(name = "farLocationContainerFactory") //Section 07: 38. Message Filter
     public ConcurrentKafkaListenerContainerFactory<Object, Object> farLocationContainerFactory(
             ConcurrentKafkaListenerContainerFactoryConfigurer configurer ){
         var factory = new ConcurrentKafkaListenerContainerFactory<Object, Object>();
@@ -62,7 +66,8 @@ public class KafkaConfig {
         return factory;
     }
 
-    @Bean(name = "kafkaListenerContainerFactory")
+
+    @Bean(name = "kafkaListenerContainerFactory") //Section 08. 42. Global Error Handler
     public ConcurrentKafkaListenerContainerFactory<Object, Object> kafkaListenerContainerFactory(
             ConcurrentKafkaListenerContainerFactoryConfigurer configurer ){
 
@@ -72,6 +77,18 @@ public class KafkaConfig {
         factory.setErrorHandler(new GlobalErrorHandler());
 
         return factory;
+    }
 
+
+    @Bean(name = "imageRetryContainerFactory") //Section 08. 43. Retrying Consumer
+    public ConcurrentKafkaListenerContainerFactory<Object, Object> imageRetryContainerFactory(
+            ConcurrentKafkaListenerContainerFactoryConfigurer configurer ){
+
+        var factory = new ConcurrentKafkaListenerContainerFactory<Object, Object>();
+        configurer.configure(factory, consumerFactory());
+
+       factory.setCommonErrorHandler(new DefaultErrorHandler(new FixedBackOff(1000, 3)));
+
+        return factory;
     }
 }

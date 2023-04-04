@@ -110,3 +110,35 @@ Classes Added / Modified:
 - ImageProducer.java
 - ImageService.java
 - KafkaCoreProducerApplication_Section8.java
+
+
+Project Reference: kafka-core-consumer
+Classes Added / Modified: 
+- Image.java
+- ImageConsumer.java
+- KafkaConfig.java
+
+
+### Retry Consumer
+
+- We will use error handler for imageRetryContainerFactory, so basically we can copy paste the kafkaListenerContainerFactory from previous lecture.
+- I will copy paste it and rename both the method and bean name into "imageRetryContainerFactory".
+- Remove the global error handler.
+- For the retry, spring already provide method setCommonErrorHandler on factory.
+- If we want to retry 3 times with fixed interval 10 seconds between retry, we can use default error handler with fixed back off, like this.
+- OK, remember that we have 6 messages, 3 in each partition.
+- On partition 0, second message is throwing exception.
+- Start consumer application and see what happened.
+- Notice the log for partition 0.
+- Consumer will process 1st message on partition 0.
+- On 2nd message, it throws exception, so consumer will wait for 10 seconds, then retry. Then consumer try to process 2nd message again, up to three times, with 10 second delay between each retry.
+- After fourth attempt still failed, consumer will continue to 3rd message on partition 0.
+- On partition 1, all images processed without error.
+- This kind of retry is called as blocking retry.
+- When consumer encounter error on message 2, it will block the consume process, so message 3 will not be processed. The consumer will keep retry on message 2
+according to error handler, until it success, or the error handler exhausted and failed.
+- Only after then, the consumer will process to message 3.
+- Blocking retry is a good fit if the message must be processed in sequence.
+- Like updating transaction status, which must be done in order.
+- However it has drawback, that the consume process is halted until retry finished, and can cause bottleneck.
+- To mitigate the drawback, create a retry policy that just enough not too short, and not too fast. Note that the blocking is just on one partition that has error. So if we have multiple consumers, one for each partition, the partition without error will stil consume message.
