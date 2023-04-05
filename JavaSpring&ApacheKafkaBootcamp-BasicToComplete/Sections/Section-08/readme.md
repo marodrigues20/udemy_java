@@ -189,13 +189,15 @@ we will publish the message into .t-invoice-dead where another consumer will con
 
 Project Reference: kafka-core-producer
 Classes Added / Modified: 
-- Invoice.java
-- InvoiceProducer.java
-- InvoiceService.java
+   - Invoice.java
+   - InvoiceProducer.java
+   - InvoiceService.java
+   - KafkaCoreProducerApplication_Section8
 
 
 Project Reference: kafka-core-consumer
 Classes Added / Modified: 
-
+  - Invoice.java
+  - 
 
 
