@@ -198,6 +198,21 @@ Classes Added / Modified:
 Project Reference: kafka-core-consumer
 Classes Added / Modified: 
   - Invoice.java
-  - 
+  - InvoiceConsumer.java
+  - KafkaConfig.java
 
 
+### Dead Letter Records
+
+- Dead letter record: message sent to DLT
+- Just regular topic / message
+- Create consumer to listen from DLT
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/DeadLetterPublishingRecoverer.png?raw=true)
+
+- You can also create kafka listener from java code, to process the dead letter records.
+- For example, in our sample case, we have t-invoice as main topic.
+- The consumer for t-invoice might process the invoice for payment process.
+- However, for failed invoices, finance supervisor must get notification.
+- All invoices that cannot be processed should go to t-invoice-dead as dead letter topic, and another consumer can consume the dead letter invoice records and send notification to finance supervisor. This ends our lesson about dead letter topic.
