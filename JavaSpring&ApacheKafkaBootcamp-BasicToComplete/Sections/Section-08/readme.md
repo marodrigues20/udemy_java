@@ -209,7 +209,7 @@ Classes Added / Modified:
 - Create consumer to listen from DLT
 
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/DeadLetterPublishingRecoverer.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/DeadLetterRecoverer.png?raw=true)
 
 - You can also create kafka listener from java code, to process the dead letter records.
 - For example, in our sample case, we have t-invoice as main topic.
