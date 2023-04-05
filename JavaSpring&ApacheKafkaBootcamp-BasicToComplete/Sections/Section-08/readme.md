@@ -216,3 +216,19 @@ Classes Added / Modified:
 - The consumer for t-invoice might process the invoice for payment process.
 - However, for failed invoices, finance supervisor must get notification.
 - All invoices that cannot be processed should go to t-invoice-dead as dead letter topic, and another consumer can consume the dead letter invoice records and send notification to finance supervisor. This ends our lesson about dead letter topic.
+
+
+## 45. Non Blocking Retry
+
+- Message can be processed independently
+- Message retry still needed
+- Spring non blocking retry
+
+
+- At some cases, we might not need blocking retry, as message can be processed independently. However, message retry still needed.
+- In that case, Spring provides a way to do non-blocking retry.
+- In non blocking retry, when consumer got error on message 2, it will keep processing message 3.
+- The retry process, up until success or failed, will also continue on the background.
+- So when message 3 not error, or the next messages, consumer will keep processing, while message 2 still on retry.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/DeadLetterRecoverer.png?raw=true)
