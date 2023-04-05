@@ -150,3 +150,22 @@ according to error handler, until it success, or the error handler exhausted and
 - Mitigate: retry "just enought"
 - Block only on partition which has error
 - Other partititon (no error) keep consuming
+
+
+## 44. Handling Exception - Dead Letter Topic
+
+- Message process keep failing
+  - Non technical issue
+  - Permanent techinical issue
+  - Process message differently
+- Send such message to dead letter topic
+- Dead letter record
+
+### DeadLetterPublishingRecoverer
+
+- In this lecture, we will learn how to send dead letter record to custom topic.
+- In this lecture, I will create dead letter topic with same partition as original topic, but it is not mandatory to do so. This is the scenario that we will use.
+- We will simulate invoice publishing, sending message to t-invoice.
+- If invoice amount is less than one, we will throw an exception. In such case, we will retry but only five times. After 5 failed retry attempts,
+we will publish the message into .t-invoice-dead where another consumer will consume from it and process with different logic.
+
