@@ -231,4 +231,4 @@ Classes Added / Modified:
 - The retry process, up until success or failed, will also continue on the background.
 - So when message 3 not error, or the next messages, consumer will keep processing, while message 2 still on retry.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/DeadLetterRecoverer.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/NonBlockingRetry.png?raw=true)
