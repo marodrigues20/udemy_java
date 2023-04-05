@@ -9,6 +9,7 @@
 - [Section 5 - Kafka Basic Concepts](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-05#section-5-kafka-basic-concepts)
 - [Section 6 - Start Writing Codes](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06#section-6-start-writting-codes)
 - [Section 7 - Working with JSON Messages](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07)
+- [Section 8 - Handling Exception](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08)
 
 
 

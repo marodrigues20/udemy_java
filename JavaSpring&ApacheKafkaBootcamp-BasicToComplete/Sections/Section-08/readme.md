@@ -163,6 +163,8 @@ according to error handler, until it success, or the error handler exhausted and
 
 ### DeadLetterPublishingRecoverer
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/DeadLetterPublishingRecoverer.png?raw=true)
+
 - In this lecture, we will learn how to send dead letter record to custom topic.
 - In this lecture, I will create dead letter topic with same partition as original topic, but it is not mandatory to do so. This is the scenario that we will use.
 - We will simulate invoice publishing, sending message to t-invoice.
