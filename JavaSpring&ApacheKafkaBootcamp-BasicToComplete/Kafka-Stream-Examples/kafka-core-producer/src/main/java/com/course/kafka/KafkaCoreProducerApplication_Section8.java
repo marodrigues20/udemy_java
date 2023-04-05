@@ -4,8 +4,10 @@ import com.course.kafka.section_8.entity.FoodOrder;
 import com.course.kafka.section_8.entity.SimpleNumber;
 import com.course.kafka.section_8.producer.FoodOrderProducer;
 import com.course.kafka.section_8.producer.ImageProducer;
+import com.course.kafka.section_8.producer.InvoiceProducer;
 import com.course.kafka.section_8.producer.SimpleNumberProducer;
 import com.course.kafka.section_8.service.ImageService;
+import com.course.kafka.section_8.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,17 +22,35 @@ public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner 
 	private FoodOrderProducer foodOrderProducer;
 	@Autowired //42. Global Error Handler
 	private SimpleNumberProducer simpleNumberProducer;
-
-	@Autowired
+	@Autowired //43. Retrying Consumer
 	private ImageService imageService;
-	@Autowired
+	@Autowired //43. Retrying Consumer
 	private ImageProducer imageProducer;
+	@Autowired //44. Dead Letter Topic
+	private InvoiceService invoiceService;
+	@Autowired //44. Dead Letter Topic
+	private InvoiceProducer invoiceProducer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication_Section8.class, args);
 	}
 
-	@Override
+
+	@Override //44. Dead Letter Topic
+	public void run(String... args) throws Exception {
+		for (int i = 0; i < 10; i++) {
+			var invoice = invoiceService.generateInvoice();
+			if(i > 5){
+				invoice.setAmount(0);
+			}
+			invoiceProducer.send(invoice);
+		}
+	}
+
+
+
+
+	/*@Override //43. Retrying Consumer
 	public void run(String... args) throws Exception {
 		var image1 = imageService.generateImage("jpg");
 		var image2 = imageService.generateImage("svg");
@@ -45,10 +65,7 @@ public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner 
 		imageProducer.send(image4,1);
 		imageProducer.send(image5,1);
 		imageProducer.send(image6,1);
-
-
-
-	}
+	}*/
 
 	//41. KafkaListener Error Handler
 	//42. Global Error Handler

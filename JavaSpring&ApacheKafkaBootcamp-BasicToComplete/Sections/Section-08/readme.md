@@ -171,3 +171,31 @@ according to error handler, until it success, or the error handler exhausted and
 - If invoice amount is less than one, we will throw an exception. In such case, we will retry but only five times. After 5 failed retry attempts,
 we will publish the message into .t-invoice-dead where another consumer will consume from it and process with different logic.
 
+### Scenario
+
+- Publish to t-invoice
+- If amount is less than one, throw exception
+- Retry 5 times
+- After 5 failed retry attempts, publish to t-invoice-dead
+- Another consumer will consume from t-invoice-dead
+
+### Project & Reference
+
+1. Create a topic with 2 partition
+   1. $ kafka-topic.sh --bootstrap-server localhost:9092 --create --partitions 2 --replication-factor 1 --topic t-invoice
+   2. $ kafka-topic.sh --bootstrap-server localhost:9092 --create --partitions 2 --replication-factor 1 --topic t-invoice-dead
+   3. $ kafka-topic.sh --bootstrap-server localhost:9092 --describe --topic t-invoice
+
+
+Project Reference: kafka-core-producer
+Classes Added / Modified: 
+- Invoice.java
+- InvoiceProducer.java
+- InvoiceService.java
+
+
+Project Reference: kafka-core-consumer
+Classes Added / Modified: 
+
+
+
