@@ -2,10 +2,7 @@ package com.course.kafka;
 
 import com.course.kafka.section_8.entity.FoodOrder;
 import com.course.kafka.section_8.entity.SimpleNumber;
-import com.course.kafka.section_8.producer.FoodOrderProducer;
-import com.course.kafka.section_8.producer.ImageProducer;
-import com.course.kafka.section_8.producer.InvoiceProducer;
-import com.course.kafka.section_8.producer.SimpleNumberProducer;
+import com.course.kafka.section_8.producer.*;
 import com.course.kafka.section_8.service.ImageService;
 import com.course.kafka.section_8.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +27,34 @@ public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner 
 	private InvoiceService invoiceService;
 	@Autowired //44. Dead Letter Topic
 	private InvoiceProducer invoiceProducer;
+	@Autowired //45. Non Blocking Retry
+	private Image2Producer image2Producer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication_Section8.class, args);
 	}
 
 
-	@Override //44. Dead Letter Topic
+
+	@Override //45. Non Blocking Retry
+	public void run(String... args) throws Exception {
+		var image1 = imageService.generateImage("jpg");
+		var image2 = imageService.generateImage("svg");
+		var image3 = imageService.generateImage("gif");
+		var image4 = imageService.generateImage("gif");
+		var image5 = imageService.generateImage("gif");
+		var image6 = imageService.generateImage("gif");
+
+		image2Producer.send(image1, 0);
+		image2Producer.send(image2, 0);
+		image2Producer.send(image3, 0);
+		image2Producer.send(image4, 1);
+		image2Producer.send(image5, 1);
+		image2Producer.send(image6, 1);
+
+	}
+
+	/*@Override //44. Dead Letter Topic
 	public void run(String... args) throws Exception {
 		for (int i = 0; i < 10; i++) {
 			var invoice = invoiceService.generateInvoice();
@@ -45,9 +63,7 @@ public class KafkaCoreProducerApplication_Section8 implements CommandLineRunner 
 			}
 			invoiceProducer.send(invoice);
 		}
-	}
-
-
+	}*/
 
 
 	/*@Override //43. Retrying Consumer

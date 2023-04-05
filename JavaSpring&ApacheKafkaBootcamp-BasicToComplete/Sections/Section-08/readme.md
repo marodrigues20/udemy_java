@@ -232,3 +232,19 @@ Classes Added / Modified:
 - So when message 3 not error, or the next messages, consumer will keep processing, while message 2 still on retry.
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/NonBlockingRetry.png?raw=true)
+
+
+1. Create a topic with 2 partition
+   1. $ kafka-topic.sh --bootstrap-server localhost:9092 --create --partitions 2 --replication-factor 1 --topic t-image-2
+   2. $ kafka-topic.sh --bootstrap-server localhost:9092 --describe --topic t-image-2
+
+
+Project Reference: kafka-core-producer
+Classes Added / Modified: 
+   - Image2Producer.java
+   - KafkaCoreProducerApplication_Section8.java
+
+
+Project Reference: kafka-core-consumer
+Classes Added / Modified: 
+  - 
