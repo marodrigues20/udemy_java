@@ -247,4 +247,5 @@ Classes Added / Modified:
 
 Project Reference: kafka-core-consumer
 Classes Added / Modified: 
-  - 
+  - Image2Consumer.java
+  - KafkaCoreConsumerApplication.java
