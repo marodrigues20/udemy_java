@@ -44,3 +44,13 @@
 ## RabbitMQ - Consumer Push Model
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_07.png?raw=true)
+
+
+## Which One To Choose
+
+- I strongly suggest that in one organization, we only stick to one message broker product, otherwise, there will be double effort to maintain and work with them.
+- Kafka is good for scalability, and usually a choice on big data streaming. 
+  - Like in bank, the transaction from ATM, credit cards, and other channels, can be streamed to kafka and analyzed for fraud possibility.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_08.png?raw=true)
