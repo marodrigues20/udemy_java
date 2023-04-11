@@ -19,3 +19,19 @@
 - If we need to process the same exact message, the publisher must re-publish the message.
 - But since rabbitmq 3.9, there is a new feature called as stream, which behaviour is the same with kafka topic.
 
+## Kafka - Message Routing
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_02.png?raw=true)
+
+## RabbitMQ - Message Routing
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_03.png?raw=true)
+
+## Kafka - Multiple Consumers
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_04.png?raw=true)
+
+
+## RabbitMQ - Multiple Consumers
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_05.png?raw=true)
