@@ -10,7 +10,9 @@
 - [Section 6 - Start Writing Codes](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-06#section-6-start-writting-codes)
 - [Section 7 - Working with JSON Messages](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07)
 - [Section 8 - Handling Exception](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08)
-
+- [Section 9 - Scheduling Consumer](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-09)
+- [Section 10 - Rabbitmq vs Kafka](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10)
+- 
 
 
 ## Instruction to Run the Code
