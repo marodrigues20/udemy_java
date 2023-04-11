@@ -7,14 +7,7 @@
 
 ## Message Retention
 
-- Kafka: by policy
-- Rabbitmq: by acknowledge
-- Rabbitmq stream
-- RabbitMQ: exists on disk / memory until succeful process
-
-### Description 
-
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-09/Scheduler_01.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_01.png?raw=true)
 
 - In Kafka, message retention is based on policy.
 - Every message in topic will be stored at your disk, up to certain time period that you can set.
