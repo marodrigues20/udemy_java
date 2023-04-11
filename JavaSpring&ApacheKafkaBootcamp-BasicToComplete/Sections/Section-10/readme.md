@@ -35,3 +35,12 @@
 ## RabbitMQ - Multiple Consumers
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_05.png?raw=true)
+
+
+## Kafka - Consumer Pull Model
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_06.png?raw=true)
+
+## RabbitMQ - Consumer Push Model
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_07.png?raw=true)
