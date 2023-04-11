@@ -14,4 +14,4 @@
 - We still have scheduler summarize daily ledger, or creating reports.
 
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08/NonBlockingRetry.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-09/Scheduler_01.png?raw=true)
