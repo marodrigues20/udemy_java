@@ -15,3 +15,17 @@
 
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-09/Scheduler_01.png?raw=true)
+
+
+## Java Project Reference
+
+Project Reference: kafka-core-producer
+Classes Added / Modified: 
+  - GeneralLedgerProducer.java
+
+
+Project Reference: kafka-core-consumer
+Classes Added / Modified: 
+  - KafkaCoreConsumerApplication.java (Enable Spring Schedule)
+  - GeneralLedgerScheduler.java
+  - GeneralLedgerScheduler.java
