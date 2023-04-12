@@ -100,7 +100,7 @@
 - Command Query Separation, or CQS pattern, has been there for long time, and its proven good.
 - The CQS principle is that every method should either be a command that called to performs data change, or a query that returns data to the caller, but never both.
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_4.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/Pic_4.png?raw=true)
 
 - In some organization, I found the command side can also known as “transaction”, “modifiers”, or “mutators”.
 - While the query side also known as “view”.
@@ -111,4 +111,4 @@
 
 ## Application source code
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_5.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/Pic_5.png?raw=true)
