@@ -112,3 +112,9 @@
 ## Application source code
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/Pic_05.png?raw=true)
+
+
+# 50. Setting Up The Projects
+
+## Spring Initializr
+
