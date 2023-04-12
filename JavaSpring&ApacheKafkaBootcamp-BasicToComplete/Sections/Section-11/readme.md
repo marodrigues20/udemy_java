@@ -24,5 +24,25 @@
 
 ## Layer Frame for Order Screen
 
+- This UI will call the API from another system.
+
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_2.png?raw=true)
 
+
+## App in The Course
+
+- Use postman to simulate API call
+- In memory H2 database
+  - Data gone every restart
+  - Database is not focus
+  - Algorithm & source code structure
+
+## Microservice & Client
+
+- Spring Boot
+  - Kafka Order : port 9091
+  - Kafka Pattern
+  - Kafka Reward
+  - Kafka Storage
+- Client
+  - Postman : download from postman.com
