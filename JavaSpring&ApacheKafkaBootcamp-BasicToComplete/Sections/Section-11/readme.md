@@ -20,8 +20,9 @@
 
 ## Application Architecture
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_01.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_1.png?raw=true)
 
 ## Layer Frame for Order Screen
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10/Pic_01.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_2.png?raw=true)
+
