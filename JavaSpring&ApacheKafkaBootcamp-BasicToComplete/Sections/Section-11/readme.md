@@ -118,3 +118,25 @@
 
 ## Spring Initializr
 
+- Generate 4 java / gradle project from start.spring.io
+  - Group: com.course.kafka
+  - Artifact: 
+    - kafka-ms-order
+    - kafka-ms-pattern
+    - kafka-ms-reward
+    - kafka-ms-storage
+  - Package name: com.course.kafka (remove any suffix)
+- Spring boot 2.x
+- Java 17
+
+## Dependencies
+
+- Kafka-ms-order
+  - Web
+  - Spring Kafka
+  - Devtools
+  - JPA
+  - H2 database
+- Other 3 projects
+  - Spring kafka
+  - Devtools
