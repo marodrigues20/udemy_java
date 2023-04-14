@@ -174,3 +174,12 @@
 ## Variable Declaration
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_11.png?raw=true)
+
+
+## 51. Create Topic Programmatically
+
+- Spring Kafka has helper class to create topic from code.
+- This lecture will show you how to do it, as a reference.
+- However, Iâ€™m not recommend to create topic programmatically in production environment.
+- In production, let the kafka administrator create topic with correct configuration, like partition numbers.
+
