@@ -144,6 +144,12 @@
 
 ## Spring Application Config Listener
 
+- We have spring.kafka.listener.missing-topics-fatal set to false.
+- This allows application to start even if application has configured topic that not present on the kafka broker.
+- For example, if your kafka has topic t-one and t-two, but an application has listener that listens t-nine, by default Spring kafka application will not runs because topic t-nine is not exists.
+- Such behaviour is good, but at some cases you might want to disable that behaviour.
+- The common case is on development phase where certain kafka topic is not exists, but you need to write code for your own part, then setting this value to false is good idea because you can start your job without waiting kafka topics created.
+
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_06.png?raw=true)
 
 
