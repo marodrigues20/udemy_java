@@ -214,4 +214,25 @@ Classes Added / Modified:
 
 ## 54. Handle Kafka Publish Result - Kafka Producer Callback
 
+- So far, we publish with kafkaTemplate.send.
+- If you see the return type of kafkaTemplate.send, it will return ListenableFuture object.
+- In reality, publishing might not always smooth.
+- Broker might not be available, or network having latency.
+- In such case, we can add callback to ListenableFuture object, to handle publishing success or failure.
+- Failure can be happened if kafka is not available and message cannot be published after certain time.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_14.png?raw=true)
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_15.png?raw=true)
+
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+Classes Added / Modified: 
+  - OrderProducer.java
+
+
+
+
+
 
