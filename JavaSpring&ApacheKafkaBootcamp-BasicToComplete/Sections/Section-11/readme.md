@@ -204,3 +204,14 @@ Classes Added / Modified:
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_12.png?raw=true)
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_13.png?raw=true)
+
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+Classes Added / Modified: 
+  - OrderMessage.java
+  - OrderProducer.java
+
+## 54. Handle Kafka Publish Result - Kafka Producer Callback
+
+
