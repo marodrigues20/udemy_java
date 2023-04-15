@@ -198,6 +198,9 @@ Classes Added / Modified:
   - OrderItemRepository.java
   - OrderRepository.java
 
+## 53. Order App - Kafka Producer
 
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_12.png?raw=true)
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_13.png?raw=true)
