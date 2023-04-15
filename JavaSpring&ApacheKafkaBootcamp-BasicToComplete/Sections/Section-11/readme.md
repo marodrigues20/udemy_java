@@ -183,5 +183,21 @@
 - However, Iâ€™m not recommend to create topic programmatically in production environment.
 - In production, let the kafka administrator create topic with correct configuration, like partition numbers.
 
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+Classes Added / Modified: 
+  - KafkaConfig.java
+
 ## 52. Order App - Database
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+Classes Added / Modified: 
+  - OrderItem.java
+  - Order.java
+  - OrderItemRepository.java
+  - OrderRepository.java
+
+
+
 

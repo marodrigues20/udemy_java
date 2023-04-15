@@ -5,6 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
+
+/**
+ * Section 11: 51. Automatic Create Topic From Code
+ */
 @Configuration
 public class KafkaConfig {
 
