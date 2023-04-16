@@ -186,7 +186,7 @@
 ### Project Reference
 
 Project Reference: ../kafka-microservice/kafka-ms-order
-Classes Added / Modified: 
+- Classes Added / Modified: 
   - KafkaConfig.java
 
 ## 52. Order App - Database
@@ -228,11 +228,20 @@ Classes Added / Modified:
 ### Project Reference
 
 Project Reference: ../kafka-microservice/kafka-ms-order
-Classes Added / Modified: 
+- Classes Added / Modified: 
   - OrderProducer.java
 
 
 
+## 55. Order App - API & Finalize App
 
+- What We Will Build
+  - API for submit order
+  - Service & action for business logic
+  - API is entry pointfor business logic service & action
+
+### Service? Action?
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_16.png?raw=true)
 
 
