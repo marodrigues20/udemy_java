@@ -363,3 +363,16 @@ public void publish(PromotionMessage message){
     }
 ```
 
+
+## 59. Promotion & Discount
+
+
+### Explanation
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_18.png?raw=true)
+
+### Source Code for Discount
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_19.png?raw=true)
+
+
