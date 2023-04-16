@@ -17,10 +17,8 @@ public class OrderService {
     public String saveOrder(OrderRequest request) {
         var order = orderAction.convertToOrder(request);
         orderAction.saveToDatabase(order);
-
         // flatten message & publish
         order.getItems().forEach(orderAction::publishToKafka);
-
         return order.getOrderNumber();
     }
 }
