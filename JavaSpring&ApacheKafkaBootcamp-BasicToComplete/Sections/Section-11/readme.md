@@ -312,3 +312,54 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 
 ## 58. Order App - Promotion Publisher
 
+### Create another topic
+
+- $ kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic t-commodity-promotion
+
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-pattern
+- Classes Added / Modified: 
+  - PromotionMessage.java
+
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+- Classes Added / Modified: 
+  - PromotionRequest.java
+  - PromotionProducer.java
+  - PromotionService.java
+  - PromotionAction.java
+  - PromotionApi.java
+
+
+### How to Run
+
+1. Run the "afka-ms-order".
+2. Open a terminal and type:
+   1. $ kakfa-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic t-commodity-promotion
+3. Open Postman and post request
+   1. /Course-Spring Kafka 4/Create Promotion (Post)
+
+
+
+### Notes
+
+- Previously, we learn that the kafka template send method is asynchronous.
+- What if we want to do synchronous send?
+- It is possible, although I’m not recommend it.
+- But just for your knowledge, we can do synchronous send and block until send result is received by using method get after send. Like this.
+- This might throw error, so wrap it on try-catch block and log the error.
+- The send method will return SendResult, so we can put that return value in variable and process further. Like this.
+- Remember, for production, it is better to use asynchronous publish with callback, otherwise you risk your publisher to be blocked.
+
+```
+public void publish(PromotionMessage message){
+        try {
+            var sendResult = kafkaTemplate.send("t-commodity-promotion", message).get();
+            LOG.info("Send result success for message {}", sendResult.getProducerRecord().value());
+        } catch (InterruptedException | ExecutionException e){
+            LOG.error("Error publishing {}, because {}", message, e.getMessage());
+        }
+    }
+```
+
