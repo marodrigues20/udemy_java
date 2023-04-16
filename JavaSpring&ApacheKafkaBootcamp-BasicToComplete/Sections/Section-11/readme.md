@@ -245,3 +245,36 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_16.png?raw=true)
 
 
+### Create Topic Programmaticatlly
+
+- Database change? Then publish message 
+  - Communicate with other system
+  - Data analytics
+- We called "Change Data Capture (CDC)"
+- Database operation + message publishing
+- Manually writing code
+  - Techinical error
+  - Human error
+
+### Consistence Publishing 
+
+  - Make sure database transaction & kafka publish is atomic
+  - Database log tailing
+  - Transactional outbox
+  - See last lecture for "Microservice Architecture & Pattern" Reference
+
+
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+- Classes Added / Modified: 
+  - OrderApi.java
+  - OrderResponse.java
+  - OrderRequest.java
+  - OrderItemRequest.java
+  - OrderService.java
+  - OrderAction.java
+
+
+## 56. Order App - Test the App
+

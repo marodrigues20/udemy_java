@@ -15,12 +15,14 @@ repositories {
 }
 
 extra["springCloudVersion"] = "2021.0.6"
+val apacheCommonsLang3Version = "3.12.0"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 	implementation("org.springframework.kafka:spring-kafka")
+	implementation("org.apache.commons:commons-lang3:${apacheCommonsLang3Version}")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
