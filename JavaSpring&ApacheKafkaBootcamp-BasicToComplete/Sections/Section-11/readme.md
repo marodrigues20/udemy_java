@@ -278,3 +278,25 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 
 ## 56. Order App - Test the App
 
+- Open kafka and create console consumer that listens from t-commodity-order.
+  - $ kafka-console-consumer.sh --bootstrap-server.sh --bootstrap-server localhost:9092 --from-beginning --topic t-commodity-order
+- We will not create this form for testing API. To test the API, we will use Postman.
+- If you are not familiar with Postman, it is a development environment, specific for API.
+- Download it from postman.com and open it. Download and extract zip file that contains/
+  - Download from: postman.com
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_17.png?raw=true)
+
+- Run the project that you have been built till now
+  - Project Reference: ../kafka-microservice/kafka-ms-order
+
+- Open postman
+- Import the file: spring-kafka-postman-collection.json
+- Run "Order 1 Random Item" via postman.
+- Check the Intellij Console
+- Check that message has been generated in "t-commodity-order"
+- Open the browser and use the url: localhost:9001/h2-console/
+  - Check tables: ORDERS and ORDER_ITEMS
+
+
+
