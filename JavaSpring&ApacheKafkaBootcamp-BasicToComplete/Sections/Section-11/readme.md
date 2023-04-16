@@ -300,3 +300,15 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 
 
 
+## 57. Pattern App - Kafka Consumer
+
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+- Classes Added / Modified: 
+  - OrderConsumer.java
+  - OrderMessage.java
+
+
+## 58. Order App - Promotion Publisher
+
