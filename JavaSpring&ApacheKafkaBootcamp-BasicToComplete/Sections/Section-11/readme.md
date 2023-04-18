@@ -437,4 +437,15 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 
 Project Reference: ../kafka-microservice/kafka-ms-order
 - Classes Added / Modified: 
-  - 
+  - DiscountMessage.java
+  - OrderMessage.java
+  - PromotionMessage.java
+
+
+### How to Run
+
+1. Run the "kafka-ms-order".
+2. Run the "kafka-ms-reward".
+3. Open postman and post a request bellow:
+   1. Order 1 Random Item
+4. Check the logs in "kafka-ms-storage". 
