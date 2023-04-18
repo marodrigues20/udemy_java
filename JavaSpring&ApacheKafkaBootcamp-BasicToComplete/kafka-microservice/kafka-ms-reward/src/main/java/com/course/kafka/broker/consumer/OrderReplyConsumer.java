@@ -29,11 +29,12 @@ public class OrderReplyConsumer {
         LOG.info("Processing order {}, item {}, credit card number{}", orderMessage.getOrderNumber(),
                 orderMessage.getItemName(), orderMessage.getCreditCardNumber());
 
-        LOG.info(" Headers : ");
-        headers.forEach(h -> LOG.info(" key : {}, value: {}", h.key(), new String(h.value())));
 
         var headerValues = ObjectUtils.isEmpty(headers.lastHeader("surpriseBonus").value()) ? "0" :
                 new String(headers.lastHeader("surpriseBonus").value());
+
+        LOG.info(" Headers : ");
+        headers.forEach(h -> LOG.info(" key : {}, value: {}", h.key(), new String(h.value())));
 
         var bonusPercentage = Integer.parseInt(headerValues);
         var bonusAmount = ((bonusPercentage / 100) * orderMessage.getPrice() * orderMessage.getQuantity());
