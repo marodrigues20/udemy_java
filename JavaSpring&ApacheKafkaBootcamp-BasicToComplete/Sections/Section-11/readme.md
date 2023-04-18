@@ -449,3 +449,17 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 3. Open postman and post a request bellow:
    1. Order 1 Random Item
 4. Check the logs in "kafka-ms-storage". 
+
+
+## 63. Request - Reply in Kafka
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_23.png?raw=true)
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_24.png?raw=true)
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_25.png?raw=true)
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_26.png?raw=true)
+
+
