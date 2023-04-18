@@ -298,6 +298,7 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 - Open the browser and use the url: localhost:9001/h2-console/
   - Check tables: ORDERS and ORDER_ITEMS
 
+Note: Use url in application.yml and username: sa and password doesn't required.
 
 
 ## 57. Pattern App - Kafka Consumer
