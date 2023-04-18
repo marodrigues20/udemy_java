@@ -17,13 +17,15 @@ repositories {
 val jacksonVersion = "2.13.2"
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.kafka:spring-kafka")
-	implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
-	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.kafka:spring-kafka-test")
+	implementation ("org.springframework.boot:spring-boot-starter")
+	implementation ("org.springframework.kafka:spring-kafka")
+
+	implementation ("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+	implementation ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}")
+
+	developmentOnly ("org.springframework.boot:spring-boot-devtools")
+	testImplementation ("org.springframework.boot:spring-boot-starter-test")
+	testImplementation ("org.springframework.kafka:spring-kafka-test")
 }
 
 tasks.withType<Test> {
