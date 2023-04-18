@@ -463,3 +463,14 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_26.png?raw=true)
 
 
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+- Classes Added / Modified: 
+  - KafkaConfig.java
+  - OrderReplyMessage.java
+
+
+Project Reference: ../kafka-microservice/kafka-ms-reward
+- Classes Added / Modified: 
+  - OrderReplyMessage.java
