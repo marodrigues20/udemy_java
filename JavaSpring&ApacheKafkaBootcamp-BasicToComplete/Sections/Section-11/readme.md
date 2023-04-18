@@ -474,3 +474,12 @@ Project Reference: ../kafka-microservice/kafka-ms-order
 Project Reference: ../kafka-microservice/kafka-ms-reward
 - Classes Added / Modified: 
   - OrderReplyMessage.java
+  - OrderReplyConsumer.java
+
+
+### How to Run
+
+1. Run the "afka-ms-order".
+2. 1. Run the "afka-ms-reward".
+3. Open Postman and post request
+   1. Order 1 Random Item
