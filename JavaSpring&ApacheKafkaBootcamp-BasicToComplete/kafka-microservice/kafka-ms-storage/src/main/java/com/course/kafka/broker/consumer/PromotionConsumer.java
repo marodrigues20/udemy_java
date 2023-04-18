@@ -1,7 +1,8 @@
 package com.course.kafka.broker.consumer;
 
 
-import com.course.kafka.broker.messages.PromotionMessage;
+import com.course.kafka.broker.message.DiscountMessage;
+import com.course.kafka.broker.message.PromotionMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
@@ -23,7 +24,7 @@ public class PromotionConsumer {
     }
 
     @KafkaHandler
-    public void listenDiscount(PromotionMessage message){
+    public void listenDiscount(DiscountMessage message){
         LOG.info("Processing Discount: {}", message);
     }
 

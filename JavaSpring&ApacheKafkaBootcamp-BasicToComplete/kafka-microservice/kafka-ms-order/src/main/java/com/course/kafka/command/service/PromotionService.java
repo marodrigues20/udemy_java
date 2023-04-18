@@ -15,7 +15,7 @@ public class PromotionService {
     private PromotionAction action;
 
     public void createPromotion(PromotionRequest request){
-
+        action.publishToKafka(request);
     }
 
 

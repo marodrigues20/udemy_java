@@ -25,7 +25,7 @@ dependencies {
 	implementation("com.github.ben-manes.caffeine:caffeine:${caffeineVersion}")
 	implementation("redis.clients:jedis:${jedisVersion}")
 	implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
-	implementation("com.fasterxml.jackson.core:jackson-annotation:${jacksonVersion}")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}")
 
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")

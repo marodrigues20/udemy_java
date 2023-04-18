@@ -1,4 +1,4 @@
-package com.course.kafka.broker.messages;
+package com.course.kafka.broker.message;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

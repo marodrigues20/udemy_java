@@ -1,4 +1,4 @@
-package com.course.kafka.broker.messages;
+package com.course.kafka.broker.message;
 
 /**
  * Section 11: 60. Storage App - Kafka Consumer
