@@ -381,3 +381,34 @@ public void publish(PromotionMessage message){
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_20.png?raw=true)
 
 
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-order
+- Classes Added / Modified: 
+  - DiscountRequest.java
+  - DiscountApi.java
+  - DiscountMessage.java
+  - DiscountProducer.java
+  - DiscountAction.java
+  - DiscountService.java
+
+
+
+### Project Reference
+
+Project Reference: ../kafka-microservice/kafka-ms-storage
+- Classes Added / Modified: 
+  - OrderMessage.java
+  - PromotionMessage.java
+  - DiscountMessage.java
+  - PromotionConsumer.java
+  
+
+### How to Run
+
+1. Run the "kafka-ms-order".
+2. Run the "kafka-ms-storage".
+3. Open postman and post a request bellow:
+   1. Create Promotion
+   2. Create Discount
+4. Check the logs in "kafka-ms-storage". 

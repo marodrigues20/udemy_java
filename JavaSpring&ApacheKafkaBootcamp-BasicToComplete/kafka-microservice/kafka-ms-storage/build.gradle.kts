@@ -14,9 +14,20 @@ repositories {
 	maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
+val caffeineVersion = "3.0.6"
+val jedisVersion = "4.2.1"
+val jacksonVersion = "2.13.2"
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.kafka:spring-kafka")
+
+	implementation("com.github.ben-manes.caffeine:caffeine:${caffeineVersion}")
+	implementation("redis.clients:jedis:${jedisVersion}")
+	implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+	implementation("com.fasterxml.jackson.core:jackson-annotation:${jacksonVersion}")
+
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
