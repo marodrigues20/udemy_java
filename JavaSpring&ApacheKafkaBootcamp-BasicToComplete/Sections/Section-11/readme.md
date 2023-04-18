@@ -413,3 +413,12 @@ Project Reference: ../kafka-microservice/kafka-ms-storage
    1. Create Promotion
    2. Create Discount
 4. Check the logs in "kafka-ms-storage". 
+
+
+## 61. Order App - Add Header to Message
+
+- Yesterday, the top management take decision: For certain branch offices, they will get x% bonus, while the rest get y%. This policy works only for 1 week. This policy should impacts only kafka-reward app, for one week only. In this case, we don’t want to change kafka message structure, otherwise kafka-storage and kafka-pattern might need change.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_21.png?raw=true)
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_22.png?raw=true)
