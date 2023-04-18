@@ -378,3 +378,6 @@ public void publish(PromotionMessage message){
 
 ## 60. Storage App - Kafka Consumer
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11/pic_20.png?raw=true)
+
+
