@@ -517,3 +517,64 @@ on existing kafka stream classes, so we can start fresh.
 - Can fail (for example if there is not enough memory to runs.)
   
 
+### 75. Kafka Stream Operations (Stateless)
+
+### About This Lecture
+
+- Kafka streams operations
+- This lecture, then code
+- Code, then this lecture
+
+### Diagram
+
+- You will see this kind of diagram.
+- The upper arrow is input data stream.
+- The box in the middle is operation.
+- The lower arrow is output data stream.
+- For each data, it will has two rectangle.
+- The left rectangle represents key, and right rectangle represents value.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_24.png?raw=true)
+
+
+### Intermediate & Terminal Operation
+
+- Later we will see intermediate or terminal operation.
+- Intermediate operation is an operation that produces another Kstream or KTable to be processed further.
+- Terminal operation is returning void, and cannot be processed further.
+- Consider terminal operation as “final” operation.
+
+#### Summary
+
+- Intermediate
+  - KStream -> KStream
+  - KTable -> KTable
+- Terminal
+  - KStream -> void
+  - KTable -> void
+  - "Final" operation
+
+
+### Reminder : Key & Partition
+
+- Remember that partition and key is related.
+- If we have more than one partition, data will go to partition according to key.
+- In some diagrams, you will see “Repartitioning”, this means data can change from partition A in input stream to partition X in output stream if key is changed.
+
+
+### MapValues
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_25.png?raw=true)
+
+
+### map
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_26.png?raw=true)
+
+### filter
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_27.png?raw=true)
+
+### filterNot
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_28.png?raw=true)
