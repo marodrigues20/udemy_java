@@ -646,3 +646,27 @@ on existing kafka stream classes, so we can start fresh.
 ### merge
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_43.png?raw=true)
+
+
+### cogroup
+
+
+- Co grouping is a little complex.
+- Suppose we need to track weather and traffic condition.
+- Weather data sent to certain topic, and traffic data sent to other topic.
+- We need to aggregate and update the location data everytime new weather or traffic data published.
+- This is the good example to use cogroup.
+- Cogroup is an intermediate operation that available on KStream.
+- To process cogroup, we need an aggregator for each cogroup.
+- This sample will produce cogrouped kstream where key is string, and value is location in form of json.
+- Notice that cogroup and merge is different.
+- Merge is simply creating new stream with data from two streams as is.
+- Cogroup is aggregating two or more streams based on certain logic, as simple as creating aggregated location data in this sample, or even complex mathematical functions like summing or averaging.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_44.png?raw=true)
+
+
+- This is the sample implementation cogroup aggregator for weather and traffic.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_45.png?raw=true)
