@@ -13,6 +13,7 @@
 - [Section 9 - Scheduling Consumer](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-09)
 - [Section 10 - Rabbitmq vs Kafka](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10)
 - [Section 11 - Kafka in Microservice Architecture & Pattern](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11)
+- [Section 12: Kafka Stream](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12)
 
 
 
