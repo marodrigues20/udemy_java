@@ -252,3 +252,20 @@ to keep production line running.
 - But basically they are the same code with previous lesson.
 - However we might add something later to simulate certain transaction for kafka stream.
 - Copy paste all files from package broker.message on project kafka order, into kafka stream
+
+
+## 68. Notes for Windows User
+
+### Kafka on Docker
+
+- At the next lesson, we will learn more concepts. If you run kafka using docker under windows, you might encounter error, where kafka broker, suddenly dead.
+- This seems windows problem when use docker volume mounting.
+- To handle that, remove the volume mounting when using docker.
+- In real life, kafka is usually installed on linux.
+- Administering kafka is not in this course scope and it is quite hard.
+- There are several kafka product available as cloud service, but comes at price.
+- Confluent is the most complete, but it is expensive.
+- Amazon provides MSK, which is managed kafka cluster.
+- Google does not has built-in kafka, but there is packaged kafka on google cloud marketplace.
+
+
