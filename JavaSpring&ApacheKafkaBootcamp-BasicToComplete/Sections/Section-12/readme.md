@@ -51,6 +51,9 @@
 
 ## 65. Stream Processing
 
+
+### Data Stream
+
 - A stream is sequence of data that comes in order.
 - We usually represents stream with this kind of diagram, called as marble diagram.
 - The arrow represents timeline, where left is earliest and right is latest.
@@ -64,6 +67,8 @@
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_05.png?raw=true)
 
+
+### Data Processing
 
 - What do we use data for?
 - We save those data in data store, this can be a simple text file, a database, or a big data cluster.
@@ -80,3 +85,32 @@ to keep production line running.
 - This is a batch that has very small interval, maybe in the matter of second.
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_07.png?raw=true)
+
+
+### Micro Batching
+
+- Consider we have many runners on a marathon.
+- Each runner has a sensor on the shoe.
+- At every milestone, a reader reads the sensor and send data to storage.
+- This is the data stream.
+- Each data indicates who the runner is, when he passed, and at which milestone.
+- We then process each data so we can know each runner’s position and updates the marathon dashboard.
+- Micro batching runs on regular interval, in the example is every second.
+- Why we need such “micro” time interval?
+- Well, in case of marathon, we need to update dashboard.
+- The audience will not wait for one minute to find out whether their favourite runner will wins.
+- So our approach is a microbatch, which will only give small latency after the runner pass a milestone.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_08.png?raw=true)
+
+
+- In batching, we process the data every certain time interval.
+- In the daily batch, if we have 200 loan data to be calculated, we process all 200.
+- If the next day we only have 170 loan data, that data will be processed., et cetera In the marathon example, if in one second we have three runners, we will process all three data after one second.
+- When only one runner pass the milestone, we process that data, et cetera.
+- No matter what the interval is, this is characteristic of batch processing.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_09.png?raw=true)
+
