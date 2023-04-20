@@ -578,3 +578,8 @@ on existing kafka stream classes, so we can start fresh.
 ### filterNot
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_28.png?raw=true)
+
+### branch
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_29.png?raw=true)
+
