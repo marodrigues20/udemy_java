@@ -114,3 +114,44 @@ to keep production line running.
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_09.png?raw=true)
 
+
+### Stream Processing 
+
+- Stream processing is working with the data as soon as it arrives on data stream.
+- Speaking about marathon example, the runner pass milestone and sensor reader on irregular interval.
+- So the data also comes in irregular interval, in order.
+- Sensor will send each data to data stream, and stream processing framework will process this data as soon as it arrives.
+- So stream processing is different from microbatching.
+- Say, for 10 seconds, no data arrives, then stream processing will not process anything during that time.
+- On the other hand, when 5 data comes to stream, in millisecond delay each, stream processing will process them.
+- Of course there is a latency during data arrives on stream and stream processing start.
+- However this latency is very small, so we can say stream processing is near-real-time.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_10.png?raw=true)
+
+### Yes To Stream Processing 
+
+- Yes, When:
+  - (relatively) fast data flow
+  - Application need to response quick to most recent data
+- Example
+  - Marathon
+  - Credit card fraud
+  - Stock trading
+  - Log analysis
+
+### No To Stream Processing
+
+- Example
+  - Daily interest
+  - Forecasting
+
+
+### To Stream or Not To Stream?
+
+- Sample: check supply must be above threshold
+- Depends on Service Level Agreement
+- 30 minutes is good : batch
+- Near real time : stream processing
+
