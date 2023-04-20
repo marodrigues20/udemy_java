@@ -488,3 +488,32 @@ on existing kafka stream classes, so we can start fresh.
 - We will see what is log compaction in the next lecture.
 - Use KStream if data is partial information, like bank transaction, where we need to know each debit or credit transaction.
 - Use KTable if we read from log-compacted topic. And data is self-sufficient, means that data represents most updated value, like total amount of bank balance.
+
+
+## 74. Log Compaction
+
+- Log compaction is more kafka administrative process rather than spring programming.
+- This lecture is just the very basic idea of it.
+- Log compaction means Kafka will make that a partition contains at least the latest value of a record.
+- It will delete the older versions based on record key on that partition.
+- It is useful if we need only the latest data snapshot, instead of whole history.
+- We can define log compaction configuration when creating topics.
+
+### For Example
+
+
+- For example, when we have kafka topic with this data, then after log compaction runs, it will has something like this.
+- For each key, at least one record with latest value exists, and older record deleted.
+- Notice that I mention “at least”, depends on configuration and kafka storage internals, we can still have something like this, where two latest omega keys exists, but not the earliest.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_23.png?raw=true)
+
+
+### Log Compaction
+
+- Keep the order
+- Not change offset
+- Not duplication validator
+- Can fail (for example if there is not enough memory to runs.)
+  
+
