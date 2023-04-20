@@ -40,6 +40,8 @@
 - We can even mix it, let’s just say the storage app still has some computing power.
 - We can put separate kafka-stream app for pattern and reward, while kafka-storage can has its own kafka-stream library for processing its own requirement Kafka stream is a stream processing library.
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_04.png?raw=true)
+
 ### Kafka Stream 
 
 - Stream processing framework
@@ -47,3 +49,17 @@
 - Alternative for Apache Spark, Nifi, or Flink
 - Stream & stream processing?
 
+## 65. Stream Processing
+
+- A stream is sequence of data that comes in order.
+- We usually represents stream with this kind of diagram, called as marble diagram.
+- The arrow represents timeline, where left is earliest and right is latest.
+- Each of circle represents one data.
+- The data continuously comes over time, we don’t know when it will ends.
+- Each data also called as event or record.
+- Each data is immutable, cannot be changed.
+- but we can be replay the sequence of data.
+- Seems familiar?
+- Kafka topic is one good example for stream.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_05.png?raw=true)
