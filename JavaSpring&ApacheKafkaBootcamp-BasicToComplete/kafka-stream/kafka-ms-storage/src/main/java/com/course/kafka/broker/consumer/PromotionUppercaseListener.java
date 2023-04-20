@@ -19,8 +19,5 @@ public class PromotionUppercaseListener {
     @KafkaListener(topics = "t-commodity-promotion-uppercase")
     public void listenPromotionUppercase(PromotionMessage message){
         LOG.info("Processing uppercase promotion: {}", message);
-
-
-
     }
 }

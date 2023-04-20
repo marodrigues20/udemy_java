@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Section 12: 69. Hello Kafka Stream
  */
-@Configuration
+//@Configuration
 public class PromotionUppercaseStream {
 
-    @Bean
+    //@Bean
     public KStream<String, String> kstreamPromotionUppercase(StreamsBuilder builder){
         var sourceStream = builder.stream("t-commodity-promotion", Consumed.with(Serdes.String(), Serdes.String()));
         var uppercaseStream = sourceStream.mapValues(s -> s.toUpperCase());

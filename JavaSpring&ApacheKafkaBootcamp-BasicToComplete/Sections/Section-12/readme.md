@@ -393,3 +393,7 @@ on existing kafka stream classes, so we can start fresh.
 - Note: Try it, go to postman and create several new promotions.
   - Then check out the eclipse logs on kafka-stream. Now you will see that the json attribute is as-is, but the value is uppercase. A little bit better, but we have to manually convert using Object Mapper. Well, the good news, Spring provides built-in Json Serde that we will learn on the next lecture.
   - Before we move on, I will comment the @Configuration annotation on existing kafka stream classes, so we can start fresh.
+
+
+## 71. Spring JSON Serde
+

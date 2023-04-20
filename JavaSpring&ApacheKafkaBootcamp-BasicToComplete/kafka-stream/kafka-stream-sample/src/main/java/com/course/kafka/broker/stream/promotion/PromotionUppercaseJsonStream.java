@@ -15,14 +15,14 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Section 12: 70. String Serde
  */
-@Configuration
+//@Configuration
 public class PromotionUppercaseJsonStream {
 
     private static final Logger LOG = LoggerFactory.getLogger(PromotionUppercaseJsonStream.class);
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    @Bean
+    //@Bean
     public KStream<String, String> kStreamPromotionUppercase(StreamsBuilder builder){
         var stringSerde = Serdes.String();
         var sourceStream = builder.stream("t-commodity-promotion", Consumed.with(stringSerde, stringSerde));
