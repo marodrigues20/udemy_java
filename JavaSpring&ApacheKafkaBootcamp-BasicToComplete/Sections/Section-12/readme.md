@@ -211,3 +211,44 @@ to keep production line running.
 
 ## 67. Prepare For Kafka Stream
 
+### What We Will Have
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_14.png?raw=true)
+
+### Preparation
+
+- When we learn about promotion and discount, we put multiple message types on one topic.
+- Spring will automatically serialize or deserialize kafka message to java class.
+- This feature is not available out-of-the-box in kafka stream.
+- So we need to stop kafka containers, and delete kafka docker data, which is subfolder data on same folder with docker compose scripts.
+- Then we re-create kafka containers.
+- For other scripts, like other kafka topics or kafka-console-consumer, I provide them on last lecture of this course on reference section.
+- Please download the script, extract and execute it when needed.
+- I believe at this point you already know how to start them for debugging purpose, or see the data stream.
+- Many code of kafka stream using Java 8 lambda style and functional programming.
+- That knowledge is not in this course coverage, and there are many resources on the internet that teach about this.
+
+
+### Download Source Code
+
+- Available on last section of the course
+- Source code, postman, kafka script
+- Open kafka stream scripts, then execute all of it on kafka console.
+
+### Spring Initializr
+
+- Go to start.spring.io and generate java project with gradle.
+- Generate 1 java / gradle project from start.spring.io
+  - Group: com.course.kafka
+  - Artifact: kafka-stream-sample
+  - Package name: com.course.kafka (remove any suffix)
+  - Dependency: Spring for Apache Kafka, Spring for Apache Kafka Stream, Spring Boot Devtools
+- Spring boot 2.x
+
+### Additional Projects
+
+- To simulate transaction, we will use previous projects on lesson kafka microservice.
+- To make the sample code more structured, on the downloaded source code, I will use these names for kafka microservices.
+- But basically they are the same code with previous lesson.
+- However we might add something later to simulate certain transaction for kafka stream.
+- Copy paste all files from package broker.message on project kafka order, into kafka stream
