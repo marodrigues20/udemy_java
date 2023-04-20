@@ -283,5 +283,20 @@ to keep production line running.
 
 ### Kafka Stream Basic Usage
 
+- I will give kafka stream core concept after this lecture.
+- To use kafka streams, there are several things to be done: Add the kafka stream library in the application. Define configurations. Create a topology. Start kafka stream.
+- Stop kafka stream at some point, usually on application shutdown hook.
+
+
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_16.png?raw=true)
+
+### Kafka Stream With Spring
+
+- To use kafka streams with spring, there are several things to be done:
+- Add the kafka stream library in the application.
+- Enable kafka stream and define kafka stream configuration. 
+- Then build the topology. 
+- Spring will manage the stream lifecycle, starting and stopping it.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_17.png?raw=true)
 
