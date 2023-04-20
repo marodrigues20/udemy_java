@@ -17,7 +17,7 @@ import java.util.HashMap;
 @EnableKafkaStreams
 public class KafkaStreamConfig {
 
-    @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_BUILDER_BEAN_NAME)
+    @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kafkaStreamsConfiguration(){
         var props = new HashMap<String, Object>();
 

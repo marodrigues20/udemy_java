@@ -336,3 +336,33 @@ to keep production line running.
 - Note: 
    - To make sure that kafka-stream sample application is started, see the console and you should see log lines which indicates state transition to RUNNING. Something like this.
    - Since we use method print for debugging, there will be logs in eclipse for every data in stream and you can see that the uppercase stream now contains uppercase promotion code.
+
+
+### Creating a new Listener to check UPPERCASE 
+
+
+- Project Reference: ../kafka-stream/kafka-ms-storage
+  - PromotionUppercaseListener.java
+
+### How To Run
+
+1. Start ../kafka-stream/kafka-ms-order
+2. Start ../kafka-stream/kafka-ms-sample
+3. Start ../kafka-stream/kafka-ms-storage
+4. Go to Postman and create several new promotions
+   1. Click on Promotion Collection.
+      1. Fill with 1000 interactions on the postman form
+      2. Fill with 500 Delay ms on the postman form
+      3. Click on "Run Course - Spring Kafka 4"
+   
+
+- Then check out the intellij logs on kafka-storage.
+- Wait a second, something seems weird. This is our original data. The key is null, that’s OK, the value is valid json string with promotion code like this sample.
+- This is our transformed data. The key is still null, and the value is valid json string, all uppercase.
+- This happened because we use String serde, which takes all original value as string, and convert all of the string to uppercase. I think this is risky.
+- If the kafka consumer is built using some framework which is json case sensitive, and we tell the developer that the JSON attribute is on camelCase, the kafka consumer might not be able to parse this uppercase json string. I think it will be better if we only make the json value uppercase, but attribute itself remains intact. There are several approach to do this, let’s see them on next lecture. Before we move on, I will comment the @Configuration annotation
+on existing kafka stream classes, so we can start fresh.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_19.png?raw=true)
+
+
