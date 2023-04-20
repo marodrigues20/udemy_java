@@ -175,3 +175,37 @@ to keep production line running.
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_11.png?raw=true)
 
 
+- This is the same topology, but has different colors, to explain kafka stream terminology.
+- The blue nodes is source processor.
+- It does not have upstream processor in topology.
+- It consumes data from one or more kafka topics and forwarding them to its downstream processors.
+- The red node is sink processor.
+- It does not have downstream processor in topology.
+- It sends received data from its upstream processors to a specified Kafka topic.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_12.png?raw=true)
+
+
+### What We Will Learn
+
+- Low Level Processor API
+- This Course: Kafka Stream DSL (Domain Specific Language)
+  - Simple
+  - Provides common data transforming
+
+
+### Serde (Serializer / Deserializer)
+
+- In kafka stream, we have the term “Serde”, or Serializer/Deserializer.
+- We already learn that every data in kafka topic contains key and value.
+- In kafka stream, we must define the default serde for both key and value, although we can override serde for each stream.
+- Kafka stream provides basic serdes like String, Long.
+- They are available as static method from class Serdes.
+- Since our value in this course is JSON, we can use JSON Serde provided by Spring.
+- In case needed, we can also create custom serde.
+- For example if the data format is on comma separated text, we can create our own CsvSerde.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_13.png?raw=true)
+
+
+
