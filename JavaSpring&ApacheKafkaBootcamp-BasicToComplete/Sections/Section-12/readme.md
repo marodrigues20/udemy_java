@@ -434,3 +434,57 @@ on existing kafka stream classes, so we can start fresh.
 
 
 - Note: Check microservices logs.
+
+## 73. Stream & Table
+
+
+### Stream & Table
+
+- Stream in Kafka Stream is represented by class KStream.
+- It is ordered sequence of messages, similar to kafka topic.
+- It is unbounded, means it does not have ends.
+- Data will keep flowing to the stream as there is any.
+- In stream, all data are Inserts.
+- Kafka stream table is represented with KTable class.
+- It is also unbounded, but it has different behaviour.
+- It upserts data.
+- This means it will insert or update a value, depends on the key.
+- If the value is null, it will deletes data.
+- The analogy is database table, where kafka key is table primary key, and it only has one other column, which is kafka value.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_20.png?raw=true)
+
+
+### KStream: Inserts Data
+
+- For example, see this data flow.
+- First, came alpha with value 10, so the stream will contains alpha-10.
+- Second data is beta with value 61, this data will be inserted into stream, so stream will contains two data like this.
+- Third data has existing key : alpha, with value 20.
+- Third data will be also inserted to stream.
+- The same thing with fourth and fifth data, all data will be inserted to stream.
+- So number of data in data flow will be same with stream.
+- Each data will be just inserted to stream.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_21.png?raw=true)
+
+
+### KTable: Upserts / Delete Data
+
+- Same data flow will produce table like this.
+- On first data, this will be inserted to table, as well as second data.
+- On third data, it will have existing key, so the content of KTable with key alpha will be updated to new value.
+- On fourth data, this will also updates existing key.
+- On fifth data, value is null, so it will deletes existing data on KTable with key alpha.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_22.png?raw=true)
+
+
+### When To Use KStream / KTable
+
+- Use KStream when we read from topic that is not log-compacted.
+- We will see what is log compaction in the next lecture.
+- Use KStream if data is partial information, like bank transaction, where we need to know each debit or credit transaction.
+- Use KTable if we read from log-compacted topic. And data is self-sufficient, means that data represents most updated value, like total amount of bank balance.
