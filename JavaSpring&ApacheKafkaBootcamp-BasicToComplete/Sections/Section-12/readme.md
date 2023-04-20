@@ -128,7 +128,7 @@ to keep production line running.
 - However this latency is very small, so we can say stream processing is near-real-time.
 
 
-![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_10.png?raw=true)
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/Pic_10.png?raw=true)
 
 ### Yes To Stream Processing 
 
