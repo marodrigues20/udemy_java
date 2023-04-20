@@ -155,3 +155,21 @@ to keep production line running.
 - 30 minutes is good : batch
 - Near real time : stream processing
 
+
+## 66. Kafka Stream Concept
+
+- In stream processing, we will see this kind of diagram.
+- This is a DAG, or directed acyclic graph.
+- In kafka stream term, we call these diagram as topology.
+- Each circle represents a requirement for data processing -or commonly called as stream processor-, and each arrow is the stream.
+- So topology is stream processors, chained together by streams.
+- Stream processor process incoming data stream, data by data.
+- The data stream itself is immutable, cannot be changed, but stream processor can create new output stream from it.
+- Data always flows from the parent to the child nodes, never from child to parent.
+- So in this topology, level 1 stream processor creates stream that processed by level 2 stream processor, but not vice versa.
+- That’s why we called this is acyclic.
+- Parent also known as upstream processor, while child also known as downstream processor.
+- Each child node, in turn, can define its own child nodes, and so on.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_11.png?raw=true)
