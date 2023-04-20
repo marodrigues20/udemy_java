@@ -275,4 +275,13 @@ to keep production line running.
   transform promotion code to uppercase. Follow along the code, don’t worry if you feel confuse.
 
 
+### Promotion
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_15.png?raw=true)
+
+
+### Kafka Stream Basic Usage
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_16.png?raw=true)
 
