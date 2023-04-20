@@ -20,6 +20,30 @@
 - Consider Kafka stream like a consumer that has many functions for data processing -transformation, enrichment, aggregation, et cetera-.
 - Kafka stream at the same time is also producer that publish to another kafka topic.
 - Then the consumer can then consume the transformed data directly from output topic 
-- Previously we have three consumer microservice built with spring kafka.
+
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_02.png?raw=true)
+
+
+- Previously we have three consumer microservice built with spring kafka.
+- Now with kafka stream, where should we put it?
+- It depends.
+- Kafka stream is just a library, we don’t need a separate application for deploying kafka stream application.
+- So we can put it like here, as additional library for each consumer.
+- Or we don’t want to disturb existing services, they are already busy and taking a lot of processing power.
+- In that case we can create dedicated kafka stream application.
+- We can use only kafka stream library, or we can combine it with spring kafka.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_03.png?raw=true)
+
+
+- We can even mix it, let’s just say the storage app still has some computing power.
+- We can put separate kafka-stream app for pattern and reward, while kafka-storage can has its own kafka-stream library for processing its own requirement Kafka stream is a stream processing library.
+
+### Kafka Stream 
+
+- Stream processing framework
+- Released on 2017
+- Alternative for Apache Spark, Nifi, or Flink
+- Stream & stream processing?
+
