@@ -397,3 +397,10 @@ on existing kafka stream classes, so we can start fresh.
 
 ## 71. Spring JSON Serde
 
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - PromotionUppercaseSpringJsonStream.java
+
+
+## 72. Custom JSON Serde
+
