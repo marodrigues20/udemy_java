@@ -404,3 +404,33 @@ on existing kafka stream classes, so we can start fresh.
 
 ## 72. Custom JSON Serde
 
+- Custom data format : comma separated, tab separated, ||| separated, etc
+- Take message as string  & convert
+- Custom serde
+- Serializer + Deserializer + implements Serde<T>
+- Example : Custom JSON serde
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - PromotionUppercaseSpringJsonStream.java
+    - CustomJsonDeserializer.java
+    - CustomJsonSerde.java
+    - CustomJsonSerializer.java
+    - PromotionSerde.java
+    - PromotionUppercaseCustomJsonStream.java
+
+
+
+### How To Run
+
+1. Start ../kafka-stream/kafka-ms-order
+2. Start ../kafka-stream/kafka-ms-sample
+3. Start ../kafka-stream/kafka-ms-storage
+4. Go to Postman
+   1. Post "Create Promotion"
+
+
+- Note: Check microservices logs.
