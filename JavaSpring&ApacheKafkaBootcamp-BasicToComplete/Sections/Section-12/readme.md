@@ -268,4 +268,11 @@ to keep production line running.
 - Amazon provides MSK, which is managed kafka cluster.
 - Google does not has built-in kafka, but there is packaged kafka on google cloud marketplace.
 
+## 69. Hello Kafka Stream
+
+- Let’s start quick coding introduction to kafka stream. Make sure you already run the preparation, including creating topics. On the kafka-order promotion API,
+  we can put any promotion code. The product owner decide that it will be better if the promotion code is on uppercase. For our first kafka stream application we will
+  transform promotion code to uppercase. Follow along the code, don’t worry if you feel confuse.
+
+
 
