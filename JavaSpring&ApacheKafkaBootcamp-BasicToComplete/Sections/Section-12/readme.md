@@ -63,3 +63,20 @@
 - Kafka topic is one good example for stream.
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_05.png?raw=true)
+
+
+- What do we use data for?
+- We save those data in data store, this can be a simple text file, a database, or a big data cluster.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_06.png?raw=true)
+
+
+- Then we process the data further, like transforming the data, doing some calculation, aggregating data, combining data, filtering bad data, et cetera.
+- Usually we leave the original data intact and create a new file, table, or anything to keep the output.
+- Usually we create batch depends on our need.
+- For example, calculating interest rates can be done in daily basis, but checking whether material in warehouse still enough must be done in 30 minutes interval
+to keep production line running.
+- Lately, we also know the term microbatching, especially on big data when the data stream comes very fast.
+- This is a batch that has very small interval, maybe in the matter of second.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_07.png?raw=true)
