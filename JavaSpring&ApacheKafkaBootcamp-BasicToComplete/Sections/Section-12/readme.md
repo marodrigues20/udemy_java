@@ -300,3 +300,39 @@ to keep production line running.
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_17.png?raw=true)
 
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - application.yml
+    - build.gradle.kts
+    - PromotionUppercaseStream.java
+    - KafkaStreamConfig.java
+
+
+- Project Reference: ../kafka-stream/kafka-ms-order
+
+
+
+### Topology
+
+- This is the topology that we will build for uppercase promotion.
+- The source processor will take data from this topic. We will have one sink processor to make promotion code uppercase, and send transformed data to this topic.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_18.png?raw=true)
+
+
+### How To Run
+
+1. Start ../kafka-stream/kafka-ms-order
+2. Start ../kafka-stream/kafka-ms-sample
+3. Go to Postman and create several new promotions
+   1. Click on Promotion Collection.
+      1. Fill with 1000 interactions on the postman form
+      2. Fill with 500 Delay ms on the postman form
+      3. Click on "Run Course - Spring Kafka 4"
+   2. 
+   
+- Note: 
+   - To make sure that kafka-stream sample application is started, see the console and you should see log lines which indicates state transition to RUNNING. Something like this.
+   - Since we use method print for debugging, there will be logs in eclipse for every data in stream and you can see that the uppercase stream now contains uppercase promotion code.
