@@ -13,12 +13,14 @@ repositories {
 }
 
 val apacheCommonsLang3Version = "3.12.0"
+val jacksonVersion = "2.13.2"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.apache.kafka:kafka-streams")
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation("org.apache.commons:commons-lang3:${apacheCommonsLang3Version}")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")

@@ -328,10 +328,12 @@ to keep production line running.
 2. Start ../kafka-stream/kafka-ms-sample
 3. Go to Postman and create several new promotions
    1. Click on Promotion Collection.
-      1. Fill with 1000 interactions on the postman form
-      2. Fill with 500 Delay ms on the postman form
-      3. Click on "Run Course - Spring Kafka 4"
-   2. 
+      1. Click on the button "Run"
+      2. Postman show a form
+      3. Fill with 1000 interactions on the postman form
+      4. Fill with 500 Delay ms on the postman form
+      5. Click on "Run Course - Spring Kafka 4"
+   
    
 - Note: 
    - To make sure that kafka-stream sample application is started, see the console and you should see log lines which indicates state transition to RUNNING. Something like this.
@@ -366,3 +368,28 @@ on existing kafka stream classes, so we can start fresh.
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_19.png?raw=true)
 
 
+## 70. String Serde
+
+- Project Reference: ../kafka-stream/kafka-ms-order
+- Project Reference: ../kafka-stream/kafka-ms-storage
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - PromotionMessage.java
+    - PromotionUppercaseJsonStream.java
+
+
+### How To Run
+
+1. Start ../kafka-stream/kafka-ms-order
+2. Start ../kafka-stream/kafka-ms-sample
+3. Start ../kafka-stream/kafka-ms-storage
+4. Go to Postman and create several new promotions
+   1. Click on Promotion Collection.
+      1. Fill with 5 interactions on the postman form
+      2. Fill with 0 Delay ms on the postman form
+      3. Click on "Run Course - Spring Kafka 4"
+
+
+- Note: Try it, go to postman and create several new promotions.
+  - Then check out the eclipse logs on kafka-stream. Now you will see that the json attribute is as-is, but the value is uppercase. A little bit better, but we have to manually convert using Object Mapper. Well, the good news, Spring provides built-in Json Serde that we will learn on the next lecture.
+  - Before we move on, I will comment the @Configuration annotation on existing kafka stream classes, so we can start fresh.
