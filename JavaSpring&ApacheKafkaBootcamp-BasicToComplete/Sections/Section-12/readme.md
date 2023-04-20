@@ -173,3 +173,5 @@ to keep production line running.
 
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12/pic_11.png?raw=true)
+
+
