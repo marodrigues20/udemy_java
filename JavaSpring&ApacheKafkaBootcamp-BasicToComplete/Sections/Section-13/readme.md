@@ -27,3 +27,8 @@
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_02.png?raw=true)
 
 
+- If we want to see the key, we can run kafka-console-consumer and give this parameter.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_03.png?raw=true)
+
+
