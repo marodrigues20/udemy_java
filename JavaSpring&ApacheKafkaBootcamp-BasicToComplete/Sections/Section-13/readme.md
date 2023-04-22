@@ -164,9 +164,29 @@ then remove credit card number.
 
 ### Commodity Streams - Branching Alternatives
 
+- Spring Kafka provides alternative syntax for branching.
+- instead of generating array of Kstream, Spring kafka uses lambda expression.
+- Copy paste CommodityTwoStream and rename it to CommodityThreeStream.
+
 ### Project Reference
 
 - Project Reference: ../kafka-stream/kafka-ms-sample
   - Classes Added / Modified: 
     - CommodityThreeStream.java
-    
+
+
+### How To Run
+
+1. Run ../kafka-stream/kafka-ms-sample
+2. Run ../kafka-stream/kafka-ms-order
+3. Open PostMan "Course - Spring Kafka 4"
+4. Select "Create Plastic & Non Plastic Order"
+5. Post a Request.
+6. Open 4 Command Prompts. One for each command below:
+  7. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-three-plastic
+  8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-three-notplastic
+  8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-reward-three
+  9. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-storage-three
+10. You can watch the sink topic and find out sample data.
+
+
