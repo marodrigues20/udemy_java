@@ -158,3 +158,15 @@ then remove credit card number.
   8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-reward-two
   9. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-storage-two
 10. You can watch the sink topic and find out sample data.
+
+
+## 80. Branching Alternatives
+
+### Commodity Streams - Branching Alternatives
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - CommodityThreeStream.java
+    
