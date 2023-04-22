@@ -101,3 +101,26 @@ then remove credit card number.
 12. You can see in 3 Command Prompt all the messages being consumed and displayed.
 
 
+
+## 79. Additional Requirement
+
+### Commodity Stream - Additional Requirements
+
+- In this lecture, we will learn that stream can has multiple processes on topology.
+- After some times, we have additional requirements for commodity stream.
+- We need to split pattern stream into plastic items and non plastic items, so if we have 10 items, 3 of which are plastic material, we have to split the stream.
+- 3 plastic items go into one stream, and the other 7 go into different stream.
+- On reward stream, management only interested giving reward on item with certain price, the business call it “not cheap”.
+- On storage, it happens that the nosql database needs base64 encoded key, but we cannot change the data structure. In this case, we will change the data key into base64 of order number, but leave the value as-is.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_06.png?raw=true)
+
+
+### Topology Detail
+
+- So we will have this additional topology in detail. In pattern, we will split -or in other word-branch the stream into plastic and non plastic.
+-In reward, we add additional filter for price, then remove the credit card attribute.
+- In storage, we will change the key to base64.
+- Since we will add requirement, copy paste CommodityOneStream and rename it to CommodityTwoStream.
+
