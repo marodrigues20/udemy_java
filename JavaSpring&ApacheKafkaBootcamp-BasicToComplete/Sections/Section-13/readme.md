@@ -32,3 +32,23 @@
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_03.png?raw=true)
 
 
+## 77. First Step - Commodity Stream
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - MaskOrderStream.java
+    - CommodityStreamUtil.java
+    - OrderMessage.java
+    - JsonConfig.java
+
+
+### How to Run
+
+1. Run ../kafka-stream/kafka-ms-sample
+2. Open PostMan
+   1. Send a post request using "Order 2 Random items" for 2 items.
+3. Open a prompt and execute:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-commodity-order-masked
+
