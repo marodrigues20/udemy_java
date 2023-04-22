@@ -52,3 +52,31 @@
 3. Open a prompt and execute:
    1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-commodity-order-masked
 
+
+## 78. Sink Processors
+
+- In this lecture, we will create the sink processors, with this use case:
+- Pattern processor will summarize item, it will remove item and quantity attribute, summarize them as new attribute : total item amount.
+- Reward processor will only process data with large quantity, which is quantity above certain number then remove credit card number. Storage processor has no change,
+  just sending order to sink stream.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_04.png?raw=true)
+
+
+### Topology Detail
+
+- We will have this topology in detail. This is the source processor.
+- We then mask the credit card. For pattern, we will have processor to summarize total item value. For reward, we will filter large quantity only,
+then remove credit card number.
+- For storage no data transformation, send directly to sink stream.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_05.png?raw=true)
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - 
