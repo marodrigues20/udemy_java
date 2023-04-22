@@ -79,4 +79,25 @@ then remove credit card number.
 
 - Project Reference: ../kafka-stream/kafka-ms-sample
   - Classes Added / Modified: 
-    - 
+    - OrderPatternMessage.java
+    - OrderRewardMessage.java
+    - CommodityStreamUtil.java
+    - CommodityOneStream.java
+
+
+### How to Run
+
+1. Open 3 different Command prompt to consume each topic and display for you see the messages in each topic.
+2. Type in each Command prompt:
+3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-one
+4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-reward-one
+5. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-storage-one
+6. Open Postman
+7. Click on "Commodity Order" and click on "Run" button.
+8. Select 3 entry end points: "Order 1 Random Item"; "Order 2 Random Items"; Order 3 Random Items"
+9. Fill in Iterations field: 1000
+10. Fill in Delay field: 1000 ms
+11. Click on "Run Course - Spring Kafka 4"
+12. You can see in 3 Command Prompt all the messages being consumed and displayed.
+
+
