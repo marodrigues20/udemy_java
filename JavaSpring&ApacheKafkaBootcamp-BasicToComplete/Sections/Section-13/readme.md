@@ -147,3 +147,14 @@ then remove credit card number.
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_08.png?raw=true)
 
 
+1. Run ../kafka-stream/kafka-ms-sample
+2. Run ../kafka-stream/kafka-ms-order
+3. Open PostMan "Course - Spring Kafka 4"
+4. Select "Create Plastic & Non Plastic Order"
+5. Post a Request.
+6. Open 4 Command Prompts. One for each command below:
+  7. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-two-plastic
+  8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-two-notplastic
+  8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-reward-two
+  9. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-storage-two
+10. You can watch the sink topic and find out sample data.
