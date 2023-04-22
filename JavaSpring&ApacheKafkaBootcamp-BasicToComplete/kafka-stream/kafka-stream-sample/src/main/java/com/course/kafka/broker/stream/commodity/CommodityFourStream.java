@@ -17,10 +17,10 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 /**
  * Section 13: 79. Additional Requirements
  */
-@Configuration
+//@Configuration
 public class CommodityFourStream {
 
-    @Bean
+    //@Bean
     public KStream<String, OrderMessage> kstreamCommodityTrading(StreamsBuilder builder){
         var stringSerde = Serdes.String();
         var orderSerde = new JsonSerde<>(OrderMessage.class);
