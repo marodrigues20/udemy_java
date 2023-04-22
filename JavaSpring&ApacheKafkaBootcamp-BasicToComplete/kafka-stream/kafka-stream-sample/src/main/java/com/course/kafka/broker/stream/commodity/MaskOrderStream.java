@@ -8,16 +8,18 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Printed;
 import org.apache.kafka.streams.kstream.Produced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.serializer.JsonSerde;
 
 /**
  * Section 13: 77. First Step - Commodity Stream
  */
-@Configuration
+//@Configuration
 public class MaskOrderStream {
 
 
+    //@Bean
     public KStream<String, OrderMessage> kStreamCommodityTrading(StreamsBuilder builder){
         var stringSerde = Serdes.String();
         var orderSerde = new JsonSerde<>(OrderMessage.class);
