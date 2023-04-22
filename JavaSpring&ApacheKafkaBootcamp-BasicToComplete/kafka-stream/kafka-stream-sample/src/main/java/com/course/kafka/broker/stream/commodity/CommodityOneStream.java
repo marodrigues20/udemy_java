@@ -16,10 +16,10 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 /**
  * Section 13: 78. Sink Processors
  */
-@Configuration
+//@Configuration
 public class CommodityOneStream {
 
-    @Bean
+    //@Bean
     public KStream<String, OrderMessage> kstreamCommodityTrading(StreamsBuilder builder){
         var stringSerde = Serdes.String();
         var orderSerde = new JsonSerde<>(OrderMessage.class);

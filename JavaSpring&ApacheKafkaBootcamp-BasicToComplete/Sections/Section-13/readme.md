@@ -92,13 +92,15 @@ then remove credit card number.
 3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-one
 4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-reward-one
 5. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-storage-one
-6. Open Postman
-7. Click on "Commodity Order" and click on "Run" button.
-8. Select 3 entry end points: "Order 1 Random Item"; "Order 2 Random Items"; Order 3 Random Items"
-9. Fill in Iterations field: 1000
-10. Fill in Delay field: 1000 ms
-11. Click on "Run Course - Spring Kafka 4"
-12. You can see in 3 Command Prompt all the messages being consumed and displayed.
+6. Run ../kafka-stream/kafka-ms-sample
+7. Run ../kafka-stream/kafka-ms-order
+8. Open Postman
+9. Click on "Commodity Order" and click on "Run" button.
+10. Select 3 entry end points: "Order 1 Random Item"; "Order 2 Random Items"; Order 3 Random Items"
+11. Fill in Iterations field: 1000
+12. Fill in Delay field: 1000 ms
+13. Click on "Run Course - Spring Kafka 4"
+14. You can see in 3 Command Prompt all the messages being consumed and displayed.
 
 
 
@@ -123,4 +125,25 @@ then remove credit card number.
 -In reward, we add additional filter for price, then remove the credit card attribute.
 - In storage, we will change the key to base64.
 - Since we will add requirement, copy paste CommodityOneStream and rename it to CommodityTwoStream.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_07.png?raw=true)
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - CommodityOneStream2.java
+    - CommodityStreamUtil.java
+
+
+### How To Run
+
+- For trying, I provide postman collection. In there, find endpoint to create plastic and non plastic order. If you examine the body, you will find certain items, price, and quantity. With these sample data, you will get the sink stream and data like this.
+- For trying, open postman collection. Execute endpoint to create plastic and non plastic order.
+- You can watch the sink topic and find out sample data.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_08.png?raw=true)
+
 
