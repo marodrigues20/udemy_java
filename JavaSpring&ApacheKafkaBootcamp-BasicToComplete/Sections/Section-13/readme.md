@@ -240,3 +240,23 @@ then remove credit card number.
     - CommodityStreamUtil.java
 
 
+### How To Run
+
+1. Run ../kafka-stream/kafka-ms-sample
+2. Run ../kafka-stream/kafka-ms-order
+3. Open PostMan "Course - Spring Kafka 4"
+4. Select "Order 1 Random Item"
+5. Post a Request.
+6. Open 4 Command Prompts. One for each command below:
+  7. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-four-plastic
+  8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-pattern-four-notplastic
+  8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-reward-four
+  9. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic -t-commodity-storage-four
+10. You can watch the sink topic and find out sample data.
+
+
+
+## 83. Calling API or Other Process
+
+### Commodity Stream - Calling API or Other Process
+
