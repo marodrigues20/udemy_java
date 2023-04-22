@@ -213,3 +213,30 @@ then remove credit card number.
 10. You can watch the sink topic and find out sample data.
 
 
+## 82. Reward Each Location
+
+### Commodity Stream - Reward Each Location
+
+- Currently we have reward message with key is order number.
+- This is because order number is original key from order input stream.
+- In previous stream, we use mapValues which only change the value, not the key.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_09.png?raw=true)
+
+
+- For reward, the key should be based on location, so this kind of structure is better.
+- To transform the value and the key, we can use map method instead of mapValues.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_10.png?raw=true)
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified:
+    - CommodityFourStream.java
+    - CommodityStreamUtil.java
+
+
