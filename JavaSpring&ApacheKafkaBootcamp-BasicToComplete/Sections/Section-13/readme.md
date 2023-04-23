@@ -260,3 +260,32 @@ then remove credit card number.
 
 ### Commodity Stream - Calling API or Other Process
 
+- Just now, security team ask our help.
+- They have fraud indication, but they don’t want other team know this fraud potential.
+- So security team wants all data from certain locations, but they don’t want those data go to kafka. In this case, security team creates API for fraud report, and they want every certain data from stream hit those API without go to kafka.
+- In this lecture, we will learn how to process stream result without passing it to sink stream.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_11.png?raw=true)
+
+- For this requirement, we will create the fourth sink processors which filter order from location started with “C” and simulate API call, but not send to sink stream.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_12.png?raw=true)
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified:
+    - CommodityFiveStream.java
+
+
+### How To Run
+
+1. Run ../kafka-stream/kafka-ms-sample
+2. Run ../kafka-stream/kafka-ms-order
+3. Open PostMan "Course - Spring Kafka 4"
+4. Select "Order 1 Random Item"
+5. Select "Body"
+6. Change attribute "orderLocation" to "Cananda" or "Camaron" to see the application reporting on intellij prompt.
