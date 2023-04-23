@@ -289,3 +289,40 @@ then remove credit card number.
 4. Select "Order 1 Random Item"
 5. Select "Body"
 6. Change attribute "orderLocation" to "Cananda" or "Camaron" to see the application reporting on intellij prompt.
+
+
+
+## 84. Further Fraud Processing
+
+### Commodity Stream - Further Fraud Processing
+
+- After a while, the security head decides that possible fraud data must also send to kafka topic, to be processed further. However, the only data allowed to send is masked country name and total item amount. Also, we must still hit fraud API.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_13.png?raw=true)
+
+
+- For this requirement, we will need additional sink processors. Fraud processor will filter order from location started with “C” and simulate API call, and continue to sink processor that map key and value as requested by security.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13/pic_14.png?raw=true)
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified:
+    - CommodityFiveStream.java
+
+
+### How To Run
+
+1. Run ../kafka-stream/kafka-ms-sample
+2. Run ../kafka-stream/kafka-ms-order
+3. Open PostMan "Course - Spring Kafka 4"
+4. Select "Order 1 Random Item"
+5. Select "Body"
+6. Change attribute "orderLocation" to "Cananda" or "Camaron" and post it.
+7. Open a Command Prompt to consume the topic and check the value published:
+8. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-fraud-six
+9. End.
+
