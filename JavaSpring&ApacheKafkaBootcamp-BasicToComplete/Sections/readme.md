@@ -15,6 +15,8 @@
 - [Section 11 - Kafka in Microservice Architecture & Pattern](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11)
 - [Section 12: Kafka Stream](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12)
 - [Section 13: Kafka Stream - Commodity](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13)
+- [Section 14: Feedback Stream](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14)
+
 
 
 
