@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Section 14: Source Code for Feedback
  */
-@Configuration
+//@Configuration
 public class FeedbackOneStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
 
@@ -37,7 +37,7 @@ public class FeedbackOneStream {
 
     private ValueMapper<FeedbackMessage, Iterable<String>> mapperGoodWords(){
         return feedbackMessage -> Arrays
-                .asList(feedbackMessage.getFeedback().replaceAll("[^a-zA-Z]", "").toLowerCase().split("\\s+")).stream()
+                .asList(feedbackMessage.getFeedback().replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+")).stream()
                 .filter(word -> GOOD_WORDS.contains(word)).distinct().collect(Collectors.toList());
     }
 }

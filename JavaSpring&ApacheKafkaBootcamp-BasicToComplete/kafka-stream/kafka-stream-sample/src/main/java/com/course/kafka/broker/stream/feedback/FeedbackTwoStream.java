@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  * Section 14: 85. Source Code for Feedback
  * Section 14: 86. Who Owns This Feedback
  */
-@Configuration
+//@Configuration
 public class FeedbackTwoStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
 
@@ -31,10 +31,9 @@ public class FeedbackTwoStream {
 
         var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde))
                 .flatMap((key, value) -> Arrays
-                .asList(value.getFeedback().replaceAll("[^a-zA-Z]", "").toLowerCase().split("\\s+")).stream()
-                .filter(word -> GOOD_WORDS.contains(word)).distinct()
-                .map(goodWord -> KeyValue.pair(value.getLocation(), goodWord)).collect(Collectors.toList())
-                );
+                        .asList(value.getFeedback().replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+")).stream()
+                        .filter(word -> GOOD_WORDS.contains(word)).distinct()
+                        .map(goodWord -> KeyValue.pair(value.getLocation(), goodWord)).collect(Collectors.toList()));
 
         goodFeedbackStream.to("t-commodity-feedback-two-good");
 
