@@ -50,6 +50,13 @@
     - FeedbackOneStream.java
 
 
+### Key Code - Kafka API
+
+```
+var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde))
+                .flatMapValues(mapperGoodWords());
+```
+
 ### How to Run
 
 1. Open Postman
@@ -60,3 +67,56 @@
 6. Open Command Prompt:
    1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-one-good
 
+
+
+## 86. Who Owns This Feedback?
+
+### Feedback Stream - Who owns This Feedback?
+
+- The previous topology is working fine, but we don’t know who owns this good word.
+- So this time, we will add branch location as key.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_03.png?raw=true)
+
+
+- Project Reference: ../kafka-stream/kafka-ms-sample
+  - Classes Added / Modified: 
+    - FeedbackMessage.java
+    - FeedbackTwoStream.java
+
+
+### Key Code - Kafka API
+
+```
+var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde))
+                .flatMap((key, value) -> Arrays
+                .asList(value.getFeedback().replaceAll("[^a-zA-Z]", "").toLowerCase().split("\\s+")).stream()
+                .filter(word -> GOOD_WORDS.contains(word)).distinct()
+                .map(goodWord -> KeyValue.pair(value.getLocation(), goodWord)).collect(Collectors.toList())
+                );
+```
+
+
+### Java Stream API
+
+- Since Java 8
+- Not kafka stream
+- Same method names:
+  - filter
+  - flatMap
+  - forEach
+  - map
+  - peek
+
+
+### How to Run
+
+- Now if I send another good feedback you will see that the sink stream contains transformed record with order location as key.
+
+1. Open Postman
+2. Expand on "Feedback"
+3. Post a request using "Create Good Feedback"
+4. Run ../kafka-stream/kafka-ms-order
+5. Run ../kafka-stream/kafka-ms-sample
+6. Open Command Prompt:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-one-good
