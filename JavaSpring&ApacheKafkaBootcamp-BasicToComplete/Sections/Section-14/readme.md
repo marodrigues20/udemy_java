@@ -196,6 +196,7 @@ sourceStream.flatMap(splitWords()).split()
 ### Key Code - Kafka API
 
 ```
+// groupByKey will produce KTable, in which we have count() method to do this functionality.
 sourceStream.flatMap(splitWords()).split()
                 .branch(isGoodWord(), Branched.withConsumer(ks -> {
                     ks.to("t-commodity-feedback-four-good");

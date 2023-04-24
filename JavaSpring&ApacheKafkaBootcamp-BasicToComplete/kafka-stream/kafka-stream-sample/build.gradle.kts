@@ -21,6 +21,7 @@ dependencies {
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation("org.apache.commons:commons-lang3:${apacheCommonsLang3Version}")
 	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}")
+	implementation("org.rocksdb:rocksdbjni:7.10.2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
