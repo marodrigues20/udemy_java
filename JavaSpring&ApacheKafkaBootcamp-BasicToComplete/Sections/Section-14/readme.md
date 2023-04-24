@@ -126,6 +126,8 @@ var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(st
 
 ### Bad Feedback?
 
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_05.png?raw=true)
+
 - Sometimes, branch get bad feedback.
 - To improve branch service quality, we have to analyze that bad feedback too.
 - We will split the text into words, without filtering them, just split it.
