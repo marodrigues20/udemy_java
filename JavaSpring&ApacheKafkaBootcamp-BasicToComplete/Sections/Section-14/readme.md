@@ -124,3 +124,46 @@ var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(st
 
 ## 87. Good Feedback or Bad FeedBack?
 
+### Bad Feedback?
+
+- Sometimes, branch get bad feedback.
+- To improve branch service quality, we have to analyze that bad feedback too.
+- We will split the text into words, without filtering them, just split it.
+- This will be the first child processor. Then we will branch the words into good word or bad word, while removing the other words.
+- So we will have this kind of topology.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_04.png?raw=true)
+
+
+- In the good feedback processor, we already has list of good word, and we will do the same for bad words. We will have list of bad words.
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-order
+  - Classes Added / Modified: 
+    - FeedbackThreeStream.java
+
+
+
+### Key Code - Kafka API
+
+```
+sourceStream.flatMap(splitWords()).split()
+                .branch(isGoodWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-good")))
+                .branch(isBadWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-bad")));
+```
+
+
+### How to Run
+
+1. Open Postman
+2. Expand on "Feedback"
+3. Post a request using "Create Good Feedback"
+4. Post a request using "Create Bad Feedback"
+5. Run ../kafka-stream/kafka-ms-order
+6. Run ../kafka-stream/kafka-ms-sample
+7. Open Command Prompt:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-one-good
+
+
