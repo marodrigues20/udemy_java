@@ -16,25 +16,32 @@ import java.util.stream.Collectors;
 /**
  * Section 14: 87. Good Feedback or Bad Feedback?
  */
-//@Configuration
-public class FeedbackThreeStream {
+@Configuration
+public class FeedbackFourStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
     private static final Set<String> BAD_WORDS = Set.of("angry", "sad", "bad");
+
     @Bean
-    public KStream<String, FeedbackMessage> kStreamFeedback(StreamsBuilder builder){
+    public KStream<String, FeedbackMessage> kStreamFeedback(StreamsBuilder builder) {
 
         var stringSerde = Serdes.String();
         var feedbackSerde = new JsonSerde<>(FeedbackMessage.class);
 
         var sourceStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde));
 
+        //groupByKey will produce KTable, in which we have count() method to do this functionality.
         sourceStream.flatMap(splitWords()).split()
-                .branch(isGoodWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-good")))
-                    .branch(isBadWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-bad")));
+                .branch(isGoodWord(), Branched.withConsumer(ks -> {
+                    ks.to("t-commodity-feedback-four-good");
+                    ks.groupByKey().count().toStream().to("t-commodity-feedback-four-good-count");
+                }))
+                .branch(isBadWord(), Branched.withConsumer(ks -> {
+                    ks.to("t-commodity-feedback-four-bad");
+                    ks.groupByKey().count().toStream().to("t-commodity-feedback-four-bad-count");
+                }));
 
         return sourceStream;
     }
-
 
 
     private Predicate isBadWord() {
@@ -50,6 +57,5 @@ public class FeedbackThreeStream {
                 .stream().distinct().map(word -> KeyValue.pair(value.getLocation(), word)).collect(Collectors.toList());
     }
 
-   
 
 }

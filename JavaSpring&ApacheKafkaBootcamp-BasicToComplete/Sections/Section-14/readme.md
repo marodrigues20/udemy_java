@@ -181,3 +181,44 @@ sourceStream.flatMap(splitWords()).split()
   
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_06.png?raw=true)
+
+
+
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-ms-order
+  - Classes Added / Modified: 
+    - FeedbackFourStream.java
+
+
+
+### Key Code - Kafka API
+
+```
+sourceStream.flatMap(splitWords()).split()
+                .branch(isGoodWord(), Branched.withConsumer(ks -> {
+                    ks.to("t-commodity-feedback-four-good");
+                    ks.groupByKey().count().toStream().to("t-commodity-feedback-four-good-count");
+                }))
+                .branch(isBadWord(), Branched.withConsumer(ks -> {
+                    ks.to("t-commodity-feedback-four-bad");
+                    ks.groupByKey().count().toStream().to("t-commodity-feedback-four-bad-count");
+                }));
+```
+
+### How to Run
+
+1. Open Postman
+2. Expand on "Feedback"
+3. Post a request using "Create Good Feedback"
+4. Post a request using "Create Bad Feedback"
+5. Post a request using "Create Random Feedback"
+6. Run ../kafka-stream/kafka-ms-order
+7. Run ../kafka-stream/kafka-ms-sample
+8. Open Command Prompt:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-four-good
+   2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-four-bad
+   3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-four-good-count
+   4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-four-bad-count
+
