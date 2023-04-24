@@ -6,6 +6,7 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.serializer.JsonSerde;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * Section 14: 87. Good Feedback or Bad Feedback?
  */
-//@Configuration
+@Configuration
 public class FeedbackThreeStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
     private static final Set<String> BAD_WORDS = Set.of("angry", "sad", "bad");
@@ -29,7 +30,7 @@ public class FeedbackThreeStream {
 
         sourceStream.flatMap(splitWords()).split()
                 .branch(isGoodWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-good")))
-                .branch(isBadWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-bad")));
+                    .branch(isBadWord(), Branched.withConsumer(ks -> ks.to("t-commodity-feedback-three-bad")));
 
         return sourceStream;
     }

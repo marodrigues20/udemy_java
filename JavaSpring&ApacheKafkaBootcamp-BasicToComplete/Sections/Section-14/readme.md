@@ -167,3 +167,15 @@ sourceStream.flatMap(splitWords()).split()
    1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-one-good
 
 
+## 88. Group Using Table
+
+- It is good to know the exact good or bad words, but quality service needs more.
+- They need to know the count of words for each branch. So we need additional two informations : the count of bad word, and the count of good word
+- In that case, we need additional processor to count the word based on branch, which currently is the record key.
+- The group result will be branch name and count of good word or bad word.
+- In this case, we will use KTable to grouping. So we will have four topics to send.
+- Two topics to send each word. And two topics to send each count.
+- Wait, we can’t send KTable directly to topic, so we need to convert the table back to stream before send to sink topic Copy class FeedbackThreeStream into FeedbackFourStream.
+  
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_06.png?raw=true)
