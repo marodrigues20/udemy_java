@@ -223,3 +223,23 @@ sourceStream.flatMap(splitWords()).split()
    3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-four-good-count
    4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-four-bad-count
 
+
+## 89. Delay on Table
+
+### Feedback Stream - Delay on Table 
+
+- If you see some delay when using KTable, between sending message to input topic and see the output topic from KTable, it is normal.
+- Kafka cache output and send down the stream every certain interval.
+- The default Kafka configuration will takes about 30 seconds to process this.
+- The configuration is commit.interval.ms which controls how often kafka flush results down the stream.
+- We can adjust this configuration
+  - Default configuratin: 30 seconds
+  - Cache and send
+  - On commit.interval.ms
+  - Adjust configuration
+
+
+## 90. Send and Continue
+
+### Feedback Stream - Send and Continue
+
