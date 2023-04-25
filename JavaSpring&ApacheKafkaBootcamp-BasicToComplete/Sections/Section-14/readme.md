@@ -249,7 +249,7 @@ sourceStream.flatMap(splitWords()).split()
 
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_07.png?raw=true)
 
-### Project Reference
+### Project Reference - Using Through Sintax
 
 - Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
@@ -258,7 +258,7 @@ sourceStream.flatMap(splitWords()).split()
 
 
 
-### Key Code - Kafka API
+### Key Code - Kafka API - Using Through Sintax
 
 ```
 //However, we use deprecated syntax on this file. So let’s see the newer alternative later:
@@ -271,7 +271,7 @@ var feedbackStream = sourceStream.flatMap(splitWords()).branch(isGoodWord(), isB
 ```
 
 
-### How to Run
+### How to Run - 
 
 1. Open Postman
 2. Click on "Feedback"
@@ -298,7 +298,7 @@ var feedbackStream = sourceStream.flatMap(splitWords()).branch(isGoodWord(), isB
 props.put(StreamsConfig.APPLICATION_ID_CONFIG, "kafka-streams-" + System.currentTimeMillis());
 ```
 
-### Project Reference
+### Project Reference - Using Repartition Sintax
 
 - Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
@@ -318,7 +318,7 @@ sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withCon
           .groupByKey().count().toStream().to("t-commodity-feedback-five-bad-count")));
 ```
 
-### How to Run
+### How to Run - Using Repartition Sintax
 
 1. Open Postman
 2. Click on "Feedback"
@@ -337,3 +337,22 @@ sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withCon
 
 - Note that when using repartition, the output topic is for internal kafka use, and the name we define is not the actual topic name.
 - So message only sent to count topic.
+
+
+## 91. Overall Good (or Bad)
+
+### Feedback Stream - Overall Good (or Bad)
+
+- We also need to calculate overall good or bad for the whole company, and find out what is customer feeling. This means we need to know the count of every good word and bad word.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_08.png?raw=true)
+
+
+- To accommodate this need, we can use another group by, but this time using the word itself as key, so we have another KTable with different grouping.
+- Then we convert the table to stream to send it to sink topic.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_09.png?raw=true)
+
+
