@@ -356,3 +356,41 @@ sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withCon
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_09.png?raw=true)
 
 
+### Project Reference - Using Repartition Sintax
+
+- Project Reference: ../kafka-stream/kafka-stream-sample
+  - Classes Added / Modified: 
+    - FeedbackSixStream.java
+
+
+### Key Code - Kafka API - Using Repartition Sintax
+
+```
+sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withConsumer(ks -> {
+      ks.repartition(Repartitioned.as("t-commodity-feedback-six-good")).groupByKey().count().toStream()
+              .to("t-commodity-feedback-six-good-count");
+      ks.groupBy((key, value) -> value).count().toStream().to("t-commodity-feedback-six-good-count-word");
+
+  })).branch(isBadWord(), Branched.withConsumer(ks -> {
+          ks.repartition(Repartitioned.as("t-commodity-feedback-six-bad")).groupByKey().count().toStream()
+                  .to("t-commodity-feedback-six-bad-count");
+          ks.groupBy((key, value) -> value).count().toStream().to("t-commodity-feedback-six-bad-count-word");
+  }));
+```
+
+
+### How to Run - Using Repartition Sintax
+
+1. Run ../kafka-stream/kafka-ms-order
+8. Run ../kafka-stream/kafka-ms-sample
+2. Open Postman
+3. Click on "Feedback"
+4. Check just "Create Random Feedback"
+5. Fill "interaction" field using 1000 as a value
+6. Fill "Delay" field using the 1000 as a value
+7. Click on "Run Course - Spring Kafka 4"
+8. Open Command Prompt:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-six-good-count-word
+   2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-six-bad-count-word
+
+

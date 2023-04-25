@@ -16,22 +16,27 @@ import java.util.stream.Collectors;
 /**
  * Section 14: 90. Save and Continue
  */
-//@Configuration
-public class FeedbackFiveV2Stream {
+@Configuration
+public class FeedbackSixStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
     private static final Set<String> BAD_WORDS = Set.of("angry", "sad", "bad");
 
-    //@Bean
+    @Bean
     public KStream<String, FeedbackMessage> kStreamFeedback(StreamsBuilder builder) {
         var stringSerde = Serdes.String();
         var feedbackSerde = new JsonSerde<>(FeedbackMessage.class);
         var sourceStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde));
 
-        sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withConsumer(ks -> ks.repartition(Repartitioned.as("t-commodity-feedback-five-good"))
-                        .groupByKey().count().toStream().to("t-commodity-feedback-five-good-count")))
+        sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withConsumer(ks -> {
+            ks.repartition(Repartitioned.as("t-commodity-feedback-six-good")).groupByKey().count().toStream()
+                    .to("t-commodity-feedback-six-good-count");
+            ks.groupBy((key, value) -> value).count().toStream().to("t-commodity-feedback-six-good-count-word");
 
-                .branch(isBadWord(), Branched.withConsumer(ks -> ks.repartition(Repartitioned.as("t-commodity-feedback-five-bad"))
-                        .groupByKey().count().toStream().to("t-commodity-feedback-five-bad-count")));
+        })).branch(isBadWord(), Branched.withConsumer(ks -> {
+                ks.repartition(Repartitioned.as("t-commodity-feedback-six-bad")).groupByKey().count().toStream()
+                        .to("t-commodity-feedback-six-bad-count");
+                ks.groupBy((key, value) -> value).count().toStream().to("t-commodity-feedback-six-bad-count-word");
+            }));
 
         return sourceStream;
     }
