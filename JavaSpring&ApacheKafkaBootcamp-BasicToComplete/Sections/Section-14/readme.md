@@ -44,7 +44,7 @@
     - FeedbackProducer.java
     - FeedbackMessage.java
 
-- Project Reference: ../kafka-stream/kafka-ms-sample
+- Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
     - FeedbackMessage.java
     - FeedbackOneStream.java
@@ -79,7 +79,7 @@ var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(st
 ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_03.png?raw=true)
 
 
-- Project Reference: ../kafka-stream/kafka-ms-sample
+- Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
     - FeedbackMessage.java
     - FeedbackTwoStream.java
@@ -142,7 +142,7 @@ var goodFeedbackStream = builder.stream("t-commodity-feedback", Consumed.with(st
 
 ### Project Reference
 
-- Project Reference: ../kafka-stream/kafka-ms-order
+- Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
     - FeedbackThreeStream.java
 
@@ -187,7 +187,7 @@ sourceStream.flatMap(splitWords()).split()
 
 ### Project Reference
 
-- Project Reference: ../kafka-stream/kafka-ms-order
+- Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
     - FeedbackFourStream.java
 
@@ -243,3 +243,97 @@ sourceStream.flatMap(splitWords()).split()
 
 ### Feedback Stream - Send and Continue
 
+- In previous feedback stream, we send the data to output topic, then process it again to be sent to second output topic. In other words, we process the input stream more than once.
+- This pattern is so common that kafka stream provides through method, so let’s see it.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14/pic_07.png?raw=true)
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-stream-sample
+  - Classes Added / Modified: 
+    - FeedbackFiveStream.java
+
+
+
+
+### Key Code - Kafka API
+
+```
+//However, we use deprecated syntax on this file. So let’s see the newer alternative later:
+var feedbackStream = sourceStream.flatMap(splitWords()).branch(isGoodWord(), isBadWord());
+
+        feedbackStream[0].through("t-commodity-feedback-five-good").groupByKey().count().toStream()
+                .to("t-commodity-feedback-five-good-count");
+        feedbackStream[1].through("t-commodity-feedback-five-bad").groupByKey().count().toStream()
+                .to("t-commodity-feedback-five-bad-count");
+```
+
+
+### How to Run
+
+1. Open Postman
+2. Click on "Feedback"
+3. Check just "Create Random Feedback"
+4. Fill "interaction" field using the value 10
+5. Click on "Run Course - Spring Kafka 4"
+6. Run ../kafka-stream/kafka-ms-order
+7. Run ../kafka-stream/kafka-ms-sample
+8. Open Command Prompt:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-good
+   2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-bad
+   3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-good-count
+   4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-bad-count
+
+
+- NOTE: When you run Kafka Stream, you will see in the intellij logs a state.dir property. This is the folder where kafka use to save state.
+  - If the result in your application different with expected, or error, delete all files within that state.dir folder.
+  - Alternatively, you can create random directory, by modifying kafka stream config.
+  - For the application ID, append current time millis, so it will always unique.
+  - For the application ID, append current time millis, so it will always unique every time we run the application.
+
+```
+//props.put(StreamsConfig.APPLICATION_ID_CONFIG, "kafka-streams");
+props.put(StreamsConfig.APPLICATION_ID_CONFIG, "kafka-streams-" + System.currentTimeMillis());
+```
+
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-stream-sample
+  - Classes Added / Modified: 
+    - FeedbackFiveV2Stream.java
+
+
+### Key Code - Kafka API - Using Repartition Sintax
+
+- And this is how we use repartition syntax, the newer alternative for through.
+- This will achieve same functionality : sending word to a topic, then process and send the word count to another topic, but the syntax might be confusing.
+- It is up to you, which one to use.
+
+```
+sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withConsumer(ks -> ks.repartition(Repartitioned.as("t-commodity-feedback-five-good"))
+          .groupByKey().count().toStream().to("t-commodity-feedback-five-good-count")))
+          .branch(isBadWord(), Branched.withConsumer(ks -> ks.repartition(Repartitioned.as("t-commodity-feedback-five-bad"))
+          .groupByKey().count().toStream().to("t-commodity-feedback-five-bad-count")));
+```
+
+### How to Run
+
+1. Open Postman
+2. Click on "Feedback"
+3. Check just "Create Random Feedback"
+4. Fill "interaction" field using 10 as a value
+5. Fill "Delay" field using the 1000 as a value
+6. Click on "Run Course - Spring Kafka 4"
+7. Run ../kafka-stream/kafka-ms-order
+8. Run ../kafka-stream/kafka-ms-sample
+9. Open Command Prompt:
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-good
+   2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-bad
+   3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-good-count
+   4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-bad-count
+
+
+- Note that when using repartition, the output topic is for internal kafka use, and the name we define is not the actual topic name.
+- So message only sent to count topic.

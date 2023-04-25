@@ -14,26 +14,28 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Section 14: 87. Good Feedback or Bad Feedback?
+ * Section 14: 90. Save and Continue
  */
-//@Configuration
-public class FeedbackFourStream {
+@Configuration
+public class FeedbackFiveStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
     private static final Set<String> BAD_WORDS = Set.of("angry", "sad", "bad");
 
-    //@Bean
+    @Bean
     public KStream<String, FeedbackMessage> kStreamFeedback(StreamsBuilder builder) {
         var stringSerde = Serdes.String();
         var feedbackSerde = new JsonSerde<>(FeedbackMessage.class);
         var sourceStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde));
-        //groupByKey will produce KTable, in which we have count() method to do this functionality.
-        sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withConsumer(ks -> {
-            ks.to("t-commodity-feedback-four-good");
-            ks.groupByKey().count().toStream().to("t-commodity-feedback-four-good-count");
-        })).branch(isBadWord(), Branched.withConsumer(ks -> {
-            ks.to("t-commodity-feedback-four-bad");
-            ks.groupByKey().count().toStream().to("t-commodity-feedback-four-bad-count");
-        }));
+
+
+        //However, we use deprecated syntax on this file. So let’s see the newer alternative.
+        var feedbackStream = sourceStream.flatMap(splitWords()).branch(isGoodWord(), isBadWord());
+
+        feedbackStream[0].through("t-commodity-feedback-five-good").groupByKey().count().toStream()
+                .to("t-commodity-feedback-five-good-count");
+        feedbackStream[1].through("t-commodity-feedback-five-bad").groupByKey().count().toStream()
+                .to("t-commodity-feedback-five-bad-count");
+
         return sourceStream;
     }
 
