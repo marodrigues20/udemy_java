@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * Section 14: 90. Save and Continue
  */
-@Configuration
+//@Configuration
 public class FeedbackFiveStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
     private static final Set<String> BAD_WORDS = Set.of("angry", "sad", "bad");
