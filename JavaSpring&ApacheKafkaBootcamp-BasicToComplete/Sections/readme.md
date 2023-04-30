@@ -66,3 +66,6 @@
 
 - 9. Add Partitions
   - $ docker-compose exec broker kafka-topics --alter --topic t-rebalance --partitions 3 --bootstrap-server broker:9092
+
+- 10. Consume Key and Value adding value deserializer
+  - $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-four-good-count --property key.separator":"
