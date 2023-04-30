@@ -283,8 +283,8 @@ var feedbackStream = sourceStream.flatMap(splitWords()).branch(isGoodWord(), isB
 8. Open Command Prompt:
    1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-good
    2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-bad
-   3. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-good-count
-   4. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-five-bad-count
+   3. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-five-good-count --property key.separator":"
+   4. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-five-bad-count --property key.separator":"
 
 
 - NOTE: When you run Kafka Stream, you will see in the intellij logs a state.dir property. This is the folder where kafka use to save state.
@@ -390,7 +390,9 @@ sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withCon
 6. Fill "Delay" field using the 1000 as a value
 7. Click on "Run Course - Spring Kafka 4"
 8. Open Command Prompt:
-   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-six-good-count-word
-   2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-six-bad-count-word
-
-
+   1. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-six-good
+   2. $ kafka-console-consumer.sh --bootstrap-server localhost:9092 --property print.key=true --topic t-commodity-feedback-six-bad
+   3. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-six-good-count --property key.separator":"
+   4. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-six-bad-count --property key.separator":"
+   5. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-six-good-count-word --property key.separator":"
+   6. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-feedback-six-bad-count-word --property key.separator":"
