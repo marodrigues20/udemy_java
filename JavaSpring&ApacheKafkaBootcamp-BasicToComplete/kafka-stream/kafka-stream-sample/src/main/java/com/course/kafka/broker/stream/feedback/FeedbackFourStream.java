@@ -14,36 +14,39 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Section 14: 87. Good Feedback or Bad Feedback?
+ * Section 14: 88. Group Using Table
  */
 //@Configuration
 public class FeedbackFourStream {
     private static final Set<String> GOOD_WORDS = Set.of("happy", "good", "helpful");
+
     private static final Set<String> BAD_WORDS = Set.of("angry", "sad", "bad");
 
-    //@Bean
-    public KStream<String, FeedbackMessage> kStreamFeedback(StreamsBuilder builder) {
+    private Predicate<String, String> isBadWord() {
+        return (key, value) -> BAD_WORDS.contains(value);
+    }
+
+    private Predicate<String, String> isGoodWord() {
+        return (key, value) -> GOOD_WORDS.contains(value);
+    }
+
+    @Bean
+    public KStream<String, FeedbackMessage> kstreamFeedback(StreamsBuilder builder) {
         var stringSerde = Serdes.String();
         var feedbackSerde = new JsonSerde<>(FeedbackMessage.class);
+
         var sourceStream = builder.stream("t-commodity-feedback", Consumed.with(stringSerde, feedbackSerde));
-        //groupByKey will produce KTable, in which we have count() method to do this functionality.
+
         sourceStream.flatMap(splitWords()).split().branch(isGoodWord(), Branched.withConsumer(ks -> {
             ks.to("t-commodity-feedback-four-good");
             ks.groupByKey().count().toStream().to("t-commodity-feedback-four-good-count");
+            ks.print(Printed.toSysOut());
         })).branch(isBadWord(), Branched.withConsumer(ks -> {
             ks.to("t-commodity-feedback-four-bad");
             ks.groupByKey().count().toStream().to("t-commodity-feedback-four-bad-count");
         }));
+
         return sourceStream;
-    }
-
-
-    private Predicate isBadWord() {
-        return (key, value) -> BAD_WORDS.contains(value);
-    }
-
-    private Predicate isGoodWord() {
-        return (key, value) -> GOOD_WORDS.contains(value);
     }
 
     private KeyValueMapper<String, FeedbackMessage, Iterable<KeyValue<String, String>>> splitWords() {
@@ -51,6 +54,5 @@ public class FeedbackFourStream {
                 .asList(value.getFeedback().replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+")).stream()
                 .distinct().map(word -> KeyValue.pair(value.getLocation(), word)).collect(Collectors.toList());
     }
-
 
 }
