@@ -116,3 +116,41 @@ Note:
    1. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-customer-purchase-all --property key.separator":"
 
 
+## 93. Cart & Wishlist
+
+### Customer Stream - Cart & Wishlist
+
+- To know customer shopping preferences, analytics team need to analyze each customer behaviour. Every item added to shopping cart, will be sent to kafka topic. Also, every item added to wishlist will be sent to different topic.
+- Once more, analytics team needs our help to send data into one topic.
+- But this time, they asked us to form a new message : customer preference.
+- Also, every change on either cart or wishlist should send the updated entity data to aggregate topic.
+- The message key should be customer id. 
+- Each message value will has map of shopping cart item, and map of wishlist item, where the map key is item name, and map value is most recent datetime when the item added.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15/pic_03.png?raw=true)
+
+
+- We will group cart and wishlist based on customer, which is the key.
+- From those two groups, we will co-group them, which forms a ktable of customer preference.
+- Finally, we convert the ktable to stream and send it to sink topic.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15/pic_04.png?raw=true)
+
+
+### Source Code for Customer Purchase
+
+- You can copy source code for customer API from project kafka-order.
+- The transaction will publish to topic shopping cart and wishlist.
+
+- CustomerPreference*.java
+- Package com.course.kafka
+  - api.request
+  - api.server
+  - broker.message
+  - broker.producer
+  - command.action
+  - command.service
+
+
