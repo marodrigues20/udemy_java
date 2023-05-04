@@ -7,19 +7,21 @@ import org.apache.kafka.streams.kstream.KStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-public class CustomerPurchaseOneStream {
+import java.util.List;
+
+@Configuration
+public class CustomerPurchaseTwoStream {
 
 
     @Bean
     public KStream<String, String> kStreamCustomerPurchaseAll(StreamsBuilder builder){
-        var customerPurchaseMobileStream = builder.stream("t-commodity-customer-purchase-mobile",
-                Consumed.with(Serdes.String(), Serdes.String()));
-        var customerPurchaseWebStream = builder.stream("t-commodity-customer-purchase-web",
+        var topics = List.of("t-commodity-customer-purchase-mobile", "t-commodity-customer-purchase-web");
+
+        var customerPurchaseAllStream = builder.stream(topics,
                 Consumed.with(Serdes.String(), Serdes.String()));
 
-        customerPurchaseMobileStream.merge(customerPurchaseWebStream).to("t-commodity-customer-purchase-all");
+        customerPurchaseAllStream.to("t-commodity-customer-purchase-all");
 
-        return customerPurchaseMobileStream;
+        return customerPurchaseAllStream;
     }
 }
