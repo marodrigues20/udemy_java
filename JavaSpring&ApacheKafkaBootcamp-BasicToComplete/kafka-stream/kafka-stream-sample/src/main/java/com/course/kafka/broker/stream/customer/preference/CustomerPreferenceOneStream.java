@@ -34,6 +34,7 @@ public class CustomerPreferenceOneStream {
                 Consumed.with(stringSerde, wishlistSerde)).groupByKey();
 
         var customerPreferenceStream = groupedShoppingCartStream.cogroup(SHOPPING_CART_AGGREGATOR).cogroup(groupedWishlistStream, WISHLIST_AGGREGATOR)
+                //This will return a ktable, which we can convert to stream
                 .aggregate(() -> new CustomerPreferenceAggregateMessage(), Materialized.with(stringSerde, aggregateSerde))
                 .toStream();
 

@@ -167,6 +167,30 @@ Note:
 
 
 
+```
+ public KStream<String, CustomerPreferenceAggregateMessage> kstreamCustomerPreferenceAll(StreamsBuilder builder){
+        var stringSerde = Serdes.String();
+        var shoppingCartSerde = new JsonSerde<>(CustomerPreferenceShoppingCartMessage.class);
+        var wishlistSerde = new JsonSerde<>(CustomerPreferenceWishlistMessage.class);
+        var aggregateSerde = new JsonSerde<>(CustomerPreferenceAggregateMessage.class);
+
+        var groupedShoppingCartStream = builder.stream("t-commodity-customer-preference-cart",
+                Consumed.with(stringSerde, shoppingCartSerde)).groupByKey();
+
+        var groupedWishlistStream = builder.stream("t-commodity-customer-preference-wishlist",
+                Consumed.with(stringSerde, wishlistSerde)).groupByKey();
+
+        var customerPreferenceStream = groupedShoppingCartStream.cogroup(SHOPPING_CART_AGGREGATOR).cogroup(groupedWishlistStream, WISHLIST_AGGREGATOR)
+                //This will return a ktable, which we can convert to stream
+                .aggregate(() -> new CustomerPreferenceAggregateMessage(), Materialized.with(stringSerde, aggregateSerde))
+                .toStream();
+
+        customerPreferenceStream.to("t-commodity-customer-preference-all", Produced.with(stringSerde, aggregateSerde));
+
+        return customerPreferenceStream;
+    }
+```
+
 ### Explanation of Code
 
 
