@@ -154,7 +154,7 @@ Note:
   - command.service
 
 
-### Project Reference
+### Project Reference - cogroup
 
 - Project Reference: ../kafka-stream/kafka-stream-sample
   - Classes Added / Modified: 
