@@ -154,3 +154,49 @@ Note:
   - command.service
 
 
+### Project Reference
+
+- Project Reference: ../kafka-stream/kafka-stream-sample
+  - Classes Added / Modified: 
+    - CustomerPreferencesAggregateMessage.java
+    - CustomerPreferenceShoppingCartMessage.java
+    - CustomerPreferenceWishlistMessage.java
+    - CustomerPreferenceShoppingCartAggregator.java
+    - CustomerPreferenceWishlistAggregator.java
+    - CustomerPreferenceOneStream.java
+
+
+
+### Explanation of Code
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15/pic_05.png?raw=true)
+
+- For example, if we have this timeline and data at the top part, the aggregation result will be like in bottom part. The aggregation result will be updated
+as soon as data arrives. At first data, eve add apple to shopping cart, and so the aggregate contains apple at shopping cart, and empty wishlist.
+- 2nd data, eve add banana to shopping cart, so the aggregate result on shopping cart will contains apple and banana. Wishlist still empty.
+- 3rd data, adam add tomato to wishlist. The aggregated data for adam will contains one item on tomato, and empty shopping cart.
+- 4th data, eve add cherry to wishlist.
+- Eve aggregated data now contains one item at wishlist.
+- 5th data, adam add garlic to shopping cart. Adam’s aggregated data now contains one item at shopping cart. On 6th data, eve add apple to shopping cart.
+- The aggregated data already contains apple, so the aggregated shopping cart on apple will be updated. The last timestamp on aggregated data will be updated to timestamp 6.
+
+
+
+
+## How to Run
+
+- For the sample, I will run a kafka console consumer for sink topic.
+- I also provide sample postman collection based on previous diagram.
+- If we run this postman collection, we can see the aggregation result at the console consumer. 
+  
+1. Run ../kafka-stream/kafka-ms-order
+2. Run ../kafka-stream/kafka-ms-sample
+3. Open Postman:
+4. Click on "Customer Preference\Simulation"
+5. Click on "Run" button
+6. Fill "interaction" field using 1 as a value
+6. Fill "Delay" field using the 2000 as a value
+7. Click on "Run Course - Spring Kafka 4"
+8. Open Command Prompt:
+   1. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-customer-preference-all --property key.separator":"
