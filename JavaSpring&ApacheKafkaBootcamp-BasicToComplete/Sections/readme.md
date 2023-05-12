@@ -17,7 +17,7 @@
 - [Section 13: Kafka Stream - Commodity](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13)
 - [Section 14: Feedback Stream](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14)
 - [Section 15: Kafka Stream - Customer](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15)
-- [Section 16. Kafka Stream - Flash Sale Vote](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15)
+- [Section 16. Kafka Stream - Flash Sale Vote](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16)
 
 
 
