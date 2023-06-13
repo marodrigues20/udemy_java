@@ -25,6 +25,9 @@
 
 ## Source Code for Flash Sale Vote
 
+Note: Download the code in the last section of the code from kafka-ms-order and copy the classes to your project. Don't forget to copy the message class to 
+kafka-order and kafka-stream.
+
 - FlashSaleVote*.java
 - Package com.course.kafka
   - api.request
