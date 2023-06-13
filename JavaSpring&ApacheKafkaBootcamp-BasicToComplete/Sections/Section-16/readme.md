@@ -182,6 +182,6 @@ Note: Keep cheking in each console-consumer to see the messages and compare with
   - Persistent (disk based)
 
 
-  ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15/pic_05.png?raw=true)
+  ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_05.png?raw=true)
 
-  
+
