@@ -185,3 +185,70 @@ Note: Keep cheking in each console-consumer to see the messages and compare with
   ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_05.png?raw=true)
 
 
+1. Producer produces original data, which processed by kafka stream.
+2. During processing, processor communicates with state store to retrieve existing state, and use it to process the original data.
+
+
+### Important Aspects
+
+- State stores fulfill two important aspects:
+- Data locality, which means state store is available on same machine as processing node.
+- This means no network communication overhead and give significant performance.
+- Data locality also means that there's no sharing state store across processes or threads in processor.
+- Second aspect is fault tolerance.
+- This means if kafka stream applications somehow crash, we can recover state store quickly.
+- To do this, state store use kafka changelog topic for backup and recover the states.
+
+- Data locality
+  - Same machine with processing node
+  - No network overhead
+  - No sharing store
+- Fault tolerance
+  - Recover quickly in case application failure
+  - Use changelog topic
+
+  ## 96. Kafka Stream Stateful Operations
+
+  ### About this Lecture
+
+    - This lecture will has references to kafka streams stateful operations, some of them we will use in code.
+    - You can follow this lecture and learn the code later.
+    - Or you can skip this lecture, directly go to code, and when you find some operation regarding kafka stream, you can go back to this lecture and see the reference.
+    - You can combine this lecture with previous kafka stream operations lecture, which talks about stateless operations.
+
+    - This diagram shows relationships among kafka streams type and stateful operations.
+    - The black nodes are kafka stream data type.
+    - Refer to this diagram to know which kafka stream type owns certain operation.
+    - The green text are stateless operations, and the red text are stateful operations.
+
+
+  ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_06.png?raw=true)
+
+
+    - This will counts the number of records based on key.
+    - Records with null keys or values are ignored.
+
+  ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_07.png?raw=true)
+
+
+    - Aggregate will aggregate record value based on key.
+    - To aggregate stream, we need an initializer, which is initial value of aggregation, and adder, which is aggregator function to be called when new record comes.
+    - Result of aggregation can be different type with input type.
+    - In example above, the input type is a string, and the aggregation result is long.
+    - The aggregation result from sample above is sum of kafka value string length.
+    - Input with null keys are ignored.
+    - When a record key is received for the first time, the initializer is called, and then the adder is called.
+    - Whenever a record with a non-null value is received, the adder is called.
+
+    ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_08.png?raw=true)
+
+
+    - Reduce is a specialized form of aggregate.
+    - It is shorter syntax for aggregate, when the result and input type is not change.
+    - For example, concating string, where the input type and aggregation result are all string.
+    - We need to define reducer for this method.
+
+    ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_09.png?raw=true)
+  
+
+
