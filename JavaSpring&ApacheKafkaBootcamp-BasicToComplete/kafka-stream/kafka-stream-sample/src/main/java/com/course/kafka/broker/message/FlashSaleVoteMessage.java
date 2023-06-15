@@ -1,4 +1,4 @@
-package com.course.kafka.broker.stream.message;
+package com.course.kafka.broker.message;
 
 public class FlashSaleVoteMessage {
 

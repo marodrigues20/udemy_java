@@ -16,7 +16,7 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 /**
  * Section 15. 93. Cart & Wishlist
  */
-@Configuration
+//@Configuration
 public class CustomerPreferenceOneStream {
 
     public final CustomerPreferenceShoppingCartAggregator SHOPPING_CART_AGGREGATOR = new CustomerPreferenceShoppingCartAggregator();

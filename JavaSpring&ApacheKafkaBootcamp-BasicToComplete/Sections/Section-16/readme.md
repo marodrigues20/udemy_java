@@ -116,9 +116,15 @@ Note: Download the code in the last section of the code from kafka-ms-order and 
 
 1. Start kafka-console consumer. This is the source topic, intermediary topic, and vote result.
   - Open Command Prompt:
-   1. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property --topic t-commodity-flashsale-vote
-   2. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --topic t-commodity-flashsale-vote-user-item
-   3. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key-true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-flashsale-vote-one-result
+   0. $ docker-compose exec broker bash 
+
+   1. $ kafka-console-consumer --topic t-commodity-flashsale-vote --bootstrap-server broker:9092 --property print.key=true
+
+   2. $ kafka-console-consumer --topic t-commodity-flashsale-vote-user-item --bootstrap-server broker:9092 --property parse.key=true
+
+
+   3. $ kafka-console-consumer --bootstrap-server broker:9092 --property print.key=true --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --topic t-commodity-flashsale-vote-one-result --property key.separator":"
+
 2. Open Postman:
 3. Click on "Flash Sale"
 4. Click on "Simulation"
@@ -250,5 +256,10 @@ Note: Keep cheking in each console-consumer to see the messages and compare with
 
     ![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_09.png?raw=true)
   
+
+
+  ## 97. Timestamp
+
+  ### Flash Sale Stream - Timestamp
 
 
