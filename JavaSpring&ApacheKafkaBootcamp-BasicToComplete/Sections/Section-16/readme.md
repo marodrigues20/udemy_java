@@ -258,8 +258,118 @@ Note: Keep cheking in each console-consumer to see the messages and compare with
   
 
 
-  ## 97. Timestamp
+## 97. Timestamp
 
-  ### Flash Sale Stream - Timestamp
+### Flash Sale Stream - Timestamp
+
+
+- One of the flash sale vote requirement, is that customer can vote only during certain time range.
+- Unfortunately, the current front end cannot handle this yet.
+- The API itself does not have vote timestamp that we can use Updating the application will need some times and requires major effort on android, iphone, and web platform. Fortunately, all of the app publish vote to kafka topic.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_10.png?raw=true)
+
+
+- We already seen how to publish message on ProducerRecord when we learn about message header. We can also add timestamp on Producer record using one of its constructor.
+- If we did not provide a timestamp, the producer will add current timestamp to the record.
+- This means, other than key and value, we already has timestamp embedded on each kafka record.
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_11.png?raw=true)
+
+
+- For this, we must use kafka stream processor API. It provides class that we can use to extract timestamp. When we talk about stateful operation, this processor API will be useful for other things, not only limited to timestamp. 
+- In this course, we will learn the basic of using processor API.
+
+
+### Processor API
+
+- Use processor API
+- Extract timestamp
+- Useful not only for timestamp
+- Learn basic processor API
+
+
+### Value Transformer
+
+- We already learn about mapValues operation, which change kafka record value.
+- While mapValues is useful, it is stateless operation and we cannot use it to access processor API. For accessing processor API,
+that which be useful for stateful operation, we can use transformValues.
+- transformValues requires a ValueTransformer class, that can be provided by either using lambda expression, or using ValueTransformerSupplier class.
+- We will use first approach: stream.transformValues()
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_12.png?raw=true)
+
+
+### LocalDateTime to TimeStamp
+
+- In java, timestamp is represented as epoch time, which is millisecond since 1 january 1970.
+- Most of time data type in this lecture is using LocalDateTime, as well as this lecture.
+- Since kafka timestamp data type is epoch time, I provide class LocalDateTimeUtil to convert LocalDateTime to epoch time. Please copy it from package util on project kafka-stream sample. Or you can create your own by using this syntax to convert LocalDateTime to epoch time.
+- Please copy it from package util on project kafka-stream sample. Or you can create your own by using this syntax to convert LocalDateTime to epoch time.
+
+
+![alt text](https://github.com/marodrigues20/udemy_java/blob/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16/pic_13.png?raw=true)
+
+
+### Project Reference - Using Table and TimeStamp
+
+
+- Project Reference: ../kafka-stream/kafka-stream-sample
+  - Classes Added / Modified: 
+    - FlashSaleVoteOneStream.java
+    - FlashSaleVoteMessage.java
+
+
+- Project Reference: ../kafka-stream/kafka-stream-order
+  - Classes Added / Modified: 
+      - FlashSaleVoteTwoStream.java
+      - LocalDateTimeUtil.java
+      - FlashSaleVoteTwoValueTransformer.java
+
+```
+
+  @Override
+    public FlashSaleVoteMessage transform(FlashSaleVoteMessage value) {
+        var recordTime = processorContext.timestamp();
+        return (recordTime >= voteStartTime && recordTime <= voteEndTime) ? value : null;
+    }
+
+
+    @Bean
+    public KStream<String, String> flashSaleVote(StreamsBuilder builder){
+
+        var stringSerde = Serdes.String();
+        var flashSaleVoteSerde = new JsonSerde<>(FlashSaleVoteMessage.class);
+
+        var voteStart = LocalDateTime.of(LocalDate.now(), LocalTime.of(5, 30));
+        var voteEnd = LocalDateTime.of(LocalDate.now(), LocalTime.of(6, 30));
+
+        //We need to convert the json value into new key-value pair, with user id as key and item name as value. Use map for this.
+        var flashSaleVoteStream = builder
+                .stream("t-commodity-flashsale-vote", Consumed.with(stringSerde, flashSaleVoteSerde))
+                .transformValues(() -> new FlashSaleVoteTwoValueTransformer(voteStart, voteEnd))
+                .filter(((key, transformedValue) -> transformedValue != null ))
+                .map((key, value) -> KeyValue.pair(value.getCustomerId(), value.getItemName()));
+
+        //Now that we have stream with user id and item name,
+        // Now that we have stream with user id and item name, stream this into intermediary topic,
+        // so we can build a table from it.
+        flashSaleVoteStream.to("t-commodity-flashsale-vote-user-item");
+
+
+        // At this point, we have table, now we need to group the table.
+        // Group by is grouping by key, so we must convert the key, which is currently user id on intermediary stream, to itemName.
+        // Now we can count the group elements.
+        builder.table("t-commodity-flashsale-vote-user-item", Consumed.with(stringSerde, stringSerde))
+                .groupBy((user, votedItem) -> KeyValue.pair(votedItem, votedItem)).count().toStream()
+                .to("t-commodity-flashsale-vote-two-result");
+
+        return flashSaleVoteStream;
+    }
+
+```
+
+
+
 
 

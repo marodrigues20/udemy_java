@@ -10,11 +10,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.serializer.JsonSerde;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 /**
- * Section 16: Kafka Stream - Flash Sale Vote
+ * Section 16: 97. Timestamp
+ *
  */
-//@Configuration
-public class FlashSaleVoteOneStream {
+@Configuration
+public class FlashSaleVoteTwoStream {
 
     @Bean
     public KStream<String, String> flashSaleVote(StreamsBuilder builder){
@@ -22,9 +27,14 @@ public class FlashSaleVoteOneStream {
         var stringSerde = Serdes.String();
         var flashSaleVoteSerde = new JsonSerde<>(FlashSaleVoteMessage.class);
 
+        var voteStart = LocalDateTime.of(LocalDate.now(), LocalTime.of(5, 30));
+        var voteEnd = LocalDateTime.of(LocalDate.now(), LocalTime.of(6, 30));
+
         //We need to convert the json value into new key-value pair, with user id as key and item name as value. Use map for this.
         var flashSaleVoteStream = builder
                 .stream("t-commodity-flashsale-vote", Consumed.with(stringSerde, flashSaleVoteSerde))
+                .transformValues(() -> new FlashSaleVoteTwoValueTransformer(voteStart, voteEnd))
+                .filter(((key, transformedValue) -> transformedValue != null ))
                 .map((key, value) -> KeyValue.pair(value.getCustomerId(), value.getItemName()));
 
         //Now that we have stream with user id and item name,
@@ -38,7 +48,7 @@ public class FlashSaleVoteOneStream {
         // Now we can count the group elements.
         builder.table("t-commodity-flashsale-vote-user-item", Consumed.with(stringSerde, stringSerde))
                 .groupBy((user, votedItem) -> KeyValue.pair(votedItem, votedItem)).count().toStream()
-                .to("t-commodity-flashsale-vote-one-result");
+                .to("t-commodity-flashsale-vote-two-result");
 
         return flashSaleVoteStream;
     }
