@@ -11,13 +11,14 @@
 - [Section 7 - Working with JSON Messages](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-07)
 - [Section 8 - Handling Exception](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-08)
 - [Section 9 - Scheduling Consumer](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-09)
-- [Section 10 - Rabbitmq vs Kafka](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10)
-- [Section 11 - Kafka in Microservice Architecture & Pattern](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11)
+- [Section 10: Rabbitmq vs Kafka](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-10)
+- [Section 11: Kafka in Microservice Architecture & Pattern](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-11)
 - [Section 12: Kafka Stream](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-12)
 - [Section 13: Kafka Stream - Commodity](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-13)
 - [Section 14: Feedback Stream](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-14)
 - [Section 15: Kafka Stream - Customer](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-15)
 - [Section 16. Kafka Stream - Flash Sale Vote](https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-16)
+- [Section 17: Kafka Stream - Feedback Rating] (https://github.com/marodrigues20/udemy_java/tree/main/JavaSpring%26ApacheKafkaBootcamp-BasicToComplete/Sections/Section-17)
 
 
 
