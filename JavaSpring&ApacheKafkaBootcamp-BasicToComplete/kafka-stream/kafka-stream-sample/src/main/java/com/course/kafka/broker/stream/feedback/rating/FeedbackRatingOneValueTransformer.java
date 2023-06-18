@@ -8,6 +8,8 @@ import org.apache.kafka.streams.kstream.ValueTransformer;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
 
+import java.util.Optional;
+
 /**
  * Section 17: 98. Average Rating
  */
@@ -20,7 +22,7 @@ public class FeedbackRatingOneValueTransformer implements ValueTransformer<Feedb
     private KeyValueStore<String, FeedbackRatingOneStoreValue> ratingStateStore;
 
     public FeedbackRatingOneValueTransformer(String stateStoreName) {
-        if(stateStoreName.isEmpty()){
+        if (stateStoreName.isEmpty()) {
             throw new IllegalArgumentException("stateStoreName must not empty");
         }
         this.stateStoreName = stateStoreName;
@@ -34,7 +36,24 @@ public class FeedbackRatingOneValueTransformer implements ValueTransformer<Feedb
 
     @Override
     public FeedbackRatingOneMessage transform(FeedbackMessage value) {
-        return null;
+        var storeValue = Optional.ofNullable(ratingStateStore.get(value.getLocation()))
+                .orElse(new FeedbackRatingOneStoreValue());
+
+        var newSumRating = storeValue.getSumRating() + value.getRating();
+        storeValue.setSumRating((newSumRating));
+
+        var newCountRating = storeValue.getCountRating() + 1;
+        storeValue.setCountRating(newCountRating);
+
+        ratingStateStore.put(value.getLocation(), storeValue);
+
+        var branchRating = new FeedbackRatingOneMessage();
+        branchRating.setLocation(value.getLocation());
+
+        double averageRating = Math.round((double) newSumRating / newCountRating * 10d) / 10d;
+        branchRating.setAverageRating(averageRating);
+
+        return branchRating;
     }
 
     @Override
