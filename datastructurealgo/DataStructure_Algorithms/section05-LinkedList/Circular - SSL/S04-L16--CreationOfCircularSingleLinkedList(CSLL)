@@ -1,0 +1,50 @@
+Recap:
+
+Types of Linked List:
+
+- Single Linked List: In a singly linked list each node in the list stores the
+data of the node and a reference to the next node in the list. It does not
+store any reference to the previous node.
+
+
+- Circular Single Linked List: In the case of a circular doubly linked list,
+the only change that occurs is that the end of the given list is linked
+back to the front.
+
+
+------------------------------------------------------------------------------
+
+Creation of Circular Single Linked List:
+
+Differently when you create the first node in the single linked list the reference
+to the next node is null. But in case of Circular Linked List, you add the
+reference to the next node to itself (you make a loop).
+
+Update head and tail.
+
+
+CreateSingleLinkedList(nodeValue):
+  create a blank node
+  node.value = nodeValue;
+  node.next = node
+  head = node;
+  tail = node;
+
+
+---------------------------------------------------------------------------------
+
+Time Complexity - Creation of Circular Single   Linked List:
+
+
+CreateSingleLinkedList(nodeValue):
+  create a blank node --------------------------------------------------- O(1)
+  node.value = nodeValue; ----------------------------------------------- O(1)
+  node.next = node ------------------------------------------------------ O(1)
+  head = node; ---------------------------------------------------------- O(1)
+  tail = node; ---------------------------------------------------------- O(1)
+
+
+  Time Complexity - O(1)
+  Space Complexity - O(1)
+
+--------------------------------------------------------------------------------

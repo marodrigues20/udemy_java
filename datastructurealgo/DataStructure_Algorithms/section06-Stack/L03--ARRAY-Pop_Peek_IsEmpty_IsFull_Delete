@@ -1,0 +1,125 @@
+Pop operation of Stack (Array implementation)
+
+pop()
+  if stackisEmpty()
+    return error message
+  else
+    print top of stack
+    topOfStack --
+
+------------------------------------------------------
+
+Time Complexity - Pop operation of Stack ( Array implementation ):
+  pop()
+    if stackisEmpty -------------------------------------- O(1)
+      return error message ------------------------------- O(1)
+    else ------------------------------------------------- O(1)
+      print top of Stack --------------------------------- O(1)
+      topOfStack --  ------------------------------------- O(1)
+
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-----------------------------------------------------------------------------
+
+Peek operation of Stack (Array implementation)
+
+peek()
+  if stackisEmpty()
+    return error message
+  else
+    print topOfStack
+
+Note: we use peek operation when we just to know what is on the top of stack.
+we don't remove it.
+------------------------------------------------------------------------------
+
+Time Complexity - Peek operation of Stack (Array implementation)
+
+peek()
+  if stackisEmpty() ------------------------------------------------ O(1)
+    return error message ------------------------------------------- O(1)
+  else ------------------------------------------------------------- O(1)
+    print topOfStack ----------------------------------------------- O(1)
+
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+------------------------------------------------------------------------------
+
+IsEmpty operation of Stack (Array implementation)
+
+IsEmpty()
+  if (topOfStack is -1)
+    return true
+  else
+    return false
+
+
+-------------------------------------------------------------------------------
+
+IsFull operation of Stack ( Array implementation )
+
+IsFull():
+  if (topOfStack equals arr.size)
+    return true
+  else
+    return false
+
+------------------------------------------------------------------------------
+Time Complexity - IsEmpty operation of Stack (Array implementation)
+
+IsEmpty()
+  if (topOfStack is -1) --------------------------------- O(1)
+    return true ----------------------------------------- O(1)
+  else  ------------------------------------------------- O(1)
+    return false ---------------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-----------------------------------------------------------------------------
+
+Time Complexity - IsFull operation of Stack ( Array implementation )
+
+IsFull():
+  if (topOfStack equals arr.size) --------------------------------- O(1)
+    return true --------------------------------------------------- O(1)
+  else ------------------------------------------------------------ O(1)
+    return false -------------------------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+------------------------------------------------------------------------------
+
+Deletion of Stack ( Array implementation )
+
+deleteStack ():
+  arr = null
+
+------------------------------------------------------------------------------
+
+Time Complexity - Deletion of Stack ( Array implementation )
+
+deleteStack ():
+  arr = null ------------------------- O(1)
+
+
+Total Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+
+Time & Space Complexity of Stack ( Array implementation):
+
+Particulars     | Time Complexity | Space Complexity |
+createStack()   |   O(1)          |     O(n)         |
+push()          |   O(1)          |     O(n)         |
+pop()           |   O(1)          |     O(n)         |
+peek()          |   O(1)          |     O(n)         |
+IsEmpty()       |   O(1)          |     O(n)         |
+IsFull()        |   O(1)          |     O(n)         |
+deleteStack()   |   O(1)          |     O(n)         |

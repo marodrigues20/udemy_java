@@ -1,0 +1,21 @@
+Example#1 - Use of Data Structures in Non-Computing Fields:
+
+- Queue: Fans assembled for Autograph.
+      - Make a queue to take a photo
+
+
+--------------------------------------------------------------------------------------
+
+
+- Tree: Is used normally for: Parent-Child relationship/Generalization-Specialization
+"WhiteFox is child of Todd and Diamond Sequoia is child of Redwood and Sally Kestrel
+is child of WhiteFox and Sequoia"
+
+Who's Todd Grand-child?
+
+It is really complicated answer this question based on the above text. Better solution
+is organize the information as a Tree.
+
+------------------------------------------------------------------------------------
+
+Graph: Shortest route from one city to another city:

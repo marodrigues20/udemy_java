@@ -1,0 +1,37 @@
+Deletion of Node from Double Linked List:
+
+DeletionOfNode(head, Location):
+  if(!existsLinkedList(head))
+    return error //Linked List does not exists
+  else if(location equals 0) //we want to delete first element
+    if this was the only element in list, then update head = tail = null; return
+    head = head.next; head.prev = null;
+  else if (location >= last)
+    if this was the only element in list, then update head = tail = null; return;
+    tail = tail.prev; tail.next = null;
+  else // if any internal node needs to be deleted
+    loop: tmpNode = start to location -1 //we need to traverse till find the previous location
+    tmpNode.next = tmpNode.next.next //link current node with next node
+    tmpNode.next.prev = tmpNode //link next node with current node
+
+--------------------------------------------------------------------------------
+Time Complexity - Deletion of Node from Double Linked List
+
+DeletionOfNode(head, Location):
+  if(!existsLinkedList(head)) ----------------------------------------------------- O(1)
+    return error //Linked List does not exists ------------------------------------ O(1)
+  else if(location equals 0) //we want to delete first element -------------------- O(1)
+    if this was the only element in list, then update head = tail = null; return -- O(1)
+    head = head.next; head.prev = null; ------------------------------------------- O(1)
+  else if (location >= last) ------------------------------------------------------ O(1)
+    if this was the only element in list, then update head = tail = null; return; - O(1)
+    tail = tail.prev; tail.next = null; ------------------------------------------- O(1)
+  else // if any internal node needs to be deleted -------------------------------- O(1)
+    loop: tmpNode = start to location -1 //we need to traverse till
+    // find the previous location ------------------------------------------------- O(n)
+    tmpNode.next = tmpNode.next.next //link current node with next node ----------- O(1)
+    tmpNode.next.prev = tmpNode //link next node with current node ---------------- O(1)
+
+
+Time Complexity - O(n)
+Space Complexity - O(1)

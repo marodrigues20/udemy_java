@@ -1,0 +1,8 @@
+Deletion of Node From Single Linked List:
+
+-There can be 3 cases:
+  - Delete first Node
+  - Delete last Node
+  - Delete any node apart from above 2
+
+------------------------------------------------------------------------------

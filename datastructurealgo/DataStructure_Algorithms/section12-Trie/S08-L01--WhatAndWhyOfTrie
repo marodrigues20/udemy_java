@@ -1,0 +1,32 @@
+What & Why of Trie:
+
+- What is Trie?
+  - Is it search tree, which is typically used to store/search strings in
+  space/search strings in space/time efficient way.
+  - In it, any node can store non repetitive multiple character/s
+  - Also, every node stores 'links' of next character of string.
+  - Also, every node keepsa track of 'end' of String
+
+Note: S08-L01--WhatAndWhyOfTrie_img_1.PNG
+
+----------------------------------------------------------------------------
+
+Why learn Trie?
+
+- Used to solve many standard problems in efficient ways:
+  - Spelling checkers
+  - Auto Complete string
+  - Etc
+
+Note: S08-L01--WhatAndWhyOfTrie_img_2.PNG
+
+----------------------------------------------------------------------------
+
+Trie - Common Operations
+
+- Creating a Trie
+- Inserting a String in Trie
+- Searching a String in Trie
+- Deleting a String from Trie
+
+-----------------------------------------------------------------------------

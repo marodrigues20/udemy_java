@@ -1,0 +1,46 @@
+Types Of Sorting Techniques
+
+
+check: S10-L01--WhatAndWhyOfSorting.PNG
+
+
+-------------------------------------------------------------------------------
+
+In-Place vs Out-Place Sorting
+
+- In-Place Sort
+  - Sorting algorithms which does not require any extra space for sorting.
+  - Example - Bubble sort
+
+
+- Out-Place Sort
+  - Sorting algorithms which requires extra space for sorting.
+  - Example - Merge sort
+
+--------------------------------------------------------------------------------
+
+Stable vs Unstable Sorting
+
+- Stable Sort
+  - If a Sorting algorithm after sorting the content does not change the sequence
+  of similar content in which the appear, is called Stable sorting.
+  - Example - Insertion sort
+
+
+- Unstable Sort
+  - If a sorting algorithm after sorting the content, changes the sequence of
+  similiar content in which they appear, it is called unstable sort.
+  - Example - Quick Sort
+
+Note: Check image S10-L02-StableVsUnstableSorting.PNG
+
+---------------------------------------------------------------------------------
+
+Why 'Stable Sort' is important?
+
+- Scenarios where 'sort key' is not the entire identity of the item.
+- Consider a person object with a name and a Age. Lets say we sorted based on
+their name. If we were to then sort by age in a stable way, we'd guarantee that
+our original ordering would be preserved for people with the same age.
+
+Note: Check Stable Sort Important.PNG

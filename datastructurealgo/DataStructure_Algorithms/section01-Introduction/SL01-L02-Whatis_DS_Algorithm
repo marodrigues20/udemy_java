@@ -1,0 +1,32 @@
+What is Data Structure
+
+
+- Data Structure: Is a way to 'organize data' in a way that enables it to be
+processed in an efficient time.
+
+- Some of the common Data Structure (DS) are:
+
+- Array
+- Linked List
+- Stack
+- Queue
+- Tree
+- Hashing
+- Graph etc.
+
+--------------------------------------------------------------------------------
+
+What is Algorithm ?
+
+Algorithm: Is a set of rules to be followed to solve a problem.
+
+Example: Let's say we want to prepare some home made salads for Dinner.
+
+1) We have a basket all fruits and vegetables mixed (disorganized).
+2) We use Data Structure to organize the vegetables and fruits in the basket.
+3) We clean all fruits and vegetables.
+4) We cut all of them
+5) We have to do the trace part.
+6) Finally we are ready for all dinner.
+
+Steps 3, 4, 5 we set of rules to solve the problem.

@@ -1,0 +1,45 @@
+Peek Operation of Stack (Linked List Implementation)
+
+peek():
+  return header.value
+
+-------------------------------------------------------------------
+
+IsEmpty Operation of Stack (Linked List Implementation)
+
+IsEmpty():
+  if (header equals null)
+    return true
+  else
+    return false
+
+----------------------------------------------------------------------
+
+Time Complexity - IsEmpty Operation of Stack (Linked List Implementation)
+
+IsEmpty():
+  if (header equals null) ------- O(1)
+    return true ----------------- O(1)
+  else -------------------------- O(1)
+    return false ---------------- O(1)
+
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------
+
+Deletion of entire Stack (Linked List Implementation)
+
+deleteStack():
+  header = null
+
+-----------------------------------------------------------------------
+Time Complexity - Deletion of entire Stack (Linked List Implementation)
+
+deleteStack():
+  header = null ---- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+-----------------------------------------------------------------------

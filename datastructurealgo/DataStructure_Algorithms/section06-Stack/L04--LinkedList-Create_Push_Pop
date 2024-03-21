@@ -1,0 +1,41 @@
+Create Stack (Linked List implementation)
+
+createStack()
+  create an object of SingleLinkedList Class
+
+--------------------------------------------------------------
+
+Push operation of Stack (Linked List implementation)
+
+push(nodeValue)
+  create a node
+  node.value = nodeValue
+  node.next = header
+  header = node
+
+-----------------------------------------------------------------
+
+Pop operation of Stack (Linked List implementation)
+
+pop():
+  if isEmpty()
+    return error message
+  else
+    tmpNode = head
+    header = header.next
+    return tmpNode.value
+
+-----------------------------------------------------------------------
+
+Time Complexity - Push operation of Stack (Linked List implementation)
+
+push(nodeValue)
+  create a node ------------------------------------- O(1)
+  node.value = nodeValue ---------------------------- O(1)
+  node.next = header -------------------------------- O(1)
+  header = node ------------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+---------------------------------------------------------------------------

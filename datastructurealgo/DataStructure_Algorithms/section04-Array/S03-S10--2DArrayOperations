@@ -1,0 +1,120 @@
+Inserting a value in 2D Array:
+
+Insert(arr, valueToBeInserted, rowNumber, colNumber):
+  if (arr[rowNumber][colNumber] is occupied)
+    return error // location is already
+  else
+    arr[rowNumber][colNumber] = valueToBeInserted
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Inserting a value in 2D Array:
+
+Insert(arr, valueToBeInserted, rowNumber, colNumber):
+  if (arr[rowNumber][colNumber] is occupied) ------------------------- O(1)
+    return error // location is already ------------------------------ O(1)
+  else  -------------------------------------------------------------- O(1)
+    arr[rowNumber][colNumber] = valueToBeInserted -------------------- O(1)
+
+
+
+Time Complexity  = O(1)
+Space Complexity = O(1)
+
+
+-----------------------------------------------------------------------------
+
+Traversing a given 2D Array
+
+
+TraverseArray(arr):
+  loop:row = o to rows
+    loop: col = o to col
+      print arr[row][col]
+
+
+------------------------------------------------------------------------------
+
+Time Complexity - Traversing a given 2D Array:
+
+
+TraverseArray(arr):
+  loop:row = o to rows --------------------- O(m)
+    loop: col = o to col ------------------- O(n)
+      print arr[row][col] ------------------ O(n)
+
+
+Time Complexity = O(mn)  Note: m means quantity of rows
+Space Complexity = O(1)
+
+
+
+-------------------------------------------------------------------------------
+
+Accessing given cell's value of 2D Array:
+
+AccessingCell(arr, rowNumber, colNumber):
+  return arr[rowNumber][colNumber]
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Accessing given cell's value of 2D Array:
+
+AccessingCell(arr, rowNumber, colNumber):
+  return arr[rowNumber][colNumber] --------------- O(1)
+
+
+Time Complexity  = O(1)
+Space Complexity = O(1)
+
+-------------------------------------------------------------------------------
+
+Searching a given value in 2D Array:
+
+SearchingAnArray(arr, valueToSearch):
+  loop: row = o to rows
+    loop: col = o to col
+      if(arr[row][col] equals valueToSearch)
+        print (row, col); return
+    print (value not found)
+
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Searching a given value in 2D Array:
+
+SearchingAnArray(arr, valueToSearch):
+  loop: row = o to rows  ------------------------------------------------ O(m)
+    loop: col = o to col ------------------------------------------------ O(n)
+      if(arr[row][col] equals valueToSearch) ---------------------------- O(1)
+        print (row, col); return ---------------------------------------- O(1)
+    print (value not found) --------------------------------------------- O(1)
+
+
+Time Complexity = O(mn)
+Space Complexity = O(1)
+
+-------------------------------------------------------------------------------
+
+Deleting a given cell's value from 2D Array.
+
+
+DeletingValueFromArray(arr, rowNumber, colNumber):
+  arr[rowNumber][colNumber] = Integer.Min_Value
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Deleting a given cell's value from 2D Array:
+
+DeletingValueFromArray(arr, rowNumber, colNumber):
+  arr[rowNumber][colNumber] = Integer.Min_Value ----------------------- O(1)
+
+Time Complexity = O(1)
+Space Complexity = O(1)
+
+
+-------------------------------------------------------------------------------

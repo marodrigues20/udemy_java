@@ -1,0 +1,8 @@
+It's very advised implement Binary Heap using Array. Because when you need to
+extract/delete one node you do in O(log n) time. When you delete you have to get
+the last element and add at the position that you want to delete. In this case,
+you get the last element get the last cell in the array in O(1) time. But
+when you do this using LinkedList you have to traverse the LinkedList and you
+gonna expend O(n) time. You spend more time.
+
+For this reason, use array to implement Binary Heap.

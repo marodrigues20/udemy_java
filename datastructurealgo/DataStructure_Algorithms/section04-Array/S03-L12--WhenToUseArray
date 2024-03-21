@@ -1,0 +1,11 @@
+When to Use/Avoid Array
+
+
+When to use:
+- When there is a need to store multiple similar type of data.
+- When random access is regular affair.
+
+
+When to Avoid:
+- Data to be stored are non-homogenous
+- When number of data to be stored is not known in advance.

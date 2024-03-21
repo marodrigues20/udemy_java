@@ -1,0 +1,8 @@
+Algorithm - Deletion of entire BST:
+
+Delete()
+  root = null
+
+
+Note: If you delete the root all the entire tree is eligible for the
+garbage collector.

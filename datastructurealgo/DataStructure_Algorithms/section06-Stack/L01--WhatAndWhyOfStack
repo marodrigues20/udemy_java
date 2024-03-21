@@ -1,0 +1,14 @@
+What and Why of Stack
+
+Note: L01--WhatAndWhyOfStack.png
+
+-Observation from above picture:
+  - Insertion/Removal of Bangles follows LIFO (Last in First Out) method.
+
+- Property of Stack
+  - follows LIFO (Last in First Out) method
+
+- Why?
+  - When we need to create an application which utilizes 'last incoming data
+  first'.
+  - Example: implementation of 'back' button in browser.

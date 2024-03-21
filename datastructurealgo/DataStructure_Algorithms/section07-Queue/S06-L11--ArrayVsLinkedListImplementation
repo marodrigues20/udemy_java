@@ -1,0 +1,12 @@
+When to Use/Avoid Queue
+
+When to Use:
+  - Helps manage the data in particular way (FIFO)
+  - Not easily currupted (No one can easily insert data in middle)
+
+When to Avoid
+  - Random access not possible - if we have done some mistake, its costly to
+  rectify.
+
+
+-------------------------------------------------------------------------------

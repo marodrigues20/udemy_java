@@ -1,0 +1,6 @@
+Insertion in Circular Double Linked List:
+
+-> There can be 3 cases:
+  -> Insert at start of Linked List
+  -> Insert at end of Linked List
+  -> Insert at any other place apart from above 2

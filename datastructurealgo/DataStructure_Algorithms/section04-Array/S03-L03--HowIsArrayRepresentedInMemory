@@ -1,0 +1,8 @@
+How is an Array represented in Memory?
+
+- 1D Array:
+  - Arr[col]
+  - Arr[10]={0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+  - Storage in RAM: |0|1|2|3|4|5|6|7|8|9|
+
+  

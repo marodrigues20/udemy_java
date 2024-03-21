@@ -1,0 +1,47 @@
+Common operations of Linked List:
+
+
+- Creation of Linked List
+- Insertion of Linked List
+- Traversal of Linked List
+- Searching in a Linked List
+- Deletion of a node from a Linked List
+- Deletion of Linked List
+
+
+------------------------------------------------------------------------------
+
+Single Linked List
+
+
+- Creation of Single Linked List:
+
+
+CreateSingleLinkedList(nodeValue):
+  create a head, tail pointer
+  create a blank node
+  node.value = nodeValue
+  node.next = null
+  head = node
+  tail = node
+
+
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+Time Complexity - Creation of Single Linked List:
+
+CreateSingleLinkedList(nodeValue):
+  create a head, tail pointer ---------------------------------------- O(1)
+  create a blank node ------------------------------------------------ O(1)
+  node.value = nodeValue --------------------------------------------- O(1)
+  node.next = null --------------------------------------------------- O(1)
+  head = node -------------------------------------------------------- O(1)
+  tail = node -------------------------------------------------------- O(1)
+
+
+
+Time Complexity - O(1)
+Space Complexity - O(1)

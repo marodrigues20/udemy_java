@@ -1,0 +1,63 @@
+How Circular Queue works:
+
+enQueue(Value):
+  if (isQueueFull()) Print "Queue overflow error!"
+  else
+    if (topOfQueue + 1 == size) { //if top is already at last cell of array, then reset it to first cell
+      topOfQueue = 0;
+    else
+      topOfQueue++;
+    arr[topOfQueue] = value;
+
+
+--------------------------------------------------------------------------------
+
+Time Complexity - Enqueue operation of Circular Queue (Array Implementation)
+
+enQueue(Value):
+  if (isQueueFull()) Print "Queue overflow error!" ------------------------------------------------------------ O(1)
+  else
+    if (topOfQueue + 1 == size) { //if top is already at last cell of array, then reset it to first cell ------ O(1)
+      topOfQueue = 0; ----------------------------------------------------------------------------------------- O(1)
+    else ------------------------------------------------------------------------------------------------------ O(1)
+      topOfQueue++; ------------------------------------------------------------------------------------------- O(1)
+    arr[topOfQueue] = value; ---------------------------------------------------------------------------------- O(1)
+
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+--------------------------------------------------------------------------------
+
+Dequeue operation of Circular Queue ( Array Implementation )
+
+dequeue()
+  if (isQueueEmpty) Print (Queue underflow error)
+  else
+    Print (arr[start]);
+    if (start == topOfQueue) { // if there is only 1 element in Queue
+      start = topOfQueue = -1
+    else if (start + 1 == size) { // if start has reached end of array, then start again from 0
+      start=0;
+    else
+      start ++
+
+-------------------------------------------------------------------------------
+
+
+Time Complexity - Dequeue operation of Circular Queue ( Array Implementation )
+
+
+dequeue()
+  if (isQueueEmpty) Print (Queue underflow error)  ----------------------------------------------------- O(1)
+  else  ------------------------------------------------------------------------------------------------ O(1)
+    Print (arr[start]);  ------------------------------------------------------------------------------- O(1)
+    if (start == topOfQueue) { // if there is only 1 element in Queue  --------------------------------- O(1)
+      start = topOfQueue = -1  ------------------------------------------------------------------------- O(1)
+    else if (start + 1 == size) { // if start has reached end of array, then start again from 0  ------- O(1)
+      start=0;  ---------------------------------------------------------------------------------------- O(1)
+    else  ---------------------------------------------------------------------------------------------- O(1)
+      start ++ ----------------------------------------------------------------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)

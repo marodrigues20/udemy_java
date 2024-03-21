@@ -1,0 +1,14 @@
+Searching a node in Binary Tree (Linked List implementation)
+
+note: Level Order Traversal Binary Queue is quicker to find a node than others
+ because it uses queue rather than stack.
+
+-----------------------------------------------------------------------------
+
+Note: S08-L12--SearchForValueInBinaryTree_LL_img_1.png
+
+-------------------------------------------------------------------------------
+
+note: S08-L12--SearchForValueInBinaryTree_LL_img_2.png
+
+------------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+Circular Queue ( Array Implementation)
+
+deQueue operation causes blank cells Linear Queue (Array Implementation). We
+need to improve that.
+
+-------------------------------------------------------------------------------
+
+Creation of Circular Queue( Array Implementation )
+
+createQueue(size)
+  create a blank array of 'size'
+  initialize top, start = -1
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Creation of Circular Queue( Array Implementation )
+
+createQueue(size)
+  create a blank array of 'size' --------------------------- O(1)
+  initialize top, start = -1     --------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------

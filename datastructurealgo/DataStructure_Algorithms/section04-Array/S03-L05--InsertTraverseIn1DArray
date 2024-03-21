@@ -1,0 +1,65 @@
+Inserting a value in 1D Array
+
+insert(arr, valueToBeInserted, location):
+  if (arr[location] is occupied)
+      return error //location is already occupied
+  else
+      arr[location] = valueToBeInserted
+
+
+
+
+-------------------------------------------------------------------------------
+
+Traversing a given 1D Array:
+
+  | 10 | 20 | 30 | 40 | 50 |
+
+TraverseArray(arr):
+  loop: i = 0 to arr.length
+    print arr[i]
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Traversing a given 1D Array:
+
+ Big-o(O) Notation
+
+TraverseArray(arr):
+  loop: i = o to arr.length -------------------------- O(n)
+        print arr[i]  -------------------------------- O(1)
+
+
+Total Time Complexity - O(n)
+Space Complexity ------ O(1)
+
+--------------------------------------------------------------------------------
+
+
+Deleting a given value from 1D Array:
+
+    | 10 | 20 | 30 | 40 | 50 | -2^31   | -2^31  |
+
+Note: Positions in Arrays always have a value even tought they don't have a
+value put for us. The default value is Integer.minValue(-2^31)
+
+DeletingValueFromArray(arr, location):
+  if(arr[location] is occupied)
+      arr[location] = Integer.minValue
+  else
+      return // location is already blank
+
+--------------------------------------------------------------------------------
+Time Complexity - Deleting a given value from 1D Array:
+
+DeletingValueFromArray(arr, location):
+  if(arr[location] is occupied) ----------------------------------------- O(1)
+      arr[location] = Integer.minValue ---------------------------------- O(1)
+  else ------------------------------------------------------------------ O(1)
+      return // location is already blank ------------------------------- O(1)
+
+  Total Time Complexity = O(1)
+  Space Complexity - O(1)
+
+-------------------------------------------------------------------------------

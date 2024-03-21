@@ -1,0 +1,16 @@
+What is a Queue:
+
+Observations from above Picture:
+  - New addiction of members at end of the queue.
+  - First person in the queue is the first to get out from queue.
+  - follows FIFO (First in First Out) method.
+
+- Property of Queue
+ - follows FIFO (First in First Out) method.
+
+------------------------------------------------------------------------------
+
+Why should we learn queue?
+
+- When we need to create an application which utilizes 'first incoming data first'
+  - Example: implementation of 'billing counter'.

@@ -1,0 +1,41 @@
+Types of Linked List:
+
+-> Single Linked List:
+-> Circular Single Linked List:
+-> Double Linked List:
+-> Circular Double Linked List:
+
+Note: S04-L35--CreateDoubleCircularLinkedList_CDLL_recap.PNG
+
+Common operations of Circular Double Linked List:
+
+-> Creation of circular Double Linked List
+-> Insertion of node in circular Double Linked List
+-> Traversal of circular Double Linked List
+-> Searching a value in circular Double Linked List
+-> Deletion of a node from a circular Double Linked List
+-> Deletion of circular Double Linked List
+
+-------------------------------------------------------------------------------
+Creation of Circular Double Linked List:
+
+CreateCircularDoubleLinkedList(nodeValue):
+  create a blank node
+  node.value = nodeValue;
+  head = node;
+  tail = node;
+  node.next = node.prev = node;
+
+-------------------------------------------------------------------------------
+Time Complexity - Creation of Circular Double Linked List
+
+CreateCircularDoubleLinkedList(nodeValue):
+  create a blank node -------------------------------------- O(1)
+  node.value = nodeValue; ---------------------------------- O(1)
+  head = node; --------------------------------------------- O(1)
+  tail = node; --------------------------------------------- O(1)
+  node.next = node.prev = node; ---------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+-------------------------------------------------------------------------------

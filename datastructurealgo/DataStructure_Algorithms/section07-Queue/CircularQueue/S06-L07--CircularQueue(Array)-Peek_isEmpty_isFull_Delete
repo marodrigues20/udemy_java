@@ -1,0 +1,101 @@
+Peek operation of Circular Queue (Array Implementation)
+
+peek()
+  if(!isQueueEmpty())
+    print(arr[start])
+  else
+    print ("The queue is empty")
+
+----------------------------------------------------------------------------
+
+Time Complexity - Peek operation of Circular Queue (Array Implementation)
+
+peek()
+  if(!isQueueEmpty())  ------------------------------------- O(1)
+    print(arr[start])  ------------------------------------- O(1)
+  else ----------------------------------------------------- O(1)
+    print ("The queue is empty") --------------------------- O(1)
+
+Time Complexity - O(1)
+Time Complexity - O(1)
+
+------------------------------------------------------------------------
+ IsEmpty operation of Circular Queue (Array Implementation)
+
+ isQueueEmpty()
+  if(topOfQueue == -1)
+    return true;
+  else
+    return false;
+
+-------------------------------------------------------------------------
+
+Time Complexity - IsEmpty operation of Circular Queue (Array Implementation)
+
+isQueueEmpty()
+ if(topOfQueue == -1) ------------------------------------- O(1)
+   return true; ------------------------------------------- O(1)
+ else  ---------------------------------------------------- O(1)
+   return false; ------------------------------------------ O(1)
+
+Time Complexity - O(1)
+Time Complexity - O(1)
+
+-------------------------------------------------------------------------
+
+IsFull operation of Circular Queue (Array Implementation)
+
+isQueueFull()
+  if ( topOfQueue + 1 == start ){ //if we have completed a circle, then we can say the queue is full
+    return true;
+  else if((start = 0) && (topOfQueue + 1 = size)) {// Trivial case of Queue being full
+    return true
+  else
+    return false
+
+---------------------------------------------------------------------------------
+
+Time Complexity - IsFull operation of Circular Queue (Array Implementation)
+
+isQueueFull()
+  if ( topOfQueue + 1 == start ){ //if we have completed a circle, then we can say the queue is full  ----- O(1)
+    return true; ------------------------------------------------------------------------------------------ O(1)
+  else if((start = 0) && (topOfQueue + 1 = size)) {// Trivial case of Queue being full  ------------------- O(1)
+    return true ------------------------------------------------------------------------------------------- O(1)
+  else ---------------------------------------------------------------------------------------------------- O(1)
+    return false  ----------------------------------------------------------------------------------------- O(1)
+
+    Time Complexity - O(1)
+    Time Complexity - O(1)
+--------------------------------------------------------------------------------
+
+Deleting a Circular Queue (Array Implementation)
+
+deleteStack():
+  array = null:
+
+------------------------------------------------------------------------------
+
+Time Complexity - Deleting a Circular Queue (Array Implementation)
+
+deleteStack():
+  array = null: ---------- O(1)
+
+Time Complexity - O(1)
+Time Complexity - O(1)
+
+------------------------------------------------------------------------------
+
+Time & Space Complexity of Circular Queue  (Array Implementation)
+
+
+Particulars     | Time Complexity | Space Complexity |
+createQueue()   |   O(1)          |     O(n)         |
+enQueue()       |   O(1)          |     O(1)         |
+Dequeue()       |   O(1)          |     O(1)         |
+peek()          |   O(1)          |     O(1)         |
+IsEmpty()       |   O(1)          |     O(1)         |
+IsFull()        |   O(1)          |     O(1)         |
+deleteQueue()   |   O(1)          |     O(1)         |
+
+-------------------------------------------------------------------------------

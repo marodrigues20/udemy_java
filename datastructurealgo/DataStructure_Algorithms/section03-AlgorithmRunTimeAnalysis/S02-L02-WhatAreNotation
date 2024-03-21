@@ -1,0 +1,32 @@
+Notations for 'Algo Run Time Analysis'
+
+
+-How much does this car runs on 1 litre of petrol?
+  - In City traffic? 10km/h
+  - On highway? 20km/h
+  - Mixed environment? 15km/h
+
+Depends on the environment the car can consume more or less.
+
+
+--------------------------------------------------------------------------------
+
+- There are 3 notations for 'Run Time Analysis'
+    - Omega
+      - This notation gives the tighter lower bound of given algorithm.
+      - In a layman's language we can say that for any given input, running Time
+      of a given algorithm will not be 'less than' given time.
+
+    - Big-o(O)
+      - This Notation gives the tighter upper bound of a given algorithm.
+      - In a layman's language we can say that for any given input, running
+      time of a given algorithm will not be 'more than' given time.
+
+    - Theta(0):
+      - This Notation decides whether upper bound and lower bound of a given
+      algorithm are same or not.
+      - In a layman's language we can say that for any given input, running
+      time of a given algorithm will 'on an average' be equal to given time.
+
+
+Image: Notations.PNG

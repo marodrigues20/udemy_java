@@ -1,0 +1,20 @@
+How is an Array represented in Memory?
+
+Let's remember how array is allocated in RAM memory.
+
+1D Array:
+  - Arr[10] = {0,1,2,3,4,5,6,7,8,9};
+
+Arrays is always stored in continuous memory location.
+We specify how many continuous memory location should be allocated.
+Arrays can access any cell directly. Linked List not.
+Note: ArrayStoredInContinuousMemoryLocation.PNG
+
+-----------------------------------------------------------------------------
+
+How is Linked List represented in Memory?
+
+HowLinkedListStoreInMemory.png
+
+We can add how many nodes we want because we did not specify how many continuous
+memory location should be allocated for one linked list.

@@ -1,0 +1,39 @@
+What is an Array?
+
+- Observations from above Picture:
+  - All the compartments are contiguous.
+  - Each compartment can be identified uniquely.
+  - Size of the box is fixed and cannot (as they come from standard manufactures)
+
+
+Properties of Array:
+
+- Array can store data of specified data type.
+- It has contiguous memory location.
+- Every 'cell' of an Array has an unique 'Index'.
+- 'Index' starts with 0.
+- 'Size of Array' needs to be specified mandatorily and can not be modified.
+
+Definition of Array:
+- Array is a data structure consisting of a collection of elements, each
+identified by array index. An array is stored such that the position of each
+element can be computed from its index cell by a mathematical formula.
+
+-------------------------------------------------------------------------------
+Why do we need an Array?
+
+Problem Statement: We want to store 1 million similar data types in memory.
+
+Solution#1:
+  - We declare 1 million Primitive Data Structure like Integer, Float, Character,
+  Boolean.
+  - Problem: How will we maintain such a huge list of variables?
+
+
+Solution#2:
+  - We declare an array of size 1 million.
+  - Advanced: We just need to reference the cell number of the array and we can
+  access that cell.
+
+
+  

@@ -1,0 +1,8 @@
+Deletion of a Node From BST
+
+- Case#3-Node to be deleted has 2 children
+
+Note:
+Example: I want to delete the 100 node. I have to find the successor.
+The successor is the node 140.
+The successor is the least value the right subtree.

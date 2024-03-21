@@ -1,0 +1,30 @@
+Types of Linked List
+
+- Single Linked List
+- Circular Single Linked List
+- Double Linked List
+- Circular Double Linked List
+
+------------------------------------------------------------------------------
+
+Why so many types of Linked List?
+
+Single Linked List
+  - Is most basic form of linked list which give the flexibility to add/romove
+  nodes at runtime.
+
+Circular Single Linked List
+  - When we want to loop through the list indefinitely until the list exists.
+  - Example: Multiplayer board game. If we are tracking player's turn in Linked
+  List.
+
+
+Double Linked List:
+  - When we want to move in both direction depending on requirement.
+  - Example: Music player which has next and previous buttons.
+
+
+Circular Double Linked List:
+  - When we want to loop through the list indefinitely until the list exists. We
+  also want to move both foreword and backward.
+  - Example: "Alt + Tab" button in Windows

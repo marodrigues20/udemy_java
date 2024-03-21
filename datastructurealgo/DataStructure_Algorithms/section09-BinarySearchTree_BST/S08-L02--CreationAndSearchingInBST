@@ -1,0 +1,33 @@
+Common operations of BST
+
+How the common operations can be performed in BST.
+
+- Creation of BST
+- Search for a value
+- Traverse all nodes
+- Insertion of a node
+- Deletion of a node
+- Deletion of BST
+
+---------------------------------------------------
+
+Algorithm - Creation of blank BST
+
+createBST()
+  Initialize Root with null
+
+----------------------------------------------------
+Time & Space Complexity - Creation of blank BST:
+
+createBST()
+  Initialize Root with null ------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-----------------------------------------------------
+
+Searching a node in BST.
+
+Note: The reason because we have to learn first Search a node in BST before
+inserting a node is that we have to search first for before inserting.

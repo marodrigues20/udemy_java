@@ -1,0 +1,75 @@
+Peek operation of Queue (Linked List Implementation)
+
+peek()
+  if header equals null
+    return error
+  else
+    return header.value
+
+-------------------------------------------------------------------------------
+Time Complexity - Peek operation of Queue (Linked List Implementation)
+
+peek()
+  if header equals null ------------------------ O(1)
+    return error ------------------------------- O(1)
+  else ----------------------------------------- O(1)
+    return header.value ------------------------ O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+
+IsEmpty operation of Queue (Linked List Implementation)
+
+isQueueEmpty():
+  if (header equals null)
+    return true
+  else
+    return false
+
+--------------------------------------------------------------------------------
+Time Complexity - IsEmpty operation of Queue (Linked List Implementation)
+
+isQueueEmpty():
+  if (header equals null) -------------------------- O(1)
+    return true ------------------------------------ O(1)
+  else --------------------------------------------- O(1)
+    return false ----------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+------------------------------------------------------------------------------
+
+Deleting a Queue (Linked List Implementation)
+
+deleteQueue()
+  head = tail = null
+
+------------------------------------------------------------------------------
+
+Time Complexity - Deleting a Queue (Linked List Implementation)
+
+deleteQueue()
+  head = tail = null ------------ O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+
+Time & Space Complexity of Queue  (Linked List Implementation)
+
+
+Particulars     | Time Complexity | Space Complexity |
+createQueue()   |   O(1)          |     O(1)         |
+enQueue()       |   O(1)          |     O(1)         |
+Dequeue()       |   O(1)          |     O(1)         |
+peek()          |   O(1)          |     O(1)         |
+IsEmpty()       |   O(1)          |     O(1)         |
+deleteQueue()   |   O(1)          |     O(1)         |
+
+
+Note: in Queue Linked List implementation there is no the conception about full.
+you can add node till the system support.
+-------------------------------------------------------------------------------

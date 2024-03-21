@@ -1,0 +1,54 @@
+Accessing given cell# of 1D Array:
+
+
+  | 10 | 20 | 30 | 40 | 50 |    |    |
+
+
+  AccessingCell(arr, cellNumber):
+    if(cellNumber > sizeof(arr))
+        return exception //cell number cannot be bigger than size of Array.
+    else
+        return arr[cellNumber]
+
+
+
+--------------------------------------------------------------------------------
+
+Time Complexity - Accessing given cell# of 1D Array:
+
+AccessingCell(arr, cellNumber):---------------------------------------------------- O(1)
+  if(cellNumber > sizeof(arr)) ---------------------------------------------------- O(1)
+      return exception //cell number cannot be bigger than size of Array. --------- O(1)
+  else ---------------------------------------------------------------------------- O(1)
+      return arr[cellNumber] ------------------------------------------------------ O(1)
+
+Total Time Complexity = O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------------
+Searching a given value in 1D Array:
+
+
+  | 10 | 20 | 30 | 40 | 50 |    |    |
+
+
+  SearchInAnArray(arr, valueToSearch):
+    loop: i = 0 to arr.length
+      if( arr[i] equals valueToSearch)
+        return i
+      return error // value not found
+
+--------------------------------------------------------------------------------
+
+Time Complexity - Searching a given value in 1D Array:
+
+
+
+  SearchInAnArray(arr, valueToSearch): -------------------------------- O(n)
+    loop: i = 0 to arr.length ----------------------------------------- O(1)
+      if( arr[i] equals valueToSearch) -------------------------------- O(1)
+        return i  ----------------------------------------------------- O(1)
+      return error // value not found --------------------------------- O(1)
+
+Total Time Complexity - O(n)
+Space Complexity      - O(1)

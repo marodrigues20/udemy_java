@@ -1,0 +1,44 @@
+How 'Recursion' works internally ?
+
+Main()
+  Bar();
+  System.out.println("I am in Main");
+
+  Bar()
+    DoWork()
+    System.out.println("I am in Bar");
+
+  DoWork()
+    DoMore()
+    System.out.println("I am in DoWork")
+
+
+  DoMore(){
+    System.out.println("I am in DoMore")
+  }
+
+
+STACK works using LIFO method that means: Last in First Out.
+e.i:
+
+If I add in the stack: 3,2,1. The last input was 1 but What if I try to access
+the number 3 I have to access first 1 after 2 then number 3. (LIFO)
+More deeply watch the Stack Chapter.
+
+-------------------------------------------------------------------------------
+
+foo(n){
+  if(n<1)
+    return
+  else
+    foo(n-1)
+    print "Hello World" + n
+}
+
+Main(){
+  foo(3)
+}
+
+Picture Ilustrative: SL01.1-L04-Stack-Example2.PNG
+
+-------------------------------------------------------------------------------

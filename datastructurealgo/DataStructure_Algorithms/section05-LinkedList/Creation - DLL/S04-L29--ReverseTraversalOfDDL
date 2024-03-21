@@ -1,0 +1,19 @@
+Reversal Traversal of DLL
+
+ReverseTraverseLinkedList(head)
+  if head == null, then return
+  loop: Tail to Head
+    print currentNode.value
+
+-------------------------------------------------------------------------------
+Time Complexity - Reverse Traversal of Double Linked List:
+
+ReverseTraverseLinkedList(head)
+  if head == null, then return ----------------------------------- O(1)
+  loop: Tail to Head --------------------------------------------- O(n)
+    print currentNode.value -------------------------------------- O(1)
+
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+--------------------------------------------------------------------------------

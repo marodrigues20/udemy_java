@@ -1,0 +1,57 @@
+Bucket Sort:
+
+- Bucket sort is a sorting algorithm that works by distributing the elements
+of an array into a number of buckets.
+- Each bucket is then sorted individually.
+
+
+------------------------------------------------------------------------------
+
+Bucket Sort Algorithm
+
+1) Create Number of buckets = ceil/floor (squareroot of total number of items)
+2) Iterate through each number and place it in appropriate bucket.
+3) Appropriate bucket = Ceil((Value*number of buckets) / max value in array)
+4) Sort all the buckets
+5) Merge all the buckets
+
+
+--------------------------------------------------------------------------------
+
+Bucket Sort Algorithm
+
+BucketSort(A):
+find no. of buckets to be created and created those buckets B1[], B2[]...
+find divisor value
+loop: i = 0 to n-1
+  insert A[i] into array B[] using divisor and bucket#
+sort B[] with insertion sort (or any sort as per comfort)
+concatenate B1[], B2[], B3[]...
+
+-------------------------------------------------------------------------------
+
+Time & Space Complexity of Bucket Sort Algorithm
+
+BucketSort(A):
+find no. of buckets to be created and created those buckets B1[], B2[]... ----------- O(1)
+find divisor value  ----------------------------------------------------------------- O(1)
+loop: i = 0 to n-1  ----------------------------------------------------------------- O(n)
+  insert A[i] into array B[] using divisor and bucket# ------------------------------ O(1)
+sort B[] ---------------------------------------------------------------------------- O(n logn)
+concatenate B1[], B2[], B3[]... ----------------------------------------------------- O(n)
+
+
+Time Complexity = O(n) + O(n log n) + O(n)
+                = O(n logn)
+Space Complexity - O(n)
+
+--------------------------------------------------------------------------------
+When to Use/Avoid Bucket Sort
+
+- When to use:
+  - When input is uniformaly distributed over a range. (ex uniformaly 10 - 100) (ex not uniformaly 1,3,5,91,96)
+
+- When not to use:
+  - When space is a concern.
+
+--------------------------------------------------------------------------------

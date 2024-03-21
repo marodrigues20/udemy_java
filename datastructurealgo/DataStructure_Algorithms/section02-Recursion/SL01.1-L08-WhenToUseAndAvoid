@@ -1,0 +1,11 @@
+When to use / Avoid Recursion?
+
+When to use:
+  - When we can easy breakdown a problem into similar subproblem##
+  - When we are ok with extra overhead (both time and space) that comes with it.
+  - When we need a quick working solution instead of efficient one.
+
+
+When not to use:
+  if the response to any of the above statements is NO, we should not go with
+  recursion.

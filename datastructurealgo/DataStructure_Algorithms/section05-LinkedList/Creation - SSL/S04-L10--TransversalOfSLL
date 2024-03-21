@@ -1,0 +1,26 @@
+Transversal of Single Linked List:
+
+
+Algorithm
+
+TraversalLinkedList(head):
+  if head == NULL, then return
+  loop: head to tail
+    print current.Value
+
+
+------------------------------------------------------------------------------
+
+Time Complexity - Traversal of Single Linked List:
+
+TraversalLinkedList(head): ------------------------------------------- O(1)
+  if head == NULL, then return --------------------------------------- O(n)
+  loop: head to tail ------------------------------ O(n)    --|__ O(n)
+    print current.Value --------------------------- O(1)    --|
+
+
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+  

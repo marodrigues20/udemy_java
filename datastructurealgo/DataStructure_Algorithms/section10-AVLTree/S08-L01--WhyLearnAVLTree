@@ -1,0 +1,31 @@
+Why AVL Tree?
+
+
+-Question:
+  - Insert 10,20,30,40,50,60,70 in BST
+
+Note: This is how our BST looks like S08-L01--WhyLearnAVLTree_img_1.PNG
+
+This is kind of tree is disbalance.
+To retrieve the number 70 we have to go into 7 nodes
+To insert, delete, search has Performance problem.
+
+----------------------------------------------------------
+If we add our nodes in this way, to retrieve the number 70 we have just to
+go into 3 nodes.
+Performance is much better t
+
+Note: S08-L01--WhyLearnAVLTree_img_2.PNG
+
+---------------------------------------------------------
+
+AVL Tree avoid create a Tree in this way. S08-L01--WhyLearnAVLTree_img_1.PNG
+
+- Depending on Incoming data, A Binary Search tree can get skewed and hence
+its performance starts going down. Instead of O(log n) for
+insertion/searching/deleting it can go up to O(n).
+Looks like the bellow image:
+Note: S08-L01--WhyLearnAVLTree_img_1.PNG
+
+- AVL tree attempts to solve this problem of 'skewing' by introducing concept
+called 'Rotation'

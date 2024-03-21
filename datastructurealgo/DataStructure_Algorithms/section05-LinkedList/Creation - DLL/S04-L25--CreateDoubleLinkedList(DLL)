@@ -1,0 +1,31 @@
+Double Linked List
+
+Note: S04-L05--CreateDoubleLinkedList(DLL)_.PNG
+
+------------------
+
+Creation of Double Linked List
+
+CreateDoubleLinkedList(nodeValue)
+  create a blank node
+  node.value = nodeValue;
+  head = node;
+  tail = node;
+  node.next = node.prev = null;
+
+
+-----------------------------------------
+
+Time Complexity - Creation of Double Linked List:
+
+CreateDoubleLinkedList(nodeValue)
+  create a blank node ------------------------------------------- O(1)
+  node.value = nodeValue; --------------------------------------- O(1)
+  head = node; -------------------------------------------------- O(1)
+  tail = node; -------------------------------------------------- O(1)
+  node.next = node.prev = null; --------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+------------------------------------------

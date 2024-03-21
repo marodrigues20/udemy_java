@@ -1,0 +1,28 @@
+What is AVL Tree?
+
+- An AVL tree is a balanced 'Binary Search Tree' where the height of immediate
+subtrees of any node differs by at most one (also called balance factor)
+
+Binary Search Tree
+  - Left side is smaller the nodes than the right side
+
+- If at any time heights differs by more than one, rebalancing is done to restore
+this property (called rotation)
+- When you don't have a AVL Tree in your tree you have to apply rotation.
+Note: S08-L02--WhatIsAVLTree_img_1.PNG
+
+
+- Empty heights always considered-1
+Note: S08-L02--WhatIsAVLTree_img_2.PNG
+- The height of subtree is 1
+- How the right side (node 70) doesn't have child we consider the height -1.
+- Height -1 will be explained in delete node.
+
+
+
+
+
+
+
+
+----------------------------------------------------------------

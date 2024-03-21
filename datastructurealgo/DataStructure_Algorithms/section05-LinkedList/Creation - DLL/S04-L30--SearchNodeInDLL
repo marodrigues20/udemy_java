@@ -1,0 +1,23 @@
+Searching a node in Double Linked List
+
+SearchNode(head, nodeValue):
+  loop: tmpNode = headToTail
+    if (tmpNode.value equals nodeValue)
+      print tmpNode.Value //node value found
+      return
+  return //node value Not Found
+
+---------------------------------------------------
+Time Complexity - Searching a node in Double Linked List
+
+SearchNode(head, nodeValue):
+  loop: tmpNode = head To Tail  ------------------------------- O(n) -
+    if (tmpNode.value equals nodeValue) --------- O(1) ---            | --- O(n)
+      print tmpNode.Value //node value found ---- O(1)    | --- O(1) -
+      return ------------------------------------ O(1) ---
+  return //node value Not Found ------------------------------------------- O(1)
+
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------

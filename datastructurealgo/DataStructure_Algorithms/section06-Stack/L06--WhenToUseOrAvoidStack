@@ -1,0 +1,9 @@
+When to Use/Avoid Stack:
+
+- When to Use:
+ - Helps manage the data in particular way (LIFO)
+ - Cannot be easily corrupted (No one can insert data in middle)
+
+- When to Avoid:
+  - Random access not possible - if we have done some mistake
+  its costly to rectify

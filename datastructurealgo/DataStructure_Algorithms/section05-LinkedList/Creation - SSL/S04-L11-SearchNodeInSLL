@@ -1,0 +1,27 @@
+Searching a node in Single Linked List:
+
+
+SearchNode(head, nodeValue):
+  loop: tmpNode = start to taill
+    if (tmpNode.value equals node Value)
+      print tmpNode.Value //Node value Found
+      return
+    return //nodeValue not found
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Searching a node in Single Linked List:
+
+SearchNode(head, nodeValue):
+  loop: tmpNode = start to taill ------------------------------------------- O(n) ------|
+    if (tmpNode.value equals node Value) ------------------------ O(1) ---              | ------- O(n)
+      print tmpNode.Value //Node value Found -------------------- O(1)   |  ---- O(1) --|
+      return ---------------------------------------------------- O(1) ---
+    return //nodeValue not found ---------------------------------------------------------------- O(1)
+
+
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------

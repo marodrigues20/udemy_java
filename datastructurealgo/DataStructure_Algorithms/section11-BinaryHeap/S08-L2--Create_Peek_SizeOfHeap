@@ -1,0 +1,58 @@
+Note: Check first S08-L02--Create_Peek_SizeOfHeap.PNG
+
+Implementation Options:
+
+- Array based Implementation
+- Reference/Pointer based Implementation
+
+------------------------------------------------------------------------------
+
+Note: Recap_BinaryTree_Implentation.png --> Binary Heap use the same way
+to implement using array. Remember Binary Heap is one Binary Tree but it has
+some properties.
+
+-------------------------------------------------------------------------------
+
+Creation of Heap - Array Implementation
+
+createHeap(size)
+  create a blank array of 'size + 1'
+  initialize sizeOfHeap with 0
+
+-------------------------------------------------------------------------------
+
+Time & Space Complexity - Creation of Heap:
+
+createHeap(size)
+  create a blank array of 'size + 1' -------------------------------- O(1)
+  initialize sizeOfHeap with 0 -------------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(n)
+
+-------------------------------------------------------------------------------
+
+Peek of Heap
+
+Note: Check picture PeekOfHeap.png
+
+------------------------------------------------------------------------------
+Time Complexity - Peek of Heap
+
+peekTopOfHeap()
+  if tree does not exists -------------------------------------- O(1)
+    return error message --------------------------------------- O(1)
+  else --------------------------------------------------------- O(1)
+    return 1st cell of array ----------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+Size of Heap
+
+sizeOfHeap()
+  return sizeOfHeap
+
+Note: In this case you don't return the size of array. You return the quantity
+of cells filled.

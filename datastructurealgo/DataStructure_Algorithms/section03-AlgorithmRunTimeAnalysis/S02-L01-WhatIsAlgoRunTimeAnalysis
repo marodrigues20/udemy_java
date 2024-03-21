@@ -1,0 +1,10 @@
+What & Why of 'Algorithm Run Time Analysis'
+
+What is 'Algo Run Time Analysis'?
+- It is a study of a given algorithm's running time, by identifying its behavior
+as the input size for the algorithm increases. In a layman's language we can
+say, 'how much time will the given algorithm will take to run'.
+
+Why should we learn this?
+- To measure 'efficiency' of a given algorithm.
+- If we don't learn this topic, this is our program would look like.

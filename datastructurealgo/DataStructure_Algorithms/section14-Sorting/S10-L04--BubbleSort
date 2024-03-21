@@ -1,0 +1,51 @@
+What is Bubble Sort:
+
+- Bubble sort, sometimes is also referred as Sinking sort.
+- Repeatedly steps through the list to be sorted, compares each pair of adjacent
+items and swaps them if they are in the wrong order.
+
+-------------------------------------------------------------------------------
+
+Bubble Sort Algorithm
+
+bubbleSort(int arr[])
+  int n = arr.length;
+  for ( int i = 0, i < n - 1; i++ ) //run from first cell to last cell
+    for ( int j = 0; j < n - i - 1; j++ ) //run from first cell to "last cell - iteration"
+      if ( arr[j] > arr [j + 1] ){
+        swap( arr[j], arr[j+1] )
+      }
+
+
+
+-------------------------------------------------------------------------------
+
+Time & Space Complexity of Bubble Sort Algorithm:
+
+bubbleSort(int arr[])
+  int n = arr.length; -------------------------------------------------- O(1)
+  for ( int i = 0, i < n - 1; i++ ) ------------------------------------ O(n)
+    for ( int j = 0; j < n - i - 1; j++ ) ------------------------------ O(n)
+      if ( arr[j] > arr [j + 1] ) -------------------------------------- O(1)
+        swap( arr[j], arr[j+1] ) --------------------------------------- O(1)
+
+
+Time Complexity - O(n^2)
+Space Complexity - O(1)
+
+
+------------------------------------------------------------------------------
+
+When to Use/Avoid Bubble Sort:
+
+When to use:
+  - When input is already sorted.
+  - Space a concern
+  - Easy to implement
+
+When not to use:
+  - Average case time complexity is poor. (If you have a huge amount of data
+  don't and the time is restricted don't use this algorithm. Time complexity is
+  O(n^2))
+
+  

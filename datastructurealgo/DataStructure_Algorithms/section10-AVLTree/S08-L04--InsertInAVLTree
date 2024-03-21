@@ -1,0 +1,19 @@
+Insertion of Node in AVL Tree
+
+- Insertion of a node:
+  - Case#1 - When 'rotation' is not required.
+  - Case#2 - When 'rotation' is required(LL,LR,RR,RL).
+
+
+Note: Case#1 use the same approach in Binary Search Tree.
+
+----------------------------------------------------
+
+'Rotation' Conditions:
+
+- Left Left condition (LL)
+- Left Right condition (LR)
+- Right Right condition (RR)
+- Right Left condition (RL)
+
+-----------------------------------------------------

@@ -1,0 +1,67 @@
+Common operation in Queue
+
+- createQueue
+- enQueue
+- deQueue()
+- peekInQueue()
+-isEmpty
+-isFull()
+-deleteQueue()
+
+------------------------------------------------------------------------------
+
+
+Implementation Options of Queue
+
+- Array
+  - Linear Queue
+  - Circular deQueue
+
+- Linked List
+  - Linear Queue
+
+-------------------------------------------------------------------------------
+
+Creation of Linear Queue ( Array Implementation ):
+
+  createQueue(size)
+    create a blank array of 'size'
+    inialize topOfQueue, beginningOfQueue to -1
+
+--------------------------------------------------------------------------------
+
+Time Complexity - Creation of Linear Queue ( Array Implementation ):
+
+createQueue(size)
+  create a blank array of 'size' ----------------------------------- O(1)
+  inialize topOfQueue, beginningOfQueue to -1 ---------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(n)
+
+-------------------------------------------------------------------------------
+
+Enqueue operation of Linear Queue ( Array Implementation)
+
+enQueue(Value)
+  if Queue is full
+    return error message
+  else
+    arr[topOfQueue + 1] = value
+    topOfQueue ++
+
+--------------------------------------------------------------------------------
+
+Time Complexity - Enqueue operation of Linear Queue ( Array Implementation)
+
+enQueue(Value)
+  if Queue is full  --------------------------------- O(1)
+    return error message ---------------------------- O(1)
+  else  --------------------------------------------- O(1)
+    arr[topOfQueue + 1] = value  -------------------- O(1)
+    topOfQueue ++ ----------------------------------- O(1)
+
+Time Complexity  - O(1)
+Space Complexity - O(1)
+
+------------------------------------------------------------------------------

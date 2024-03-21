@@ -1,0 +1,21 @@
+Traversing all nodes of Binary Tree (Linked List Implementation)
+
+Depth First Search:
+-> PreOrder Traversal
+-> InOrder Traversal
+-> PostOrder Traversal
+
+Breadth First Search:
+-> LevelOrder Traversal
+
+-------------------------------------------------------------------------
+
+Note: S08-L08--PreOrderTraversalBinaryTree_LL_img_1.png
+
+--------------------------------------------------------------------------
+
+Note: S08-L08--PreOrderTraversalBinaryTree_LL_img_2.png
+
+---------------------------------------------------------------------------
+
+Note: S08-L08--PreOrderTraversalBinaryTree_LL_img_3.png

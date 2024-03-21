@@ -1,0 +1,137 @@
+Dequeue operation of Linear Queue (Array Implementation)
+
+deQueue():
+  if queue is empty
+    return error message
+  else
+    print arr [beginningOfQueue]
+    beginningOfQueue ++
+    if ( beginningOfQueue > endOfQueue ) // if last element in the Queue is Dequeue
+      beginningOfQueue = topOfQueue = -1
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Dequeue operation of Linear Queue (Array Implementation)
+
+deQueue():
+  if queue is empty ----------------------------------------------------------------------- O(1)
+    return error message ------------------------------------------------------------------ O(1)
+  else ------------------------------------------------------------------------------------ O(1)
+    print arr [beginningOfQueue] ---------------------------------------------------------- O(1)
+    beginningOfQueue ++ ------------------------------------------------------------------- O(1)
+    if ( beginningOfQueue > endOfQueue ) // if last element in the Queue is Dequeue ------- O(1)
+      beginningOfQueue = topOfQueue = -1 -------------------------------------------------- O(1)
+
+
+Time Complexity  - O(1)
+Space Complexity - O(1)
+
+
+-------------------------------------------------------------------------------
+
+Peek operation of Linear Queue (Array Implementation):
+
+peek()
+  if queue is empty
+    return error message
+  else
+    print arr [beginningOfQueue]
+
+--------------------------------------------------------------------------------
+
+Time Complexity - Peek operation of Linear Queue ( Array Implementation ):
+
+peek()
+  if queue is empty ---------------------------------------- O(1)
+    return error message ----------------------------------- O(1)
+  else ----------------------------------------------------- O(1)
+    print arr [beginningOfQueue] --------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+
+isEmpty operation of Linear Queue ( Array Implementation ):
+
+IsQueueEmpty()
+  if (beginningOfQueue == -1)
+    return true
+  else
+    return false;
+
+-------------------------------------------------------------------------------
+
+Time Complexity - isEmpty operation of Linear Queue ( Array Implementation ):
+
+
+IsQueueEmpty()
+  if (beginningOfQueue == -1) ----------------- O(1)
+    return true ------------------------------- O(1)
+  else ---------------------------------------- O(1)
+    return false; ----------------------------- O(1)
+
+    Time Complexity - O(1)
+    Space Complexity - O(1)
+
+-------------------------------------------------------------------------------
+
+IsFull operation of Linear Queue (Array Implementation)
+
+isQueue()
+  if(topOfQueue == arr.length - 1)
+    return true
+  else
+    return false
+
+
+Note: if you remove the first two position of the queue and ask the queue is
+full. The answer is yes. To overcome this problem we have to see circular Queue
+chapter.
+
+-------------------------------------------------------------------------------
+
+Time Complexity - IsFull operation of Linear Queue (Array Implementation)
+
+isQueue()
+  if(topOfQueue == arr.length - 1) ----------------- O(1)
+    return true ------------------------------------ O(1)
+  else --------------------------------------------- O(1)
+    return false ----------------------------------- O(1)
+
+
+    Time Complexity - O(1)
+    Space Complexity - O(1)
+
+------------------------------------------------------------------------------
+
+Deleting a Linear Queue (Array Implementation)
+
+deleteQueue():
+  array = null
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Deleting a Linear Queue (Array Implementation)
+
+deleteQueue():
+  array = null ----------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(1)
+
+--------------------------------------------------------------------------------
+
+Time & Space Complexity of Linear Queue    (Array Implementation)
+
+
+Particulars     | Time Complexity | Space Complexity |
+createQueue()   |   O(1)          |     O(n)         |
+enQueue()       |   O(1)          |     O(1)         |
+Dequeue()       |   O(1)          |     O(1)         |
+peek()          |   O(1)          |     O(1)         |
+IsEmpty()       |   O(1)          |     O(1)         |
+IsFull()        |   O(1)          |     O(1)         |
+deleteQueue()   |   O(1)          |     O(1)         |
+
+-------------------------------------------------------------------------------

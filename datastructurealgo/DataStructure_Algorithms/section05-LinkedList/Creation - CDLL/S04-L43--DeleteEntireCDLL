@@ -1,0 +1,21 @@
+Deletion of entire Circular Double Linked List:
+
+DeleteLinkedList(head, tail):
+  tail.next = null;
+  loop(tmp:head to tail)
+    tmp.prev = null;
+  head = tail = null
+
+-------------------------------------------------------
+Time Complexity - Deletion of entire Circular Double Linked List
+
+DeleteLinkedList(head, tail):
+  tail.next = null; --------------------------- O(1)
+  loop(tmp:head to tail) ---------------------- O(n)
+    tmp.prev = null; -------------------------- O(1)
+  head = tail = null -------------------------- O(1)
+
+Time Complexity - O(n)
+Space Time - O(1)
+
+------------------------------------------------------------------

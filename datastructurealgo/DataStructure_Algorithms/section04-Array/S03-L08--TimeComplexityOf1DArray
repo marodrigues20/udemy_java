@@ -1,0 +1,11 @@
+Time/Space Complexity of 1D Array:
+
+        Particulars           | Time Complexity | Space Complexity   |
+Creating an empty Arrays      |   O(1)           |    O(n)           |
+Inserting a value in an Array |   O(1)           |    O(1)           |
+Traversing a given Array      |   O(n)           |    O(1)           |
+Accessing given cell#         |   O(1)           |    O(1)           |
+Searching a given value       |   O(n)           |    O(1)           |
+Deleting a given value        |   O(1)           |    O(1)           |
+
+   

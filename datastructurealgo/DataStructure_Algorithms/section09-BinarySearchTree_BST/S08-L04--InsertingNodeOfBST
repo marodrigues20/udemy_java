@@ -1,0 +1,10 @@
+Algorithm - Inserting a node in BST
+
+Cases:
+
+1- BST is Blank
+2- BST is non-blank
+
+----------------------------
+
+BST is Blank - We just need to create a node and add as a Root.

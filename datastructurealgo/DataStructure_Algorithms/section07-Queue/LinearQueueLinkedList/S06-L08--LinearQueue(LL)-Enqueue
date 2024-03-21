@@ -1,0 +1,24 @@
+Dequeue operation of Queue (Linked List Implementation)
+
+deQueue():
+  if header equals null
+    return error message
+  tmpNode = header
+  header = header.next
+  return tmpNode.value
+
+------------------------------------------------------------------------
+
+Time Complexity - Dequeue operation of Queue (Linked List Implementation)
+
+deQueue():
+  if header equals null -------------------------- O(1)
+    return error message ------------------------- O(1)
+  tmpNode = header ------------------------------- O(1)
+  header = header.next --------------------------- O(1)
+  return tmpNode.value --------------------------- O(1)
+
+Time Complexity - O(!)
+Space Complexity - O(!)
+
+-----------------------------------------------------------------------

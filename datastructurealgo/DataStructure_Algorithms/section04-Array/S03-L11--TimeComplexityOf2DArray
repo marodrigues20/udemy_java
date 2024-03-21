@@ -1,0 +1,12 @@
+Time/Space Complexity of 2D Array:
+
+      Particulars             | Time Complexity         |   Space Complexity |
+Creating an Array             |     O(1)                |   O(mn)            |
+Inserting a value             |     O(1)                |   O(1)             |
+Traversing given Array        |     O(mn)               |   O(1)             |
+Accessing given Cell#         |     O(1)                |   O(1)             |
+Searching a given value       |     O(mn)               |   O(1)             |
+Deleting a given cell's value |     O(1)                |   O(1)             |
+
+
+------------------------------------------------------------------------------

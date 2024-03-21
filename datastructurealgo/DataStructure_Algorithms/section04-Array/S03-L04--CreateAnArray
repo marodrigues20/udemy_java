@@ -1,0 +1,41 @@
+Common Operations of an Array:
+
+- Declaring, Instantiating, Initializing and Array.
+- Inserting a value
+- Traversing a given Array
+- Accessing given cell#
+- Searching a given value
+- Deleting a given value
+
+
+-------------------------------------------------------------------------------
+
+Declaring, Instantiating, Initializing and Array.
+
+- Declare: Creates a reference to Array - Just the name of array.
+- Instantiation of an Array: Creates a Array - Compiler allocate memory for the array.
+- Initialization: Assigns values to cells in Array
+
+
+--------------------------------------------------------------------------------
+
+Declaring, Instantiating, Initializing a 1D Array:
+
+- Declare
+  - dataType[] arr
+  - Example: int[] arr
+
+- Instantiation of an Array:
+  - arrayRefVar = new datatype[size];
+  - Example: arr = new int[5];
+
+
+- Initialization:
+  - a[0]=10;
+  - a[1]=20;
+  - a[2]=30;
+  - a[3]=40;
+  - a[4]=50;
+
+- Declaration, Instantiation and Initialization:
+  int a[] = {10, 20, 30, 40, 50}

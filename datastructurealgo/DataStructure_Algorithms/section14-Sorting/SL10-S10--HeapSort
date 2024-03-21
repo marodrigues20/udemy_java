@@ -1,0 +1,56 @@
+Heap Sort Algorithm
+
+- Heap Sort works by first organizing the data to be sorted into a special type
+of binary tree called a heap.
+- It then removes the topmost item (the largest/smallest) and inserts it in
+current Array. It keeps doing until Binary Heap is not empty.
+- Is best suited with Array. Does not works best with LinkedList.
+
+
+--------------------------------------------------------------------------------
+
+What is Binary Heap:
+
+- Definition: Binary Heap is a Binary Tree with some special properties.
+  - Heap property -
+    - Value of any given node must be <= value of its children (Min-Heap)
+    - Value of any given node must be >= value of its children (Max-Heap)
+
+
+-------------------------------------------------------------------------------
+Algorithm - Heap Sort
+
+HeapSort(A)
+  for i=0 to A.length-1
+    insertInHeap(A[i])
+  for i=0 to A.length-1
+    extractFromHeap(A[i])
+
+
+-------------------------------------------------------------------------------
+
+Time & Space Complexity - Heap Sort:
+
+HeapSort(A)
+  for i=0 to A.length-1 ---------------- O(n)---------|___ O(n logn)
+    insertInHeap(A[i])  ---------------- O(log n) ----|
+  for i=0 to A.length-1 ---------------- O(n) --------|___ O(n logn)
+    extractFromHeap(A[i]) -------------- O(log n) ----|
+
+
+Time Complexity - O(n logn)
+Space Complexity - O(1)
+
+
+--------------------------------------------------------------------------------
+
+When to Use/Avoid Heap Sort:
+
+When to Use:
+  - When space is a concern.
+  - Better than another sorts like: Bubble Sort, Insertion Sort because is O(n logn)
+
+When not to use:
+  - When we need our sort to be stable.
+
+-------------------------------------------------------------------------------

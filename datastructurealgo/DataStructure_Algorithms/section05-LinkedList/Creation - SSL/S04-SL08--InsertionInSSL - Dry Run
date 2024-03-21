@@ -1,0 +1,8 @@
+Insertion in Single Linked List:
+
+There can be 3 cases:
+  - Insertion at start of Linked List
+  - Insertion at end of Linked List
+  - Insert at a specific Location in Linked List
+
+-------------------------------------------------------------------------------

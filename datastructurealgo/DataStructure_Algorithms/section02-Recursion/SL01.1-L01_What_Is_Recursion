@@ -1,0 +1,19 @@
+What is 'Recursion'?
+
+Properties of Recursion:
+  - Same operation is performed multiple times with different inputs.
+  - In every step we try to make the problem  smaller.
+  - We mandatorily need to have a base condition, which tells system when to
+  stop the recursion.
+
+
+Example from Computing World: Let's say we want to search for value '4' in bellow
+Tree.
+
+SL01.1-L01-Tree.PNG --> Open this for you understand.
+
+search (root, valueToSearch)
+if (root equals null) return null
+else if (root.value equals valueToSearch) return root
+else if (valueToSearch < root.value) search(root.left, valueToSearch)
+else search (root.right, valueToSearch)

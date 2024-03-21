@@ -1,0 +1,16 @@
+Algorithm - Creation of Binary Tree (Linked List Implementation)
+
+createBinaryTree()
+  Create an object of Binary class
+
+-------------------------------------------------------------------
+Time & Space Complexity -
+Creation of Binary Tree (Linked List Implementation)
+
+createBinaryTree()
+  Create an object of Binary class  ------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(n)
+
+----------------------------------------------------------------------

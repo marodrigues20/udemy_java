@@ -1,0 +1,8 @@
+Deletion of node from Circular Double Linked List:
+
+-> There can be 3 cases:
+  -> Delete first node
+  -> Delete last node
+  -> Delete any node apart from above 2
+
+-----------------------------------------------------------------------------

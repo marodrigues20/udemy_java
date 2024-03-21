@@ -1,0 +1,46 @@
+Types of Data Structure
+
+
+Data Structure can be divided into two categories that is primitive data structure.
+
+
+                        Types of Data Structure
+                                    |
+                                    |
+                -------------------------------------------
+                |                                         |
+                |                                         |
+          Primitive DS                            Non-Primitive DS
+                |                                         |
+  -------------------------           -----------------------
+  |      |       |        |           |                     |
+Integer Float Character Boolean   Physical DS           Logical DS
+                                      |                      |
+                                 -------------         --------------------
+                                 |            |        |       |     |    |
+                               Array     Linked List Stack   Queue  Tree Graph
+
+
+
+
+
+Primitive Data Structure which are given by even programming Language. If you are working in Java these
+are data structures which are already defined by Java Language.
+For others program languages as well. (C language)
+
+Physical DS: They are implemented standalone and they are physically presented in the RAM.
+
+Logical DS: They are logical in nature and they are dependent on the physical data structure
+for their implementation. Let's talk about Stack. It has its own concept to push and pop. But
+when it comes to implementation it can either be implemented in Array or Linked List. There isn't
+third option.
+
+All logical DS has your own concept and their own implementation. But when they need to be implemented
+they need to choose one Physical DS (Array or Linked List).
+
+We have many different of DS because depending on the problem we have to make the best choice of
+feature Data Structure.
+For example:
+Work with Parent relation Tree is the best solution.
+Computing a distance from one city to another graph looks perfectly.
+If you want to implement queue, Queue Data Structure is perfect.

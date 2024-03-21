@@ -1,0 +1,18 @@
+Deletion of Entire Circular Single Linked List:
+
+
+DeleteLinkedList(head, tail):
+  head = NULL
+  tail.next = NULL
+  tail = NULL
+
+------------------------------------------------------------------------
+Time Complexity - Deletion of Entire Circular Single Linked List:
+
+DeleteLinkedList(head, tail):
+  head = NULL --------------------------------- O(1)
+  tail.next = NULL ---------------------------- O(1)
+  tail = NULL  -------------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - (1)

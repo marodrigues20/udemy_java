@@ -1,0 +1,47 @@
+Insertion Sort:
+
+- In Insertion sort algorithm we divide the given array into 2 parts. i.e.
+Sorted & Unsorted
+- Then from Unsorted we pick the first element and find its correct position
+in sorted array.
+
+InsertionSort(A):
+  loop: i = 1 to n
+    currentNumber = A[i], j=1
+      while(A[j-1] > currentNumber && j > 0)
+        A[j] = A[j-1]
+        j --
+        A[j] = currentNumber
+
+
+--------------------------------------------------------------------------------
+
+
+InsertionSort(A):
+  loop: i = 1 to n ------------------------------------------------------- O(n) ---
+    currentNumber = A[i], j=1 ---------------------------- O(1) __                 |
+      while(A[j-1] > currentNumber && j > 0) ------------- O(n)   |                |
+        A[j] = A[j-1] ------------------------------------ O(1)   |--- O(n)        | --- O(n^2)
+        j -- --------------------------------------------- O(1)   |                |
+        A[j] = currentNumber ----------------------------- O(1) __|              __|
+
+
+
+Time Complexity - O(n^2)
+Space Complexity - O(1)
+
+
+--------------------------------------------------------------------------------
+
+When to Use/Avoid insertion Sort:
+
+When to use:
+  - No extra space
+  - Simple implementation
+  - Best when we have continuous inflow of numbers and we want to keep the list
+  shorted.
+
+When not to use:
+  - Average case is bad. (algorithm take much time to be executed. O(n^2))
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,27 @@
+Types of Linked List:
+
+- Single linked List
+- Circular Single Linked List
+- Double Linked List
+- Circular Double Linked List
+
+
+-------------------------------------------------------------------------------
+
+Single linked List: In a singly linked list each node in the list stores the
+data of the node and a reference to the next node in the list. It does not
+store any reference to the previous node.
+
+
+Circular Single Linked List: In the case of a circular doubly linked list. the
+only change that occurs is that the end of the given list is linked back to
+the front.
+
+Double Linked List: In double linked list each node contains two references,
+that references to the previous and next node.
+
+Circular Double Linked List: In the case of a circular doubly linked list the
+only change that occurs is that the end of the given list is linked back
+to the front of the list and vice versa.
+
+-------------------------------------------------------------------------------

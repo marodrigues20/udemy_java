@@ -1,0 +1,22 @@
+Types of Array?
+
+- One Dimensional Array: In it each element is represented by a single subscript.
+The elements are stored in consecutive memory locations. Ex: Arr[7], Arr[col]
+
+  |10|20|30|40|50|60|70|
+
+- Multi Dimensional Array:
+  - Two dimensional array: In it each element is represented by two subscription.
+  Thus a two dimensional m x n array A has m rows and n columns and contains m*n
+  elements. Ex: Arr[3][7] has 3 rows and 7 columns and 2*3 = 6 elements. Arr[row][col]
+
+    |  10|  20|  30|  40|  50|  60|  70|
+    | 100| 200| 300| 400| 500| 600| 700|
+    |1000|2000|3000|4000|5000|6000|7000|
+
+
+- Three dimensional array: In it each element is represented by three subscription.
+Thus a three dimensional m x n x l array A contains m*n*l elements. E.g. A[3][3][3]
+has 3*3*3 = 27 elements. Arr[depth][row][col]
+
+Example: MagicCube.PNG

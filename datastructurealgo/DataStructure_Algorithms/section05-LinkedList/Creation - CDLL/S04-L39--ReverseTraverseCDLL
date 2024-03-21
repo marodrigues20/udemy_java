@@ -1,0 +1,19 @@
+Reverse Traverse of Circular Double Linked List:
+
+ReverseTraverseLinkedList():
+  if head == NULL, then return
+  loop: tail to head
+    print currentNode.Value;
+
+---------------------------------------------------------------
+Time Complexity - Reverse Traverse of Circular Double Linked List
+
+ReverseTraverseLinkedList():
+  if head == NULL, then return ------------ O(1)
+  loop: tail to head ---------------------- O(n)
+    print currentNode.Value; -------------- O(1)
+
+Time Complexity - O(n)
+Time Complexity - O(1)
+
+---------------------------------------------------------------

@@ -1,0 +1,16 @@
+Traversal of BST
+
+The 4 techniques to traverse a BST is exactly the same used to traverse
+Binary Tree.
+
+- Depth First Search
+  - PreOrder Traversal
+  - InOrder Traversal
+  - PostOrder Traversal
+
+- Breadth First Search
+  - LevelOrder Traversal
+
+Note: S08-L03--TraversingBST_img_1.PNG
+
+--------------------------------------------------------

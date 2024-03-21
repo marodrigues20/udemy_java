@@ -1,0 +1,11 @@
+Recursion vs Iteration
+
+            Particulars              Recursion             Iteration
+Space efficient?                        No                    Yes
+Time efficient?                         No                    Yes
+Ease of code (to solve sub-problems)    Yes                   No
+
+
+
+
+  

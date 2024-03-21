@@ -1,0 +1,33 @@
+Deletion of Node from AVL Tree:
+
+- Deletion of a Node:
+  - Case#1 - When tree doesn't exists
+  - Case#2 - When 'rotation' is no required (BST Conditions)
+  - Case#3 - When 'rotation' is required (LL, LR, RR, RL)
+
+
+------------------------------------------------------------------
+- Case#1 - When tree doesn't exists
+
+We don't need to do anything.
+
+------------------------------------------------------------------
+Deletion of Node from AVL Tree - Case#2
+
+- When 'rotation' is not required
+  - Node to be deleted is leaf node
+  - Node to be deleted is having 1 child
+  - Node to be deleted has 2 children.
+
+Note: If you want to understand with more details go to Binary Search Tree
+section.
+
+Note: S08-L10--Delete_LL_LR_RR_RL_img_2.png
+------------------------------------------------------------------
+
+Deletion of node from AVL Tree - Case#3
+
+- Deletion of a Node:
+  - When 'rotation' is required (LL, LR, RR, RL)
+
+-------------------------------------------------------------------

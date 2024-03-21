@@ -1,0 +1,49 @@
+Insertion in Single Linked List:
+
+InsertInLinkedList(head, nodeValue, location)
+  create a black node
+  node.value = nodeValue;
+
+if(!existsLinkedList(head))
+  return error //Linked List does not exists
+
+else if (location equals 0 ) //insert at first position
+  node.next = head;
+  head = node;
+else if (location equals last) //insert at last position
+  node.next = null
+  tail.next = node
+  tail = node //to keep track of last node
+else //insert at specified location
+  loop: tmpNode = 0 to location - 1 //loop till we reach specified node and end to loop
+    node.next = tmpNode.next
+    tmpNode.node = node
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Insertion in Single Linked List:
+
+
+InsertInLinkedList(head, nodeValue, location)
+  create a black node ------------------------------------------------------------------------ O(1)
+  node.value = nodeValue; -------------------------------------------------------------------- O(1)
+
+if(!existsLinkedList(head)) ------------------------------------------------------------------- O(1)
+  return error //Linked List does not exists -------------------------------------------------- O(1)
+else if (location equals 0 ) //insert at first position --------------------------------------- O(1)
+  node.next = head; --------------------------------------------------------------------------- O(1)
+  head = node; -------------------------------------------------------------------------------- O(1)
+else if (location equals last) //insert at last position -------------------------------------- O(1)
+  node.next = null ---------------------------------------------------------------------------- O(1)
+  tail.next = node ---------------------------------------------------------------------------- O(1)
+  tail = node //to keep track of last node ---------------------------------------------------- O(1)
+else //insert at specified location ----------------------------------------------------------  O(1)
+  loop: tmpNode = 0 to location - 1 //loop till we reach specified node and end to loop ------- O(n)
+    node.next = tmpNode.next ------------------------------------------------------------------ O(1)
+    tmpNode.node = node ----------------------------------------------------------------------- O(1)
+
+
+Time Complexity -  O(n)
+Space Complexity - O(1)
+
+----------------------------------------------------------------------------------------------

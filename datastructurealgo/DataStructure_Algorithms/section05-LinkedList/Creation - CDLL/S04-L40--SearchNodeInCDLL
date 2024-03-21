@@ -1,0 +1,24 @@
+Searching a node in Circular Double Linked List:
+
+SearchNode(nodeValue):
+  loop: tmpNode = head to tail
+    if (tmpNode.value equals nodeValue)
+      print tmpNode.Value //node value found
+      return
+    return //nodeValue not found
+
+----------------------------------------------------------------
+
+Time Complexity - Searching a node in Circular Double Linked List
+
+SearchNode(nodeValue):
+  loop: tmpNode = head to tail ----------------------- O(n)
+    if (tmpNode.value equals nodeValue) -------------- O(1)
+      print tmpNode.Value //node value found --------- O(1)
+      return ----------------------------------------- O(1)
+    return //nodeValue not found --------------------- O(1)
+
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+------------------------------------------------------------------

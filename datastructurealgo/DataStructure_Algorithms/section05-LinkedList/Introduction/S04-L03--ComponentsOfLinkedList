@@ -1,0 +1,5 @@
+Components of Linked List
+
+- Node: Contains Data & Reference of Next Node.
+- Head: Reference to first node in the list.
+- Tail: Reference to last node of the list.

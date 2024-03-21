@@ -1,0 +1,17 @@
+Deletion of entire Single Linked List:
+
+
+DeleteLinkedList(head, tail):
+  head = null
+  tail = null
+
+------------------------------------------------------------------------------
+Time Complexity - Deletion of entire Single Linked List:
+
+DeleteLinkedList(head, tail):
+  head = null -------------------------------- O(1)
+  tail = null -------------------------------- O(1)
+
+
+  Time Complexity - O(1)
+  Space Complexity - O(1)

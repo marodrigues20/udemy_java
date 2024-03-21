@@ -1,0 +1,79 @@
+Common operations in Stack
+
+
+- CreateStack()
+- Push()
+- Pop()
+- Peek()
+- isEmpty
+- isFull()
+- DeleteStack()
+
+
+-----------------------------------------------------------------------------
+
+Implementation options of Stack:
+
+ - Array
+    - Pros:
+      - Easy to implement
+    - Cons:
+      - Fixed Size
+
+
+  - Linked List:
+    - Pros:
+      - Variable Size
+    - Cons:
+      - Moderate in Implementation
+
+------------------------------------------------------------------------------
+
+Create Stack ( Array implementation )
+
+  CreateStack(int Size):
+    Create blank array of 'size'
+    initialize variable 'topOfStack' to -1
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Create Stack ( Array Implementation )
+
+CreateStack(int Size):
+  Create blank array of 'size' --------------------------------------- O(1)
+  initialize variable 'topOfStack' to -1 ----------------------------- O(1)
+
+Time Complexity - O(1)
+Space Complexity - O(n)
+
+-------------------------------------------------------------------------------
+
+Push operation of Stack ( Array implementation )
+
+Note: Push is equal to insert
+Note 2: Pop is equal to remove.
+
+
+push (Value):
+  if stack is full
+    return error message
+  else
+    inset 'Value' at the top of the array
+    topOfStack ++
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Push operation of Stack ( Array implementation )
+
+  PushOperation(Value)
+  if stack is full -------------------------------------------- O(1)
+    return error message -------------------------------------- O(1)
+  else -------------------------------------------------------- O(1)
+    inset 'Value' at the top of the array --------------------- O(1)
+    update 'topOfStack'  -------------------------------------- O(1)
+
+
+  Time Complexity - O(1)
+  Space Complexity - O(1)
+
+-------------------------------------------------------------------------------

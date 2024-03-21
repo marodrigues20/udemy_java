@@ -1,0 +1,15 @@
+Examples of 'Algorithm run time complexities'
+
+Time Complexity |   Name              | Example
+O(1)            | Constant            | Adding and element at from of linked list
+O(log n)        | Logarithmic         | Finding an element in sorted array
+O(n)            | Linear              | Finding an element in unsorted array.
+O(n logn)       | Linear Logarithmic  | Merge Sort
+O(n^2)          | Quadratic           | Sortest path between 2 nodes in a graph
+O(n^3)          | Cubic               | Matrix Multiplication
+O(2^n)          | Exponential         | Tower of Hanoi Problem
+
+
+The table above show the complexity and time consume.
+
+Note: Open the picture S02-L04-ExamplesOfTimeComplexity.pgn

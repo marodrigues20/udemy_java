@@ -1,0 +1,30 @@
+Searching a node in Circular Single Linked List
+
+Note: To avoid infinity loop we have to compare tail is equal the ram phisical
+address.
+
+
+SearchNode (head, nodeValue):
+  loop: tmpNode = start to tail
+    if ( tmpNode.value equals nodeValue )
+      print tmpNode.Value //node valeu found
+        return
+      return //nodeValue not Found
+
+
+-------------------------------------------------------------------------------
+
+Time Complexity - Searching a node in Circular Single Linked List
+
+
+SearchNode (head, nodeValue):
+  loop: tmpNode = start to tail ----------------------------------------- O(n)
+    if ( tmpNode.value equals nodeValue ) ------------------------------  O(1)
+      print tmpNode.Value //node valeu found ---------------------------- O(1)
+        return ---------------------------------------------------------- O(1)
+      return //nodeValue not Found -------------------------------------- O(1)
+
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+-------------------------------------------------------------------------------

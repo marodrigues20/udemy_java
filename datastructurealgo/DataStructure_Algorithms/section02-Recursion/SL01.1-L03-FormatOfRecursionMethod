@@ -1,0 +1,14 @@
+Format of a 'Recursive Function'
+
+- Recursive Case: Case where the function recur.
+- Base Case: Case where the function does not recur.
+
+
+Example:
+
+SampleRecursion(parameter){
+if (base case is satisfied)
+  return some base case value
+else
+  SampleRecursion(modified parameter)
+}

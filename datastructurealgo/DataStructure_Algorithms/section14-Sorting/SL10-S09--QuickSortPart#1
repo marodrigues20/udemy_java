@@ -1,0 +1,71 @@
+Quick Sort Algorithm
+
+- Quick Sort is a Divide and Conquer algorithm.
+- At each step it finds 'Pivot' and then makes sure that all smaller element
+are left of 'Pivot' and all bigger elements are 'Right' of 'Pivot'.
+- It does this recursively until the entire array is sorted.
+- Unlike Mere Sort it does not require any external space.
+
+
+--------------------------------------------------------------------------------
+
+Quick Sort Algorithm
+
+QuickSort(A,p,q)
+  if(p<q)
+    r = partition(A,p,q)
+    QuickSort(A,p,r-1)
+    QucikSort(A,r+1,p)
+
+
+
+Partition(A,p,q)
+  pivot = q
+  i=p-1
+  for(j=p to q)
+    if(A[i] <= A[pivot])
+      increment i and then swap(A[i],[j])
+
+
+-------------------------------------------------------------------------------
+
+Time & Space complexity of Quick Sort Algorithm
+
+QuickSort(A,p,q) --------------------------------------------------- T(n)
+  if(p<q) ---------------------------------------------------------- O(1)
+    r = partition(A,p,q) ------------------------------------------- O(n)
+    QuickSort(A,p,r-1) --------------------------------------------- T(n/2)
+    QucikSort(A,r+1,p) --------------------------------------------- T(n/2)
+
+
+
+Partition(A,p,q)
+  pivot = q -------------------------------------------------------- O(1)
+  i=p-1 ------------------------------------------------------------ O(1)
+  for(j=p to q) ----------------------------------- O(n)----
+    if(A[i] <= A[pivot]) -------------------------- O(1)   | --- O(n)
+      increment i and then swap(A[i],[j]) --------- O(1)----
+
+
+Time Complexity - O(n log n)
+Space Complexity - O(n)
+
+-------------------------------------------------------------------------------
+
+When to Use/Avoid Quick Sort:
+
+- When to use:
+  - When average case is desired to be O(n log n)
+
+- When not to use
+  - Space is a concern
+  - When stable sort is required.
+
+
+--------------------------------------------------------------------------------
+
+Practical uses of Quick Sort:
+
+C#, Java 7, Android
+
+--------------------------------------------------------------------------------

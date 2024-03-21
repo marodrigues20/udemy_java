@@ -1,0 +1,70 @@
+Merge Sort
+
+- Merge Sort is a Divide and Conquer algorithm.
+- It divides input array in two halves, keeps breaking those 2 halves
+recursively until they become too small to be broken further.
+- Then each of the broken pieces are merged together to inch towards final
+answer.
+
+-------------------------------------------------------------------------------
+
+How to Merge Sort works?
+
+Note: Check S10-L08--MergeSort.PNG
+
+
+--------------------------------------------------------------------------------
+
+Merge Sort algorithm
+
+mergeSort(A,I,r):
+if r > I
+  middle m = (I+r)/2
+  mergeSort(A,I,m)
+  mergeSort(A,m+1,r)
+  merge(A,I,m,r)
+
+
+merge(A,p,m,r)
+  create tpm arrays L & R and copy A,p,m into L & A,m+1,r into R
+  i = j = 0;
+  loop: k = p to r
+    if L[i] < R[j]
+      A[k] = L[i]; i++
+    else
+      a[k] = R[j]; j++
+
+
+--------------------------------------------------------------------------------
+
+Time & Space complexity of Merge Sort Algorithm
+
+
+mergeSort(A,I,r): ------------------- T(n)
+if r > I  --------------------------- O(1)
+  middle m = (I+r)/2 ---------------- O(1)
+  mergeSort(A,I,m) ------------------ T(n/2)
+  mergeSort(A,m+1,r) ---------------- T(n/2)
+  merge(A,I,m,r) -------------------- O(n)
+
+
+  merge(A,p,m,r)
+    create tpm arrays L & R and copy A,p,m into L & A,m+1,r into R ---------- O(n)
+    i = j = 0; -------------------------------------------------------------- O(1)
+    loop: k = p to r ------------------ O(n) --|
+      if L[i] < R[j] ------------------ O(1)   |
+        A[k] = L[i]; i++ -------------- O(1)   | ---------------------------- O(n)
+      else ---------------------------- O(1)   |
+        a[k] = R[j]; j++ -------------- O(1) --|
+
+
+
+--------------------------------------------------------------------------------
+When to Use/Avoid Merge Sort
+
+- When to use:
+  - When you need a stable sort
+  - When Average a expected time is O(n log n) Better than Bubble sort because O(n^2).
+
+- When not to use:
+  - When space is a concern like embedded systems.
