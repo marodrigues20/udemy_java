@@ -1,3 +1,5 @@
+package uk.co.dynamic_programming;
+
 /**
  * Demonstrates the optimised Bottom-Up Dynamic Programming approach to computing Fibonacci numbers.
  *

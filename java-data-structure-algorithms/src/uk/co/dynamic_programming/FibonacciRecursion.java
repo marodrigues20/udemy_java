@@ -1,4 +1,4 @@
-package uk.co.dynimic_programmin.section_40;
+package uk.co.dynamic_programming;
 
 /**
  * Demonstrates the pure recursive approach to computing Fibonacci numbers.

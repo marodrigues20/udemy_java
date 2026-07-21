@@ -1,4 +1,4 @@
-package uk.co.dynimic_programmin.section_40;
+package uk.co.dynamic_programming;
 
 /**
  * Demonstrates the Bottom-Up Dynamic Programming approach to computing Fibonacci numbers.

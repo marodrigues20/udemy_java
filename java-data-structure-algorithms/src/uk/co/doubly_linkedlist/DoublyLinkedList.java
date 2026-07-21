@@ -1,4 +1,4 @@
-package uk.co.doubly_linked_list.section_05;
+package uk.co.doubly_linkedlist;
 
 public class DoublyLinkedList {
 

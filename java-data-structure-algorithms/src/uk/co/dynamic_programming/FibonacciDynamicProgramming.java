@@ -1,3 +1,5 @@
+package uk.co.dynamic_programming;
+
 /**
  * Demonstrates the Dynamic Programming (Memoization) approach to computing Fibonacci numbers.
  *

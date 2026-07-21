@@ -1,4 +1,4 @@
-package uk.co.singly_linked_list.section_04;
+package uk.co.singly_linkedlist;
 
 public class LinkedList {
 
