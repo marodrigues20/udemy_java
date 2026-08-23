@@ -2,7 +2,7 @@ plugins {
     id("my-application")
 }
 
-// Enable Gradle to run the application
+// Enable Gradle to run the application - Gradle Task
 application {
     mainClass.set("com.example.MyApplication")
 }
