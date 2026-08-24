@@ -25,3 +25,14 @@ tasks.register<Zip>("bundle"){
 
     destinationDirectory.set(layout.buildDirectory.dir("distribution"))
 }
+
+tasks.build {
+    dependsOn(tasks.named("bundle"))
+}
+
+tasks.register("buildAll") {
+    description = "Build even more!"
+
+    dependsOn(tasks.build)
+    dependsOn(tasks.named("countJars"))
+}
