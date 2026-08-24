@@ -7,3 +7,21 @@ plugins {
 java{
     toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
+
+tasks.withType(JavaCompile::class).configureEach{
+    options.encoding = "UTF-8"
+}
+
+tasks.named<JavaCompiler>("compileJava") {} // == tasks.compileJava { }
+
+tasks.compileTestJava {
+
+}
+
+tasks.test {
+
+}
+
+tasks.javadoc{
+
+}
