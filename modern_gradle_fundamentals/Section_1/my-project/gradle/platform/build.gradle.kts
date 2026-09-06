@@ -15,6 +15,7 @@ dependencies {
 }
 
 // Manually defines exact versions for libraries not coming from Jackson (commons-lang3, slf4j, etc.).
+// Does not add the JAR to the project. It only specifies the recommended/forced version.
 dependencies.constraints {
     api("org.apache.commons:commons-lang3:3.12.0")
     api("org.slf4j:slf4j-api:1.7.36")
